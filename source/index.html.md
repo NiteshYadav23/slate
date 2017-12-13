@@ -6,9 +6,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
  
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/acme'>Client libraries</a>
-  - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
+ 
 
 includes:
   - patientuserprofile
@@ -37,7 +35,7 @@ Patient is the main user of the Eyecarelive mobile app. Eyecarelive app is desig
 ## New User
 
 ```shell
-curl -k -i -H "Content-Type: application/json" "http://52.7.202.98:8080/DoctorOnDemand/api/auth/signup" -X POST -d '{"email":"patientuser@cooldoctors.io","password":"demo1234","aboutMe":{"firstName":"Patient","lastName":"Name","address":"Kallam Anji Reddy Campus,","city":"Hyderabad","country":"India","birthDate":"08/23/1991","state":"Telangana","pincode":"500034","gender":"Male"},"role":{"id":"551ad2a4e4b0b59ff0ccecc9","name":"patient"},"contactInfo":{"email":"patientuser@cooldoctors.io","phone":"8806900740"}}'
+curl -k -i -H "Content-Type: application/json" "https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/auth/signup" -X POST -d '{"email":"patientuser@cooldoctors.io","password":"demo1234","aboutMe":{"firstName":"Patient","lastName":"Name","address":"Kallam Anji Reddy Campus,","city":"Hyderabad","country":"India","birthDate":"08/23/1991","state":"Telangana","pincode":"500034","gender":"Male"},"role":{"id":"551ad2a4e4b0b59ff0ccecc9","name":"patient"},"contactInfo":{"email":"patientuser@cooldoctors.io","phone":"8806900740"}}'
  
 ```
 > The above command returns JSON structured like this:
@@ -190,7 +188,7 @@ User authentication is implemented by email address and password
 ## Login - Login User - Logs the user in the app
 
 ```shell
-curl -i -H "Content-Type: application/json" "http://52.7.202.98:8080/DoctorOnDemand/api/auth/login" -X POST -d '{"email" : "patientuser@cooldoctors.io","password" : "demo1234"}'
+curl -i -H "Content-Type: application/json" "https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/auth/login" -X POST -d '{"email" : "patientuser@cooldoctors.io","password" : "demo1234"}'
 ```
 > The above command returns JSON structured like this:
 
@@ -229,7 +227,7 @@ Date Time | User account created date and time | String
 ## Logout - User logout - Logs the user out of the patient app
 
 ```shell
-curl -i -H "Content-Type: application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515428241291:5eb24f92a4160a1864abb7738802e449" "http://52.7.202.98:8080/DoctorOnDemand/api/auth/logout"  -X POST
+curl -i -H "Content-Type: application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515428241291:5eb24f92a4160a1864abb7738802e449" "https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/auth/logout"  -X POST
 ```
 > The above command returns JSON structured like this:
 
