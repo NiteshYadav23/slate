@@ -129,7 +129,7 @@ curl -k -i -H "Content-Type: application/json" "https://api.endpoint.eyecarelive
   "pilotDoc": false
 }
 ```
-> Make sure to replace `meowmeowmeow` with your API key.
+> Make sure to replace `X-Auth-Token` with your API key.
 
 Create new user with email address and password. This user is referred as Primary user of the app. Eyecarelive supports two roles of users - Patients and Doctors. When creating a new user, Role option must be specified. For creating a patient user, a fixed id# is required to be specified in the API
 
