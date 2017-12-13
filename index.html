@@ -374,11 +374,6 @@
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
           </li>
       </div>
-        <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
-            <li><a href='https://github.com/acme'>Client libraries</a></li>
-            <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
-        </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
@@ -392,7 +387,7 @@
 <li><p>Contact Lens consultation - Patients can use the app related to contact lens questions, concerns or follow-up with their doctors. Contact lens module is designed to collect subjective data from the patient which allows doctors to evaluate seriousness of their condition</p></li>
 <li><p>Post-Op or Lasik follow-up care - Lasik surgeons may recommend patients to use the app for scheduled post-op follow ups. Post-op follow-up module is designed by Lasik specialist to collect pertinent information for follow-up care.</p></li>
 </ul>
-<h1 id='create-user'>Create User</h1><h2 id='new-user'>New User</h2><pre class="highlight shell tab-shell"><code>curl -k -i -H <span class="s2">"Content-Type: application/json"</span> <span class="s2">"http://52.7.202.98:8080/DoctorOnDemand/api/auth/signup"</span> -X POST -d <span class="s1">'{"email":"patientuser@cooldoctors.io","password":"demo1234","aboutMe":{"firstName":"Patient","lastName":"Name","address":"Kallam Anji Reddy Campus,","city":"Hyderabad","country":"India","birthDate":"08/23/1991","state":"Telangana","pincode":"500034","gender":"Male"},"role":{"id":"551ad2a4e4b0b59ff0ccecc9","name":"patient"},"contactInfo":{"email":"patientuser@cooldoctors.io","phone":"8806900740"}}'</span>
+<h1 id='create-user'>Create User</h1><h2 id='new-user'>New User</h2><pre class="highlight shell tab-shell"><code>curl -k -i -H <span class="s2">"Content-Type: application/json"</span> <span class="s2">"https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/auth/signup"</span> -X POST -d <span class="s1">'{"email":"patientuser@cooldoctors.io","password":"demo1234","aboutMe":{"firstName":"Patient","lastName":"Name","address":"Kallam Anji Reddy Campus,","city":"Hyderabad","country":"India","birthDate":"08/23/1991","state":"Telangana","pincode":"500034","gender":"Male"},"role":{"id":"551ad2a4e4b0b59ff0ccecc9","name":"patient"},"contactInfo":{"email":"patientuser@cooldoctors.io","phone":"8806900740"}}'</span>
 
 </code></pre>
 <blockquote>
@@ -667,7 +662,7 @@ Patient is signed up successfully!
 </aside>
 <h1 id='authentication'>Authentication</h1>
 <p>User authentication is implemented by email address and password</p>
-<h2 id='login-login-user-logs-the-user-in-the-app'>Login - Login User - Logs the user in the app</h2><pre class="highlight shell tab-shell"><code>curl -i -H <span class="s2">"Content-Type: application/json"</span> <span class="s2">"http://52.7.202.98:8080/DoctorOnDemand/api/auth/login"</span> -X POST -d <span class="s1">'{"email" : "patientuser@cooldoctors.io","password" : "demo1234"}'</span>
+<h2 id='login-login-user-logs-the-user-in-the-app'>Login - Login User - Logs the user in the app</h2><pre class="highlight shell tab-shell"><code>curl -i -H <span class="s2">"Content-Type: application/json"</span> <span class="s2">"https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/auth/login"</span> -X POST -d <span class="s1">'{"email" : "patientuser@cooldoctors.io","password" : "demo1234"}'</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -736,7 +731,7 @@ Patient is signed up successfully!
 <aside class="success">
  Correct Email and Password leads to successful login!
 </aside>
-<h2 id='logout-user-logout-logs-the-user-out-of-the-patient-app'>Logout - User logout - Logs the user out of the patient app</h2><pre class="highlight shell tab-shell"><code>curl -i -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515428241291:5eb24f92a4160a1864abb7738802e449"</span> <span class="s2">"http://52.7.202.98:8080/DoctorOnDemand/api/auth/logout"</span>  -X POST
+<h2 id='logout-user-logout-logs-the-user-out-of-the-patient-app'>Logout - User logout - Logs the user out of the patient app</h2><pre class="highlight shell tab-shell"><code>curl -i -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515428241291:5eb24f92a4160a1864abb7738802e449"</span> <span class="s2">"https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/auth/logout"</span>  -X POST
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -799,7 +794,7 @@ ID and Token are must to be successfully logged out!
 <li>Pharmacy - User may optionally provide their preferred pharmacy name. This helps doctors write e-prescriptions. E-prescription is not integrated with Eyecarelive but doctors can use e-prescription from their EMR system.</li>
 <li>Family members - Primary user can add one or more family members who can be seen by the doctor on the same app. Family members may be primary user’s minor children who may utilize same insurance plan and credit card for payment.</li>
 </ol>
-<h2 id='add-new-patient-information'>Add New Patient Information</h2><pre class="highlight shell tab-shell"><code>curl -i -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> <span class="s2">"http://52.7.202.98:8080/DoctorOnDemand/api/patient/patientinfo"</span> -X POST -d <span class="s1">'{"lifeStyle":{"smoke":"1","vitaminSupplements":"Test","allergies":"Pollen","alcoholDrinksPerWeek":"Do not Drink","medicalCondition":"Cancer","contactlenses":"Soft","medication":"Test","alcoholUse":"yes","allergiesToMedication":"Testing"},"familyHistory":{"diseaseRelation":[{"conditions":"Cataract","relationship":"Aunt"}]}}'</span>
+<h2 id='add-new-patient-information'>Add New Patient Information</h2><pre class="highlight shell tab-shell"><code>curl -i -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> <span class="s2">"https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/patientinfo"</span> -X POST -d <span class="s1">'{"lifeStyle":{"smoke":"1","vitaminSupplements":"Test","allergies":"Pollen","alcoholDrinksPerWeek":"Do not Drink","medicalCondition":"Cancer","contactlenses":"Soft","medication":"Test","alcoholUse":"yes","allergiesToMedication":"Testing"},"familyHistory":{"diseaseRelation":[{"conditions":"Cataract","relationship":"Aunt"}]}}'</span>
 
 </code></pre>
 <blockquote>
@@ -1149,7 +1144,7 @@ http://localhost:8080/DoctorOnDemand/api/patient/patientinfo
 <aside class="notice">
 You must replace <code>X-Auth-Token</code> with your personal API key.
 </aside>
-<h2 id='get-patient-profile'>Get Patient Profile</h2><pre class="highlight shell tab-shell"><code>curl -i -H <span class="s2">"Content-Type:application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -X GET <span class="s2">"http://52.7.202.98:8080/DoctorOnDemand/api/patient/user/5a2c0a69e4b0e4fa266e0180"</span>
+<h2 id='get-patient-profile'>Get Patient Profile</h2><pre class="highlight shell tab-shell"><code>curl -i -H <span class="s2">"Content-Type:application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -X GET <span class="s2">"https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/user/5a2c0a69e4b0e4fa266e0180"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -1342,7 +1337,7 @@ http://localhost:8080/DoctorOnDemand/api/patient/user/{PatientID}
 <aside class="notice">
 You must replace <code>X-Auth-Token</code> with your personal API key.
 </aside>
-<h2 id='update-patient-profile'>Update Patient Profile</h2><pre class="highlight shell tab-shell"><code>curl -i -H <span class="s2">"Content-Type:application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -X PUT <span class="s2">"http://52.7.202.98:8080/DoctorOnDemand/api/patient/user/profile"</span> -d <span class="s1">'{"id":"5a2c0a69e4b0e4fa266e0180","email":"patientuser@cooldoctors.io","pharmacyName":null,"pharmacyAddress":null,"profileImageId":null,"profileImageName":null,"aboutMe":{"id":"5a2c0a69e4b0e4fa266e017d","firstName":"Patient","lastName":"Name","birthDate":null,"address":"Kallam Anji Reddy Campus, Banjara Hills","city":"Hyderabad","country":"India","pincode":"500034","gender":"Female","languagesSpeak":null,"additionalInfo":null,"state":"Telangana"},"contactInfo":{"id":"5a2c0a69e4b0e4fa266e017f","email":"patientuser@cooldoctors.io","phone":"8806900740","smsNotification":false,"countryCode":null,"country":null,"emlNt":false},"patientInfo":{"id":"5a2e1e23e4b0e4fa266e0805","lifeStyle":{"id":"5a2e1e23e4b0e4fa266e0803","medication":"Test","alcoholUse":"yes","allergiesToMedication":"Testing","alcoholDrinksPerWeek":"Do not Drink","medicalCondition":"Cancer","allergies":"Pollen","vitaminSupplements":"Test","smoke":"1","contactlenses":"Soft"},"familyHistory":{"id":"5a2e1e23e4b0e4fa266e0804","description":null,"diseaseRelation":[{"conditions":"Cataract","relationship":"Aunt"}]}},"doctorInfo":null,"role":{"id":"551ad2a4e4b0b59ff0ccecc9","name":"patient"},"timezone":{"id":"55f283b4e4b029528c27d0c5","timezone":"Asia/Kolkata","displayName":"India Standard Time"},"createdAt":"2017-12-09 08:08 AM PST","forgotPasswordToken":null,"familyMembers":[{"id":"5a2c1827e4b0e4fa266e018f","email":"ESa6zdCf@eyecarelive.com","pharmacyName":null,"pharmacyAddress":null,"profileImageId":"5a2c31a9e4b0e4fa266e01bf","profileImageName":"0-cus-d1-b928632e6fef67a90ca8ecd0121882bb.jpg","aboutMe":{"id":"5a2c1827e4b0e4fa266e018d","firstName":"neet","lastName":"yadav","birthDate":null,"address":"Pune","city":"Pune","country":"india","pincode":"411039","gender":"male","languagesSpeak":null,"additionalInfo":null,"state":"MH"},"contactInfo":{"id":"5a2c1827e4b0e4fa266e018e","email":"Neet@gmail.com","phone":"8055802119","smsNotification":false,"countryCode":null,"country":null,"emlNt":false},"patientInfo":null,"doctorInfo":null,"role":{"id":"551ad2a4e4b0b59ff0ccecc9","name":"patient"},"timezone":null,"createdAt":"2017-12-09 09:06 AM PST","forgotPasswordToken":null,"familyMembers":null,"parentUser":null,"parentUserRelation":"brother","password":null,"rating":null,"preferredPharmacy":null,"kandyUserName":null,"kandyUserPassword":null,"kandyFullUserId":null,"oldPassword":null,"loginStatus":null,"stripeCustId":null,"profileImagePath":null,"isReferredDoctor":null,"randomtoken":null,"isEmailVerified":false,"doctorsGroups":null,"preferredDoctors":null,"isAcceptTC":false,"insurenceCards":null,"notificationSettings":null,"clinics":null,"passCode":null,"emrId":null,"ssnId":null,"clinicInfo":null,"ref":null,"docOrg":null,"doctorsOrg":null,"twilioAccessToken":null,"invited":false,"validated":true,"activated":true,"managedUser":true,"addedByCpm":false,"pilotDoc":false}],"parentUser":null,"parentUserRelation":null,"password":null,"rating":null,"preferredPharmacy":[{"id":"5a2c2efee4b0e4fa266e01b4","name":"Mediplus store","address":"hinjewadi phase-1","email":"niteshy2391@gmail.com","city":"pune","state":"Maharashtra","country":null,"zipCode":"411007","phoneNumber":"9423505079","validated":false}],"kandyUserName":null,"kandyUserPassword":null,"kandyFullUserId":null,"oldPassword":null,"loginStatus":"Online","stripeCustId":null,"profileImagePath":"https://eyes.cooldoctors.io/PRDIMAGE/patient/5a2c0a69e4b0e4fa266e0180/ProfileImage/dashboard2.png","isReferredDoctor":null,"randomtoken":"5Ys5Ad","isEmailVerified":false,"doctorsGroups":null,"preferredDoctors":[],"isAcceptTC":false,"insurenceCards":null,"notificationSettings":{"id":"5a2c0a69e4b0e4fa266e017e","addTestreport":true,"addTreatmentPlan":true,"sendReminderForEyeTest":true,"sendReminderForMedicine":true,"sentMessage":true},"clinics":null,"passCode":null,"emrId":null,"ssnId":null,"clinicInfo":null,"ref":null,"docOrg":null,"doctorsOrg":null,"twilioAccessToken":null,"invited":false,"validated":true,"activated":true,"managedUser":false,"addedByCpm":false,"pilotDoc":false}'</span>
+<h2 id='update-patient-profile'>Update Patient Profile</h2><pre class="highlight shell tab-shell"><code>curl -i -H <span class="s2">"Content-Type:application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -X PUT <span class="s2">"https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/user/profile"</span> -d <span class="s1">'{"id":"5a2c0a69e4b0e4fa266e0180","email":"patientuser@cooldoctors.io","pharmacyName":null,"pharmacyAddress":null,"profileImageId":null,"profileImageName":null,"aboutMe":{"id":"5a2c0a69e4b0e4fa266e017d","firstName":"Patient","lastName":"Name","birthDate":null,"address":"Kallam Anji Reddy Campus, Banjara Hills","city":"Hyderabad","country":"India","pincode":"500034","gender":"Female","languagesSpeak":null,"additionalInfo":null,"state":"Telangana"},"contactInfo":{"id":"5a2c0a69e4b0e4fa266e017f","email":"patientuser@cooldoctors.io","phone":"8806900740","smsNotification":false,"countryCode":null,"country":null,"emlNt":false},"patientInfo":{"id":"5a2e1e23e4b0e4fa266e0805","lifeStyle":{"id":"5a2e1e23e4b0e4fa266e0803","medication":"Test","alcoholUse":"yes","allergiesToMedication":"Testing","alcoholDrinksPerWeek":"Do not Drink","medicalCondition":"Cancer","allergies":"Pollen","vitaminSupplements":"Test","smoke":"1","contactlenses":"Soft"},"familyHistory":{"id":"5a2e1e23e4b0e4fa266e0804","description":null,"diseaseRelation":[{"conditions":"Cataract","relationship":"Aunt"}]}},"doctorInfo":null,"role":{"id":"551ad2a4e4b0b59ff0ccecc9","name":"patient"},"timezone":{"id":"55f283b4e4b029528c27d0c5","timezone":"Asia/Kolkata","displayName":"India Standard Time"},"createdAt":"2017-12-09 08:08 AM PST","forgotPasswordToken":null,"familyMembers":[{"id":"5a2c1827e4b0e4fa266e018f","email":"ESa6zdCf@eyecarelive.com","pharmacyName":null,"pharmacyAddress":null,"profileImageId":"5a2c31a9e4b0e4fa266e01bf","profileImageName":"0-cus-d1-b928632e6fef67a90ca8ecd0121882bb.jpg","aboutMe":{"id":"5a2c1827e4b0e4fa266e018d","firstName":"neet","lastName":"yadav","birthDate":null,"address":"Pune","city":"Pune","country":"india","pincode":"411039","gender":"male","languagesSpeak":null,"additionalInfo":null,"state":"MH"},"contactInfo":{"id":"5a2c1827e4b0e4fa266e018e","email":"Neet@gmail.com","phone":"8055802119","smsNotification":false,"countryCode":null,"country":null,"emlNt":false},"patientInfo":null,"doctorInfo":null,"role":{"id":"551ad2a4e4b0b59ff0ccecc9","name":"patient"},"timezone":null,"createdAt":"2017-12-09 09:06 AM PST","forgotPasswordToken":null,"familyMembers":null,"parentUser":null,"parentUserRelation":"brother","password":null,"rating":null,"preferredPharmacy":null,"kandyUserName":null,"kandyUserPassword":null,"kandyFullUserId":null,"oldPassword":null,"loginStatus":null,"stripeCustId":null,"profileImagePath":null,"isReferredDoctor":null,"randomtoken":null,"isEmailVerified":false,"doctorsGroups":null,"preferredDoctors":null,"isAcceptTC":false,"insurenceCards":null,"notificationSettings":null,"clinics":null,"passCode":null,"emrId":null,"ssnId":null,"clinicInfo":null,"ref":null,"docOrg":null,"doctorsOrg":null,"twilioAccessToken":null,"invited":false,"validated":true,"activated":true,"managedUser":true,"addedByCpm":false,"pilotDoc":false}],"parentUser":null,"parentUserRelation":null,"password":null,"rating":null,"preferredPharmacy":[{"id":"5a2c2efee4b0e4fa266e01b4","name":"Mediplus store","address":"hinjewadi phase-1","email":"niteshy2391@gmail.com","city":"pune","state":"Maharashtra","country":null,"zipCode":"411007","phoneNumber":"9423505079","validated":false}],"kandyUserName":null,"kandyUserPassword":null,"kandyFullUserId":null,"oldPassword":null,"loginStatus":"Online","stripeCustId":null,"profileImagePath":"https://eyes.cooldoctors.io/PRDIMAGE/patient/5a2c0a69e4b0e4fa266e0180/ProfileImage/dashboard2.png","isReferredDoctor":null,"randomtoken":"5Ys5Ad","isEmailVerified":false,"doctorsGroups":null,"preferredDoctors":[],"isAcceptTC":false,"insurenceCards":null,"notificationSettings":{"id":"5a2c0a69e4b0e4fa266e017e","addTestreport":true,"addTreatmentPlan":true,"sendReminderForEyeTest":true,"sendReminderForMedicine":true,"sentMessage":true},"clinics":null,"passCode":null,"emrId":null,"ssnId":null,"clinicInfo":null,"ref":null,"docOrg":null,"doctorsOrg":null,"twilioAccessToken":null,"invited":false,"validated":true,"activated":true,"managedUser":false,"addedByCpm":false,"pilotDoc":false}'</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -1721,7 +1716,7 @@ http://localhost:8080/DoctorOnDemand/api/patient/user/profile
 <aside class="notice">
 You must replace <code>X-Auth-Token</code> with your personal API key.
 </aside>
-<h2 id='add-user-39-s-profile-photo'>Add User&#39;s Profile Photo</h2><pre class="highlight shell tab-shell"><code>curl -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -H <span class="s2">"Content-Type:multipart/form-data"</span> <span class="s2">"http://52.7.202.98:8080/DoctorOnDemand/api/patient/user/profileImageFromFile"</span> -X POST -F <span class="nv">file</span><span class="o">=</span>@/Users/cupertino/Downloads/dashboard2.png
+<h2 id='add-user-39-s-profile-photo'>Add User&#39;s Profile Photo</h2><pre class="highlight shell tab-shell"><code>curl -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -H <span class="s2">"Content-Type:multipart/form-data"</span> <span class="s2">"https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/user/profileImageFromFile"</span> -X POST -F <span class="nv">file</span><span class="o">=</span>@/Users/cupertino/Downloads/dashboard2.png
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -1775,7 +1770,7 @@ http://localhost:8080/DoctorOnDemand/api/patient/user/profileImageFromFile
 <aside class="notice">
 You must replace <code>X-Auth-Token</code> with your personal API key.
 </aside>
-<h2 id='add-patient-39-s-preferred-pharmacy'>Add patient&#39;s Preferred Pharmacy</h2><pre class="highlight shell tab-shell"><code>curl -i -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> <span class="s2">"http://52.7.202.98:8080/DoctorOnDemand/api/patient/pharmacy"</span> -X POST -d <span class="s1">'{"name": "Mediplus store","address":"hinjewadi phase-1","city": "pune","state": "Maharashtra","zipCode": "411007","phoneNumber": "9423505079"}'</span>
+<h2 id='add-patient-39-s-preferred-pharmacy'>Add patient&#39;s Preferred Pharmacy</h2><pre class="highlight shell tab-shell"><code>curl -i -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> <span class="s2">"https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/pharmacy"</span> -X POST -d <span class="s1">'{"name": "Mediplus store","address":"hinjewadi phase-1","city": "pune","state": "Maharashtra","zipCode": "411007","phoneNumber": "9423505079"}'</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -2117,7 +2112,7 @@ http://localhost:8080/DoctorOnDemand/api/patient/pharmacy
 <aside class="notice">
 You must replace <code>X-Auth-Token</code> with your personal API key.
 </aside>
-<h2 id='delete-patient-39-s-preferred-pharmacy'>Delete Patient&#39;s Preferred pharmacy</h2><pre class="highlight shell tab-shell"><code>curl -i -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -X DELETE  <span class="s2">"http://52.7.202.98:8080/DoctorOnDemand/api/patient/pharmacy/5a2c2efee4b0e4fa266e01b4"</span>
+<h2 id='delete-patient-39-s-preferred-pharmacy'>Delete Patient&#39;s Preferred pharmacy</h2><pre class="highlight shell tab-shell"><code>curl -i -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -X DELETE  <span class="s2">"https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/pharmacy/5a2c2efee4b0e4fa266e01b4"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -2173,11 +2168,11 @@ You must replace <code>X-Auth-Token</code> with your personal API key.
 </aside>
 <h2 id='add-insurance-info'>Add Insurance Info</h2><pre class="highlight shell tab-shell"><code><span class="c">### Get All Payers for adding insurance for card name</span>
 
-curl -i -H <span class="s2">"Content-Type:application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -X GET <span class="s2">"http://52.7.202.98:8080/DoctorOnDemand/api/patient/eligible/getAllPayers"</span>
+curl -i -H <span class="s2">"Content-Type:application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -X GET <span class="s2">"https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/eligible/getAllPayers"</span>
 
 <span class="c">### Add Insurance API with card images</span>
 
-curl -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -H <span class="s2">"Content-Type:multipart/form-data"</span> <span class="s2">"http://52.7.202.98:8080/DoctorOnDemand/api/patient/user/insurencecard/Aetna60054/W220/604"</span> -X POST -F <span class="nv">file</span><span class="o">=</span>@/Users/cupertino/Downloads/2_user.png -F <span class="nv">file</span><span class="o">=</span>@/Users/cupertino/Downloads/2_user.png
+curl -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -H <span class="s2">"Content-Type:multipart/form-data"</span> <span class="s2">"https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/user/insurencecard/Aetna60054/W220/604"</span> -X POST -F <span class="nv">file</span><span class="o">=</span>@/Users/cupertino/Downloads/2_user.png -F <span class="nv">file</span><span class="o">=</span>@/Users/cupertino/Downloads/2_user.png
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -2254,12 +2249,12 @@ You must replace <code>X-Auth-Token</code> with your personal API key.
 
 <span class="c">#iOS Api</span>
 
-curl -i -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -X DELETE  <span class="s2">"http://52.7.202.98:8080/DoctorOnDemand/api/patient/user/insurencecard/1512974005984"</span>
+curl -i -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -X DELETE  <span class="s2">"https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/user/insurencecard/1512974005984"</span>
 
 </code></pre><pre class="highlight shell tab-shell"><code>
 <span class="c">#Android Api</span>
 
-curl -i -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -X POST <span class="s2">"http://52.7.202.98:8080/DoctorOnDemand/api/patient/user/insurencecard/delete/1512974005984"</span>
+curl -i -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -X POST <span class="s2">"https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/user/insurencecard/delete/1512974005984"</span>
 
 </code></pre>
 <blockquote>
@@ -2349,7 +2344,7 @@ http://localhost:8080/DoctorOnDemand/api/patient/insurencecard/delete/{AddInsura
 You must replace <code>X-Auth-Token</code> with your personal API key.
 </aside>
 <h2 id='add-family-member'>Add Family Member</h2><pre class="highlight shell tab-shell"><code>
-curl -i -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> <span class="s2">"http://52.7.202.98:8080/DoctorOnDemand/api/patient/user/familyMember"</span> -X POST -d <span class="s1">'{"parentUserRelation":"brother","aboutMe":{"firstName":"neet","lastName":"yadav","address":"Pune", "city":"Pune","state":"MH","country":"india","pincode":"411039","gender":"male"},"role" :{"id": "551ad2a4e4b0b59ff0ccecc9","name": "patient"},"contactInfo":{"email":"Neet@gmail.com","phone":"8055802119"}}'</span>
+curl -i -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> <span class="s2">"https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/user/familyMember"</span> -X POST -d <span class="s1">'{"parentUserRelation":"brother","aboutMe":{"firstName":"neet","lastName":"yadav","address":"Pune", "city":"Pune","state":"MH","country":"india","pincode":"411039","gender":"male"},"role" :{"id": "551ad2a4e4b0b59ff0ccecc9","name": "patient"},"contactInfo":{"email":"Neet@gmail.com","phone":"8055802119"}}'</span>
 
 </code></pre>
 <blockquote>
@@ -2570,7 +2565,7 @@ http://localhost:8080/DoctorOnDemand/api/patient/user/familyMember
 You must replace <code>X-Auth-Token</code> with your personal API key.
 </aside>
 <h2 id='add-family-member-information'>Add Family Member information</h2><pre class="highlight shell tab-shell"><code>
-curl -i -H <span class="s2">"Content-Type:application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -X POST <span class="s2">"http://52.7.202.98:8080/DoctorOnDemand/api/patient/patientinfo/familyMember/5a2e4470e4b0e4fa266e0efe"</span> -d <span class="s1">'{"lifeStyle":{"smoke":"1","vitaminSupplements":"Test","allergies":"Pollen","alcoholDrinksPerWeek":"Do not Drink","medicalCondition":"Cancer","contactlenses":"Soft","medication":"Test","alcoholUse":"yes","allergiesToMedication":"Testing"},"familyHistory":{"diseaseRelation":[{"conditions":"Cataract","relationship":"Aunt"}]}}'</span>
+curl -i -H <span class="s2">"Content-Type:application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -X POST <span class="s2">"https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/patientinfo/familyMember/5a2e4470e4b0e4fa266e0efe"</span> -d <span class="s1">'{"lifeStyle":{"smoke":"1","vitaminSupplements":"Test","allergies":"Pollen","alcoholDrinksPerWeek":"Do not Drink","medicalCondition":"Cancer","contactlenses":"Soft","medication":"Test","alcoholUse":"yes","allergiesToMedication":"Testing"},"familyHistory":{"diseaseRelation":[{"conditions":"Cataract","relationship":"Aunt"}]}}'</span>
 
 </code></pre>
 <blockquote>
@@ -2824,7 +2819,7 @@ http://localhost:8080/DoctorOnDemand/api/patient/patientinfo/familyMember/{Famil
 <aside class="notice">
 You must replace <code>X-Auth-Token</code> with your personal API key.
 </aside>
-<h2 id='update-family-member-profile'>Update Family Member Profile</h2><pre class="highlight shell tab-shell"><code>curl -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -H <span class="s2">"Content-Type:multipart/form-data"</span> <span class="s2">"http://52.7.202.98:8080/DoctorOnDemand/api/patient/user//familymember/profileImageFromFile/5a2c1827e4b0e4fa266e018f"</span> -X POST -F <span class="nv">file</span><span class="o">=</span>@/Users/cupertino/Downloads/dashboard2.png
+<h2 id='update-family-member-profile'>Update Family Member Profile</h2><pre class="highlight shell tab-shell"><code>curl -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -H <span class="s2">"Content-Type:multipart/form-data"</span> <span class="s2">"https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/user//familymember/profileImageFromFile/5a2c1827e4b0e4fa266e018f"</span> -X POST -F <span class="nv">file</span><span class="o">=</span>@/Users/cupertino/Downloads/dashboard2.png
 
 </code></pre>
 <blockquote>
@@ -2945,7 +2940,7 @@ http://localhost:8080/DoctorOnDemand/api/patient/user/familyMember
 <aside class="notice">
 You must replace <code>X-Auth-Token</code> with your personal API key.
 </aside>
-<h2 id='add-family-member-profile-photo'>Add Family member profile photo</h2><pre class="highlight shell tab-shell"><code>curl -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -H <span class="s2">"Content-Type:multipart/form-data"</span> <span class="s2">"http://52.7.202.98:8080/DoctorOnDemand/api/patient/user//familymember/profileImageFromFile/5a2c1827e4b0e4fa266e018f"</span> -X POST -F <span class="nv">file</span><span class="o">=</span>@/Users/cupertino/Downloads/dashboard2.png
+<h2 id='add-family-member-profile-photo'>Add Family member profile photo</h2><pre class="highlight shell tab-shell"><code>curl -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -H <span class="s2">"Content-Type:multipart/form-data"</span> <span class="s2">"https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/user//familymember/profileImageFromFile/5a2c1827e4b0e4fa266e018f"</span> -X POST -F <span class="nv">file</span><span class="o">=</span>@/Users/cupertino/Downloads/dashboard2.png
 
 </code></pre>
 <blockquote>
@@ -3000,7 +2995,7 @@ http://localhost:8080/familymember/profileImageFromFile/{familyMemberUserId}
 <aside class="notice">
 You must replace <code>X-Auth-Token</code> with your personal API key.
 </aside>
-<h2 id='delete-family-member'>Delete family Member</h2><pre class="highlight shell tab-shell"><code> curl -i -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> <span class="s2">"http://52.7.202.98:8080/DoctorOnDemand/api/patient/user/familyMember"</span> -X DELETE -d <span class="s1">'{"id":"5a2c19d0e4b0e4fa266e0195"}'</span>
+<h2 id='delete-family-member'>Delete family Member</h2><pre class="highlight shell tab-shell"><code> curl -i -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> <span class="s2">"https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/user/familyMember"</span> -X DELETE -d <span class="s1">'{"id":"5a2c19d0e4b0e4fa266e0195"}'</span>
 
 </code></pre>
 <blockquote>
@@ -3056,7 +3051,7 @@ http://localhost:8080/DoctorOnDemand/api/patient/user/familyMember
 You must replace <code>X-Auth-Token</code> with your personal API key.
 </aside>
 <h2 id='get-list-of-all-family-members'>Get list of all family members</h2><pre class="highlight shell tab-shell"><code>
-curl -i -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -X GET <span class="s2">"http://52.7.202.98:8080/DoctorOnDemand/api/patient/user/familyMember"</span>
+curl -i -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -X GET <span class="s2">"https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/user/familyMember"</span>
 
 </code></pre>
 <blockquote>
@@ -3210,7 +3205,7 @@ http://localhost:8080/DoctorOnDemand/api/patient/user/familyMember
 <aside class="notice">
 You must replace <code>X-Auth-Token</code> with your personal API key.
 </aside>
-<h1 id='doctors'>Doctors</h1><h2 id='list-doctors-by-state-and-country'>List doctors by state and country</h2><pre class="highlight shell tab-shell"><code>curl -i  -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -X GET <span class="s2">"http://52.7.202.98:8080/DoctorOnDemand/api/patient/user/doctorsbystate/NY/US"</span>
+<h1 id='doctors'>Doctors</h1><h2 id='list-doctors-by-state-and-country'>List doctors by state and country</h2><pre class="highlight shell tab-shell"><code>curl -i  -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -X GET <span class="s2">"https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/user/doctorsbystate/NY/US"</span>
 
 </code></pre>
 <blockquote>
@@ -3292,7 +3287,7 @@ You must replace <code>X-Auth-Token</code> with your personal API key.
     </span><span class="s2">"oldPassword"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">"loginStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Online"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"stripeCustId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"profileImagePath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://demo.cooldoctors.io/PRDIMAGE/doctor/58e2268be4b0b3b8e551c825/ProfileImage/Careers-after-MBA-for-doctor.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"profileImagePath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.endpoint.eyecarelive.com/PRDIMAGE/doctor/58e2268be4b0b3b8e551c825/ProfileImage/Careers-after-MBA-for-doctor.jpg"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"isReferredDoctor"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">"randomtoken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Qrx9Fz"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"isEmailVerified"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -3402,7 +3397,7 @@ http://localhost:8080/DoctorOnDemand/api/patient/user/doctorsbystate/{state}/{co
 <aside class="notice">
 You must replace <code>X-Auth-Token</code> with your personal API key.
 </aside>
-<h2 id='add-preferred-doctor'>Add Preferred doctor</h2><pre class="highlight shell tab-shell"><code>curl -i  -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -X POST <span class="s2">"http://52.7.202.98:8080/DoctorOnDemand/api/patient/user/markPreferredDoctor/58e2268be4b0b3b8e551c825"</span>
+<h2 id='add-preferred-doctor'>Add Preferred doctor</h2><pre class="highlight shell tab-shell"><code>curl -i  -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -X POST <span class="s2">"https://api.endpoint.eyecarelive.com//DoctorOnDemand/api/patient/user/markPreferredDoctor/58e2268be4b0b3b8e551c825"</span>
 
 </code></pre>
 <blockquote>
@@ -3494,7 +3489,7 @@ http://localhost:8080/DoctorOnDemand/api/patient/user/markPreferredDoctor/{Docto
 You must replace <code>X-Auth-Token</code> with your personal API key.
 </aside>
 <h2 id='get-preferred-doctor'>Get Preferred doctor</h2><pre class="highlight shell tab-shell"><code>
-curl -i  -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -X GET <span class="s2">"http://52.7.202.98:8080/DoctorOnDemand/api/patient/user/getPreferredDoctors"</span>
+curl -i  -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -X GET <span class="s2">"https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/user/getPreferredDoctors"</span>
 
 </code></pre>
 <blockquote>
@@ -3576,7 +3571,7 @@ curl -i  -H <span class="s2">"Content-Type: application/json"</span> -H <span cl
     </span><span class="s2">"oldPassword"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">"loginStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Online"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"stripeCustId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"profileImagePath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://demo.cooldoctors.io/PRDIMAGE/doctor/58e2268be4b0b3b8e551c825/ProfileImage/Careers-after-MBA-for-doctor.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"profileImagePath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.endpoint.eyecarelive.com/PRDIMAGE/doctor/58e2268be4b0b3b8e551c825/ProfileImage/Careers-after-MBA-for-doctor.jpg"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"isReferredDoctor"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">"randomtoken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Qrx9Fz"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"isEmailVerified"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -3687,7 +3682,7 @@ http://localhost:8080/DoctorOnDemand/api/patient/user/getPreferredDoctors
 You must replace <code>X-Auth-Token</code> with your personal API key.
 </aside>
 <h2 id='delete-family-members'>Delete family Members</h2><pre class="highlight shell tab-shell"><code>
- curl -i  -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -X POST <span class="s2">"http://52.7.202.98:8080/DoctorOnDemand/api/patient/user/unmarkPreferredDoctor/58e2268be4b0b3b8e551c825"</span>
+ curl -i  -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -X POST <span class="s2">"https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/user/unmarkPreferredDoctor/58e2268be4b0b3b8e551c825"</span>
 
 </code></pre>
 <blockquote>
@@ -3742,7 +3737,7 @@ http://localhost:8080/DoctorOnDemand/api/patient/user/unmarkPreferredDoctor/{Doc
 <aside class="notice">
 You must replace <code>X-Auth-Token</code> with your personal API key.
 </aside>
-<h2 id='show-doctor-s-availability-for-current-week'>Show doctor’s availability for current week</h2><pre class="highlight shell tab-shell"><code>curl -i -H <span class="s2">"Content-Type:application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> <span class="s2">"http://52.7.202.98:8080/DoctorOnDemand/api/patient/appointment/getAvailabilityOfCurrentWeek/56fb7614e4b0d3123cea4925"</span> -X POST -d <span class="s1">'{"timezone":"Asia/Kolkata"}'</span>
+<h2 id='show-doctor-s-availability-for-current-week'>Show doctor’s availability for current week</h2><pre class="highlight shell tab-shell"><code>curl -i -H <span class="s2">"Content-Type:application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> <span class="s2">"https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/appointment/getAvailabilityOfCurrentWeek/56fb7614e4b0d3123cea4925"</span> -X POST -d <span class="s1">'{"timezone":"Asia/Kolkata"}'</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -3991,7 +3986,7 @@ http://localhost:8080/DoctorOnDemand/api/patient/appointment/getAvailabilityOfCu
 You must replace <code>X-Auth-Token</code> with your personal API key.
 </aside>
 <h2 id='show-doctor-s-availability-for-next-week'>Show doctor’s availability for next week</h2><pre class="highlight shell tab-shell"><code>
-curl -i -H <span class="s2">"Content-Type:application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> <span class="s2">"http://52.7.202.98:8080/DoctorOnDemand/api/patient/appointment/getAvailabilityOfNextWeek/56fb7614e4b0d3123cea4925"</span>  -X POST -d <span class="s1">'{"Asia/Kolkata"}'</span>
+curl -i -H <span class="s2">"Content-Type:application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> <span class="s2">"https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/appointment/getAvailabilityOfNextWeek/56fb7614e4b0d3123cea4925"</span>  -X POST -d <span class="s1">'{"Asia/Kolkata"}'</span>
 
 </code></pre>
 <blockquote>
@@ -4160,7 +4155,7 @@ http://localhost:8080/DoctorOnDemand/api/patient/appointment/getAvailabilityOfNe
 <aside class="notice">
 You must replace <code>X-Auth-Token</code> with your personal API key.
 </aside>
-<h1 id='video-visits'>Video Visits</h1><h2 id='create-new-visit'>Create new visit</h2><pre class="highlight shell tab-shell"><code>curl -i -H <span class="s2">"Content-Type:application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -X POST <span class="s2">"http://52.7.202.98:8080/DoctorOnDemand/api/patient/appointment/doctor/createVisitWithAvailability"</span> -d <span class="s1">'{"doctor":{"id":"56fb7614e4b0d3123cea4925"},"patient":null,"visitPurpose":"dryeye","diseaseImageFilePath":null,"symtons":"Dry Eye","paymentMode":"alreadypaid","questionaire":{"questions":[{"id":null,"answer":"20\/30","question":"Snellen chart Right Eye vision test","answerType":"String"},{"id":null,"answer":"20\/25","question":"Snellen chart Left Eye vision test","answerType":"String"}],"appointment":null,"treatment":[{"id":null,"answer":"","question":"Are you taking medications?","answerType":"String"},{"id":null,"answer":"","question":"Are you taking Omega 3 supplements?","answerType":"String"},{"id":null,"answer":"","question":"Are you doing warm compresses?","answerType":"String"},{"id":null,"answer":"","question":"Are you using eye drops?","answerType":"String"}]},"speciality":{"id":"55b7802be4b0b393bf91678e","questionnaire":null,"report":null},"visitType":"offline"}'</span>
+<h1 id='video-visits'>Video Visits</h1><h2 id='create-new-visit'>Create new visit</h2><pre class="highlight shell tab-shell"><code>curl -i -H <span class="s2">"Content-Type:application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -X POST <span class="s2">"https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/appointment/doctor/createVisitWithAvailability"</span> -d <span class="s1">'{"doctor":{"id":"56fb7614e4b0d3123cea4925"},"patient":null,"visitPurpose":"dryeye","diseaseImageFilePath":null,"symtons":"Dry Eye","paymentMode":"alreadypaid","questionaire":{"questions":[{"id":null,"answer":"20\/30","question":"Snellen chart Right Eye vision test","answerType":"String"},{"id":null,"answer":"20\/25","question":"Snellen chart Left Eye vision test","answerType":"String"}],"appointment":null,"treatment":[{"id":null,"answer":"","question":"Are you taking medications?","answerType":"String"},{"id":null,"answer":"","question":"Are you taking Omega 3 supplements?","answerType":"String"},{"id":null,"answer":"","question":"Are you doing warm compresses?","answerType":"String"},{"id":null,"answer":"","question":"Are you using eye drops?","answerType":"String"}]},"speciality":{"id":"55b7802be4b0b393bf91678e","questionnaire":null,"report":null},"visitType":"offline"}'</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -4294,7 +4289,7 @@ You must replace <code>X-Auth-Token</code> with your personal API key.
     </span><span class="s2">"oldPassword"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">"loginStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Online"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"stripeCustId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"profileImagePath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://demo.cooldoctors.io/PRDIMAGE/doctor/56fb7614e4b0d3123cea4925/ProfileImage/paulsuper.png"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"profileImagePath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.endpoint.eyecarelive.com/PRDIMAGE/doctor/56fb7614e4b0d3123cea4925/ProfileImage/paulsuper.png"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"isReferredDoctor"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">"randomtoken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"esnckN"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"isEmailVerified"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -5183,7 +5178,7 @@ http://localhost:8080/DoctorOnDemand/api/patient/appointment/doctor/createVisitW
 <aside class="notice">
 You must replace <code>X-Auth-Token</code> with your personal API key.
 </aside>
-<h2 id='cancel-upcoming-visit'>Cancel upcoming visit</h2><pre class="highlight shell tab-shell"><code>curl -i -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -X POST <span class="s2">"http://52.7.202.98:8080/DoctorOnDemand/api/patient/appointment/cancel/5a2c3534e4b0e4fa266e01cc"</span>
+<h2 id='cancel-upcoming-visit'>Cancel upcoming visit</h2><pre class="highlight shell tab-shell"><code>curl -i -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -X POST <span class="s2">"https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/appointment/cancel/5a2c3534e4b0e4fa266e01cc"</span>
 
 
 </code></pre>
@@ -5239,7 +5234,7 @@ http://localhost:8080/DoctorOnDemand/api/patient/appointment/cancel/{appointment
 <aside class="notice">
 You must replace <code>X-Auth-Token</code> with your personal API key.
 </aside>
-<h2 id='save-draft-of-the-visit'>Save draft of the visit</h2><pre class="highlight shell tab-shell"><code>curl -i -H <span class="s2">"Content-Type:application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -X POST <span class="s2">"http://52.7.202.98:8080/DoctorOnDemand/api/patient/appointment/doctor/createVisitWithAvailability"</span> -d <span class="s1">'{"doctor":{"id":"56fb7614e4b0d3123cea4925"},"patient":null,"visitPurpose":"dryeye","diseaseImageFilePath":null,"symtons":"Dry Eye","paymentMode":"alreadypaid","questionaire":{"questions":[{"id":null,"answer":"20\/30","question":"Snellen chart Right Eye vision test","answerType":"String"},{"id":null,"answer":"20\/25","question":"Snellen chart Left Eye vision test","answerType":"String"}],"appointment":null,"treatment":[{"id":null,"answer":"","question":"Are you taking medications?","answerType":"String"},{"id":null,"answer":"","question":"Are you taking Omega 3 supplements?","answerType":"String"},{"id":null,"answer":"","question":"Are you doing warm compresses?","answerType":"String"},{"id":null,"answer":"","question":"Are you using eye drops?","answerType":"String"}]},"speciality":{"id":"55b7802be4b0b393bf91678e","questionnaire":null,"report":null},"status":"draft","visitType":"offline"}'</span>
+<h2 id='save-draft-of-the-visit'>Save draft of the visit</h2><pre class="highlight shell tab-shell"><code>curl -i -H <span class="s2">"Content-Type:application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -X POST <span class="s2">"https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/appointment/doctor/createVisitWithAvailability"</span> -d <span class="s1">'{"doctor":{"id":"56fb7614e4b0d3123cea4925"},"patient":null,"visitPurpose":"dryeye","diseaseImageFilePath":null,"symtons":"Dry Eye","paymentMode":"alreadypaid","questionaire":{"questions":[{"id":null,"answer":"20\/30","question":"Snellen chart Right Eye vision test","answerType":"String"},{"id":null,"answer":"20\/25","question":"Snellen chart Left Eye vision test","answerType":"String"}],"appointment":null,"treatment":[{"id":null,"answer":"","question":"Are you taking medications?","answerType":"String"},{"id":null,"answer":"","question":"Are you taking Omega 3 supplements?","answerType":"String"},{"id":null,"answer":"","question":"Are you doing warm compresses?","answerType":"String"},{"id":null,"answer":"","question":"Are you using eye drops?","answerType":"String"}]},"speciality":{"id":"55b7802be4b0b393bf91678e","questionnaire":null,"report":null},"status":"draft","visitType":"offline"}'</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -5373,7 +5368,7 @@ You must replace <code>X-Auth-Token</code> with your personal API key.
     </span><span class="s2">"oldPassword"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">"loginStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Online"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"stripeCustId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"profileImagePath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://demo.cooldoctors.io/PRDIMAGE/doctor/56fb7614e4b0d3123cea4925/ProfileImage/paulsuper.png"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"profileImagePath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.endpoint.eyecarelive.com/PRDIMAGE/doctor/56fb7614e4b0d3123cea4925/ProfileImage/paulsuper.png"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"isReferredDoctor"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">"randomtoken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"esnckN"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"isEmailVerified"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -6156,7 +6151,7 @@ http://localhost:8080/DoctorOnDemand/api/patient/appointment/doctor/createVisitW
 <aside class="notice">
 You must replace <code>X-Auth-Token</code> with your personal API key.
 </aside>
-<h2 id='reschedule-upcoming-visit'>Reschedule upcoming visit</h2><pre class="highlight shell tab-shell"><code>curl -i -H <span class="s2">"Content-Type:application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -X POST <span class="s2">"http://52.7.202.98:8080/DoctorOnDemand/api/patient/appointment/reschedule/5a2e65fee4b0e4fa266e1bb5"</span> -d <span class="s1">'{"doctor":{"id":"56fb7614e4b0d3123cea4925"},"availabilityTimeSlot":{ "id" : "5a2e5bdce4b0e4fa266e167f"}}'</span>
+<h2 id='reschedule-upcoming-visit'>Reschedule upcoming visit</h2><pre class="highlight shell tab-shell"><code>curl -i -H <span class="s2">"Content-Type:application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -X POST <span class="s2">"https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/appointment/reschedule/5a2e65fee4b0e4fa266e1bb5"</span> -d <span class="s1">'{"doctor":{"id":"56fb7614e4b0d3123cea4925"},"availabilityTimeSlot":{ "id" : "5a2e5bdce4b0e4fa266e167f"}}'</span>
 
 </code></pre>
 <blockquote>
@@ -6291,7 +6286,7 @@ You must replace <code>X-Auth-Token</code> with your personal API key.
     </span><span class="s2">"oldPassword"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">"loginStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Online"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"stripeCustId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"profileImagePath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://demo.cooldoctors.io/PRDIMAGE/doctor/56fb7614e4b0d3123cea4925/ProfileImage/paulsuper.png"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"profileImagePath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.endpoint.eyecarelive.com/PRDIMAGE/doctor/56fb7614e4b0d3123cea4925/ProfileImage/paulsuper.png"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"isReferredDoctor"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">"randomtoken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"esnckN"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"isEmailVerified"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -6977,7 +6972,7 @@ http://localhost:8080/DoctorOnDemand/api/patient/appointment/reschedule/{Appoint
 <aside class="notice">
 You must replace <code>X-Auth-Token</code> with your personal API key.
 </aside>
-<h2 id='get-all-visits'>Get all visits</h2><pre class="highlight shell tab-shell"><code>curl -i -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -X GET <span class="s2">"http://52.7.202.98:8080/DoctorOnDemand/api/patient/appointment/getPatientHistory/5a2c0a69e4b0e4fa266e0180"</span>
+<h2 id='get-all-visits'>Get all visits</h2><pre class="highlight shell tab-shell"><code>curl -i -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -X GET <span class="s2">"https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/appointment/getPatientHistory/5a2c0a69e4b0e4fa266e0180"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -7071,7 +7066,7 @@ You must replace <code>X-Auth-Token</code> with your personal API key.
       </span><span class="s2">"oldPassword"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="s2">"loginStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Online"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"stripeCustId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"profileImagePath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://demo.cooldoctors.io/PRDIMAGE/doctor/58e2268be4b0b3b8e551c825/ProfileImage/Careers-after-MBA-for-doctor.jpg"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"profileImagePath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.endpoint.eyecarelive.com/PRDIMAGE/doctor/58e2268be4b0b3b8e551c825/ProfileImage/Careers-after-MBA-for-doctor.jpg"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"isReferredDoctor"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="s2">"randomtoken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Qrx9Fz"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"isEmailVerified"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -7552,7 +7547,7 @@ http://localhost:8080/DoctorOnDemand/api/patient/appointment/getPatientHistory/{
 <aside class="notice">
 You must replace <code>X-Auth-Token</code> with your personal API key.
 </aside>
-<h2 id='upload-images-for-an-appointment-visit'>Upload images for an appointment visit</h2><pre class="highlight shell tab-shell"><code>curl -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -H <span class="s2">"Content-Type:multipart/form-data"</span> <span class="s2">"http://52.7.202.98:8080/DoctorOnDemand/api/patient/appointment/diseaseImagesNew"</span> -X POST -F <span class="nv">file</span><span class="o">=</span>@/Users/cupertino/Downloads/2_user.png  -F <span class="nv">side</span><span class="o">=</span>left -F <span class="nv">file</span><span class="o">=</span>@/Users/cupertino/Downloads/2_user.png -F <span class="nv">side</span><span class="o">=</span>right
+<h2 id='upload-images-for-an-appointment-visit'>Upload images for an appointment visit</h2><pre class="highlight shell tab-shell"><code>curl -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -H <span class="s2">"Content-Type:multipart/form-data"</span> <span class="s2">"https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/appointment/diseaseImagesNew"</span> -X POST -F <span class="nv">file</span><span class="o">=</span>@/Users/cupertino/Downloads/2_user.png  -F <span class="nv">side</span><span class="o">=</span>left -F <span class="nv">file</span><span class="o">=</span>@/Users/cupertino/Downloads/2_user.png -F <span class="nv">side</span><span class="o">=</span>right
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -7648,7 +7643,7 @@ http://localhost:8080/DoctorOnDemand/api/patient/appointment/diseaseImagesNew
 <aside class="notice">
 You must replace <code>X-Auth-Token</code> with your personal API key.
 </aside>
-<h2 id='get-images-for-an-appointment-visit'>Get images for an appointment visit</h2><pre class="highlight shell tab-shell"><code>curl -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -H <span class="s2">"Content-Type:multipart/form-data"</span> <span class="s2">"http://52.7.202.98:8080/DoctorOnDemand/api/patient/appointment/diseaseImages/5a2e6dfce4b0e4fa266e1e51"</span> -X GET
+<h2 id='get-images-for-an-appointment-visit'>Get images for an appointment visit</h2><pre class="highlight shell tab-shell"><code>curl -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -H <span class="s2">"Content-Type:multipart/form-data"</span> <span class="s2">"https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/appointment/diseaseImages/5a2e6dfce4b0e4fa266e1e51"</span> -X GET
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -7738,7 +7733,7 @@ http://localhost:8080/DoctorOnDemand/api/patient/appointment/diseaseImages/{dise
 <aside class="notice">
 You must replace <code>X-Auth-Token</code> with your personal API key.
 </aside>
-<h2 id='view-disease-images-or-download-image-use-following-api'>View Disease Images or download image use following API</h2><pre class="highlight shell tab-shell"><code>curl -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -H <span class="s2">"Content-Type:multipart/form-data"</span> <span class="s2">"http://52.7.202.98:8080/DoctorOnDemand/api/patient/appointment/getDiseaseImage/1512899976338/5a2d0588e4b0e4fa266e028f"</span> -X GET 
+<h2 id='view-disease-images-or-download-image-use-following-api'>View Disease Images or download image use following API</h2><pre class="highlight shell tab-shell"><code>curl -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -H <span class="s2">"Content-Type:multipart/form-data"</span> <span class="s2">"https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/appointment/getDiseaseImage/1512899976338/5a2d0588e4b0e4fa266e028f"</span> -X GET 
 
 </code></pre>
 <blockquote>
@@ -7819,7 +7814,7 @@ http://localhost:8080/DoctorOnDemand/api/patient/appointment/diseaseImages/{dise
 You must replace <code>X-Auth-Token</code> with your personal API key.
 </aside>
 <h1 id='treatment-plan'>Treatment Plan</h1><h2 id='get-treatment-plan-for-a-given-user-or-patient'>Get Treatment Plan for a given user or patient</h2><pre class="highlight shell tab-shell"><code>
-curl -i -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -X GET <span class="s2">"http://52.7.202.98:8080/DoctorOnDemand/api/patient/appointment/getPatientHistory/5a2c0a69e4b0e4fa266e0180"</span>
+curl -i -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -X GET <span class="s2">"https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/appointment/getPatientHistory/5a2c0a69e4b0e4fa266e0180"</span>
 
 </code></pre>
 <blockquote>
@@ -8172,7 +8167,7 @@ curl -i -H <span class="s2">"Content-Type: application/json"</span> -H <span cla
         </span><span class="s2">"additionalInfo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Telangana"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"doctorProfileImage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://demo.cooldoctors.io/PRDIMAGE/doctor/56fb7614e4b0d3123cea4925/ProfileImage/paulsuper.png"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"doctorProfileImage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.endpoint.eyecarelive.com/PRDIMAGE/doctor/56fb7614e4b0d3123cea4925/ProfileImage/paulsuper.png"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"appointmentId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5a2d4f01e4b0e4fa266e05ed"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"needFollowUp"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="s2">"doctorId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"56fb7614e4b0d3123cea4925"</span><span class="p">,</span><span class="w">
@@ -8353,7 +8348,7 @@ http://localhost:8080/DoctorOnDemand/api/patient/appointment/getPatientHistory/{
 <aside class="notice">
 You must replace <code>X-Auth-Token</code> with your personal API key.
 </aside>
-<h1 id='messaging'>Messaging</h1><h2 id='get-list-of-users-for-messaging'>Get list of Users for Messaging</h2><pre class="highlight shell tab-shell"><code>curl -i -H <span class="s2">"Content-Type: application/image"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -X GET <span class="s2">"http://52.7.202.98:8080/DoctorOnDemand/api/patient/user/doctors"</span>
+<h1 id='messaging'>Messaging</h1><h2 id='get-list-of-users-for-messaging'>Get list of Users for Messaging</h2><pre class="highlight shell tab-shell"><code>curl -i -H <span class="s2">"Content-Type: application/image"</span> -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -X GET <span class="s2">"https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/user/doctors"</span>
 
 </code></pre>
 <blockquote>
@@ -8464,7 +8459,7 @@ You must replace <code>X-Auth-Token</code> with your personal API key.
     </span><span class="s2">"oldPassword"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">"loginStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Online"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"stripeCustId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"profileImagePath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://demo.cooldoctors.io/PRDIMAGE/doctor/56fb7614e4b0d3123cea4925/ProfileImage/paulsuper.png"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"profileImagePath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.endpoint.eyecarelive.com/PRDIMAGE/doctor/56fb7614e4b0d3123cea4925/ProfileImage/paulsuper.png"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"isReferredDoctor"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">"randomtoken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"esnckN"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"isEmailVerified"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -8577,7 +8572,7 @@ http://localhost:8080/DoctorOnDemand/api/patient/user/doctors
 <aside class="notice">
 You must replace <code>X-Auth-Token</code> with your personal API key.
 </aside>
-<h2 id='get-list-of-messages-by-user'>Get list of messages by user</h2><pre class="highlight shell tab-shell"><code>curl -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -H <span class="s2">"Content-Type:application/json"</span> <span class="s2">"https://demo.cooldoctors.io/DoctorOnDemand/api/patient/followup/getchatuserlist"</span>
+<h2 id='get-list-of-messages-by-user'>Get list of messages by user</h2><pre class="highlight shell tab-shell"><code>curl -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -H <span class="s2">"Content-Type:application/json"</span> <span class="s2">"https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/followup/getchatuserlist"</span>
 
 </code></pre>
 <blockquote>
@@ -8591,7 +8586,7 @@ You must replace <code>X-Auth-Token</code> with your personal API key.
     </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"userdetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"usrOneProfImg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://eyes.cooldoctors.io/PRDIMAGE/patient/5a2c0a69e4b0e4fa266e0180/ProfileImage/dashboard2.png"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"usrTwoProfImg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://demo.cooldoctors.io/PRDIMAGE/doctor/58e2268be4b0b3b8e551c825/ProfileImage/Careers-after-MBA-for-doctor.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"usrTwoProfImg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.endpoint.eyecarelive.com/PRDIMAGE/doctor/58e2268be4b0b3b8e551c825/ProfileImage/Careers-after-MBA-for-doctor.jpg"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"usrOneAbtMe"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5a2c0a69e4b0e4fa266e017d"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Patient"</span><span class="p">,</span><span class="w">
@@ -8705,7 +8700,7 @@ http://localhost:8080/DoctorOnDemand/api/patient/followup/getchatuserlist
 You must replace <code>X-Auth-Token</code> with your personal API key.
 </aside>
 <h2 id='send-a-new-message-to-a-doctor'>Send a new message to a doctor</h2><pre class="highlight shell tab-shell"><code>
-curl -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -H <span class="s2">"Content-Type:application/json"</span> <span class="s2">"http://52.7.202.98:8080/DoctorOnDemand/api/patient/followup"</span> -X POST -d <span class="s1">'{"content":"Hi Jerry, how are you feeling now.?","senderId":"5a2c0a69e4b0e4fa266e0180","recipientId":"58e2268be4b0b3b8e551c825"}'</span>
+curl -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -H <span class="s2">"Content-Type:application/json"</span> <span class="s2">"https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/followup"</span> -X POST -d <span class="s1">'{"content":"Hi Jerry, how are you feeling now.?","senderId":"5a2c0a69e4b0e4fa266e0180","recipientId":"58e2268be4b0b3b8e551c825"}'</span>
 
 </code></pre>
 <blockquote>
@@ -8719,7 +8714,7 @@ curl -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:151542
     </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"userdetails"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"usrOneProfImg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://eyes.cooldoctors.io/PRDIMAGE/patient/5a2c0a69e4b0e4fa266e0180/ProfileImage/dashboard2.png"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"usrTwoProfImg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://demo.cooldoctors.io/PRDIMAGE/doctor/58e2268be4b0b3b8e551c825/ProfileImage/Careers-after-MBA-for-doctor.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"usrTwoProfImg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.endpoint.eyecarelive.com/PRDIMAGE/doctor/58e2268be4b0b3b8e551c825/ProfileImage/Careers-after-MBA-for-doctor.jpg"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"usrOneAbtMe"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5a2c0a69e4b0e4fa266e017d"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Patient"</span><span class="p">,</span><span class="w">
@@ -8875,7 +8870,7 @@ http://localhost:8080DoctorOnDemand/api/patient/followup/
 You must replace <code>X-Auth-Token</code> with your personal API key.
 </aside>
 <h2 id='send-file-via-messaging-to-a-doctor'>Send file via messaging to a doctor</h2><pre class="highlight shell tab-shell"><code>
-curl -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -H <span class="s2">"Content-Type:application/json"</span> <span class="s2">"http://52.7.202.98:8080/DoctorOnDemand/api/patient/followup"</span> -X POST -d <span class="s1">'{"content":"Hi Jerry, how are you feeling now.?","senderId":"5a2c0a69e4b0e4fa266e0180","recipientId":"58e2268be4b0b3b8e551c825"}'</span>
+curl -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -H <span class="s2">"Content-Type:application/json"</span> <span class="s2">"https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/followup"</span> -X POST -d <span class="s1">'{"content":"Hi Jerry, how are you feeling now.?","senderId":"5a2c0a69e4b0e4fa266e0180","recipientId":"58e2268be4b0b3b8e551c825"}'</span>
 
 </code></pre>
 <blockquote>
@@ -8927,7 +8922,7 @@ curl -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:151542
         </span><span class="s2">"additionalInfo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CA"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"recipientProfileImage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://demo.cooldoctors.io/PRDIMAGE/doctor/58e2268be4b0b3b8e551c825/ProfileImage/Careers-after-MBA-for-doctor.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"recipientProfileImage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.endpoint.eyecarelive.com/PRDIMAGE/doctor/58e2268be4b0b3b8e551c825/ProfileImage/Careers-after-MBA-for-doctor.jpg"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"messageType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"withoutAppointment"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"chatId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5a2d2c1de4b0e4fa266e02a3"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-11 06:07 AM PST"</span><span class="w">
@@ -9051,7 +9046,7 @@ http://localhost:8080/DoctorOnDemand/api/patient/followup/uploadFollowUpMessageF
 You must replace <code>X-Auth-Token</code> with your personal API key.
 </aside>
 <h2 id='send-file-via-messaging-to-a-doctor-2'>Send file via messaging to a doctor</h2><pre class="highlight shell tab-shell"><code>
-curl -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -H <span class="s2">"Content-Type:multipart/form-data"</span> <span class="s2">"http://52.7.202.98:8080/DoctorOnDemand/api/patient/followup/uploadFollowUpMessageFilesIndividual/5a2e9137e4b0e4fa266e23ad"</span> -X POST -F <span class="nv">file</span><span class="o">=</span>@/Users/cupertino/Downloads/dash3.png  
+curl -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -H <span class="s2">"Content-Type:multipart/form-data"</span> <span class="s2">"https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/followup/uploadFollowUpMessageFilesIndividual/5a2e9137e4b0e4fa266e23ad"</span> -X POST -F <span class="nv">file</span><span class="o">=</span>@/Users/cupertino/Downloads/dash3.png  
 
 </code></pre>
 <blockquote>
@@ -9103,7 +9098,7 @@ curl -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:151542
         </span><span class="s2">"additionalInfo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"CA"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"recipientProfileImage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://demo.cooldoctors.io/PRDIMAGE/doctor/58e2268be4b0b3b8e551c825/ProfileImage/Careers-after-MBA-for-doctor.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"recipientProfileImage"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.endpoint.eyecarelive.com/PRDIMAGE/doctor/58e2268be4b0b3b8e551c825/ProfileImage/Careers-after-MBA-for-doctor.jpg"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"messageType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"withoutAppointment"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"chatId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5a2d2c1de4b0e4fa266e02a3"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-12-11 06:07 AM PST"</span><span class="w">
@@ -9243,7 +9238,7 @@ http://localhost:8080/DoctorOnDemand/api/patient/followup/uploadFollowUpMessageF
 <aside class="notice">
 You must replace <code>X-Auth-Token</code> with your personal API key.
 </aside>
-<h2 id='get-view-file-from-messages'>Get view file from messages</h2><pre class="highlight shell tab-shell"><code>curl -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -H <span class="s2">"Content-Type:multipart/form-data"</span> <span class="s2">"https://demo.cooldoctors.io/DoctorOnDemand/api/patient/followup/getUrl/1512909942596/5a2d2c5ce4b0e4fa266e02a6"</span>
+<h2 id='get-view-file-from-messages'>Get view file from messages</h2><pre class="highlight shell tab-shell"><code>curl -H <span class="s2">"X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222"</span> -H <span class="s2">"Content-Type:multipart/form-data"</span> <span class="s2">"https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/followup/getUrl/1512909942596/5a2d2c5ce4b0e4fa266e02a6"</span>
 
 </code></pre>
 <blockquote>
@@ -9308,57 +9303,199 @@ You must replace <code>X-Auth-Token</code> with your personal API key.
 <h1 id='errors'>Errors</h1>
 <aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside>
 
-<p>The Kittn API uses the following error codes:</p>
+<p>The API uses the following error codes:</p>
 
 <table><thead>
 <tr>
 <th>Error Code</th>
 <th>Meaning</th>
+<th>API</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>400</td>
 <td>Bad Request -- Your request sucks.</td>
+<td>Common for All</td>
 </tr>
 <tr>
 <td>401</td>
 <td>Unauthorized -- Your API key is wrong.</td>
-</tr>
-<tr>
-<td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
+<td>Common for All</td>
 </tr>
 <tr>
 <td>404</td>
 <td>Not Found -- The specified kitten could not be found.</td>
+<td>Common for All</td>
 </tr>
 <tr>
 <td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
+<td>Method Not Allowed -- You tried to access with an invalid method.</td>
+<td>Common for All</td>
 </tr>
 <tr>
-<td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
+<td>1004</td>
+<td>Email Id is missing or not specified</td>
+<td>http://localhost:8080/DoctorOnDemand/api/auth/signup</td>
 </tr>
 <tr>
-<td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
+<td></td>
+<td>Invalid email id or not specified</td>
+<td></td>
 </tr>
 <tr>
-<td>418</td>
-<td>I&#39;m a teapot.</td>
+<td></td>
+<td>Password is missing or not specified</td>
+<td></td>
 </tr>
 <tr>
-<td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
+<td></td>
+<td>Role is missing or not specified</td>
+<td></td>
 </tr>
 <tr>
-<td>500</td>
-<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+<td></td>
+<td>First Name is missing or not specified</td>
+<td></td>
 </tr>
 <tr>
-<td>503</td>
-<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+<td></td>
+<td>Last Name is missing or not specified</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>City is missing or not specified</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Pincode is missing or not specified</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>About Me is missing or not specified</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Id should be null on signup</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Email Id is missing or not specified</td>
+<td>http://localhost:8080/DoctorOnDemand/api/auth/login</td>
+</tr>
+<tr>
+<td></td>
+<td>Invalid email id or not specified</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Password is missing or not specified</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Invalid email id or not specified</td>
+<td>http://localhost:8080/DoctorOnDemand/api/patient/user/familyMember</td>
+</tr>
+<tr>
+<td></td>
+<td>Parent user relation is missing or not specified</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Role is missing or not specified</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>First Name is missing or not specified</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Last Name is missing or not specified</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>City is missing or not specified</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>State is missing or not specified</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Country is missing or not specified</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>About Me is missing or not specified</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Invalid email id or not specified</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Phone number is missing or not specified</td>
+<td></td>
+</tr>
+<tr>
+<td>1012</td>
+<td>ROLE_VALIDATION_FOR_SIGNUP_ERROR_MSG</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Invalid email/password</td>
+<td>http://localhost:8080/DoctorOnDemand/api/auth/login</td>
+</tr>
+<tr>
+<td></td>
+<td>Invalid user</td>
+<td>http://localhost:8080/DoctorOnDemand/api/auth/logout</td>
+</tr>
+<tr>
+<td></td>
+<td>Invalid user</td>
+<td>http://localhost:8080/DoctorOnDemand/api/auth/forgotpassword</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>http://localhost:8080/DoctorOnDemand/api/auth/changeforgotpassword</td>
+</tr>
+<tr>
+<td></td>
+<td>Pharmacy name is missing</td>
+<td>http://localhost:8080/DoctorOnDemand/api/patient/pharmacy</td>
+</tr>
+<tr>
+<td></td>
+<td>Appointment id is not available</td>
+<td>http://localhost:8080/DoctorOnDemand/api/patient/appointment/cancel/{appointmentId}</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>http://localhost:8080/DoctorOnDemand/api/patient/appointment/reschedule/{AppointmentID}</td>
+</tr>
+<tr>
+<td>1002</td>
+<td>Invalid Credentials</td>
+<td></td>
 </tr>
 </tbody></table>
 
