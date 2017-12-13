@@ -1,5 +1,3 @@
-
-
 # Doctors
 
 ## List doctors by state and country
