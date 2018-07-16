@@ -14,12 +14,20 @@ includes:
   - videovisits
   - treatmentplan
   - messaging
+  - apidocinto
+  - docathentication
+  - docprofile
+  - myappointments
+  - pendingappointments
+  - patientinfobyapp
+  - manageschedule
+  - doctormessaging
   - errors
 
 search: true
 ---
 
-# Introduction
+# Patient API's Introduction
 
 Patient is the main user of the Eyecarelive mobile app. Eyecarelive app is designed to guide the users to use the app for appropriate conditions only. There are four modules currently supported in the app. Each module addresses a specific type of a virtual visit and is backed by a self-guiding questionnaire to collect relevant information for the doctors. The modules in current release of the app are:
 
@@ -129,7 +137,7 @@ curl -k -i -H "Content-Type: application/json" "https://api.endpoint.eyecarelive
   "pilotDoc": false
 }
 ```
-> Make sure to replace `X-Auth-Token` with your API key.
+> Make sure to replace `meowmeowmeow` with your API key.
 
 Create new user with email address and password. This user is referred as Primary user of the app. Eyecarelive supports two roles of users - Patients and Doctors. When creating a new user, Role option must be specified. For creating a patient user, a fixed id# is required to be specified in the API
 
@@ -255,5 +263,4 @@ Success | Logout successful True OR False | String
 <aside class="notice">
 ID and Token are must to be successfully logged out!
 </aside>
-
 

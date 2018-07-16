@@ -417,7 +417,7 @@ curl -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75
 	"fileName": null,
 	"filePath": null,
 	"contentTypes": null,
-	"senderProfileImage": "https://eyes.cooldoctors.io/PRDIMAGE/patient/5a2c0a69e4b0e4fa266e0180/ProfileImage/dashboard2.png",
+	"senderProfileImage": "https://api.endpoint.eyecarelive/PRDIMAGE/patient/5a2c0a69e4b0e4fa266e0180/ProfileImage/dashboard2.png",
 	"isDoctor": false,
 	"recipientAboutMe": {
 		"id": "58e2268be4b0b3b8e551c823",
@@ -528,7 +528,7 @@ curl -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75
 	"fileName": null,
 	"filePath": null,
 	"contentTypes": null,
-	"senderProfileImage": "https://eyes.cooldoctors.io/PRDIMAGE/patient/5a2c0a69e4b0e4fa266e0180/ProfileImage/dashboard2.png",
+	"senderProfileImage": "https://api.endpoint.eyecarelive/PRDIMAGE/patient/5a2c0a69e4b0e4fa266e0180/ProfileImage/dashboard2.png",
 	"isDoctor": false,
 	"recipientAboutMe": {
 		"id": "58e2268be4b0b3b8e551c823",
