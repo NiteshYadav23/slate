@@ -10,6 +10,7 @@ toc_footers:
 
 includes:
   - patientuserprofile
+  - patientpaymentinformation
   - doctors
   - videovisits
   - treatmentplan
@@ -20,6 +21,7 @@ includes:
   - myappointments
   - pendingappointments
   - patientinfobyapp
+  - chargepatient
   - manageschedule
   - doctormessaging
   - errors
@@ -50,7 +52,9 @@ curl -k -i -H "Content-Type: application/json" "https://api.endpoint.eyecarelive
 
 ```json
 {
-  "id": "5a2c0a69e4b0e4fa266e0180",
+  "id": "5a2c0a69e4b0e4fa266e0180",POST http://localhost:8080/DoctorOnDemand/api/pharmacy/api/admin/user/activate/user'sID
+
+
   "email": "patientuser@cooldoctors.io",
   "pharmacyName": null,
   "pharmacyAddress": null,
