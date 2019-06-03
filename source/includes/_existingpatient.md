@@ -27,7 +27,6 @@ curl -i -H "Content-Type: application/json" "http://localhost:8080/DoctorOnDeman
 Parameter |  Description | Type | Optional/Required
 --------- | ------------ | ---- | ----------------
 Email | Patient Email address | String | Required
-Password | Patient Password | String | Required
 
 ### Response
 

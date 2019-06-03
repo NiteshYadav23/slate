@@ -17,9 +17,12 @@ includes:
   - scheduleappointment
   - finddoctor
   - patientuserprofile
+  - patientpaymentinformation
   - callingnotification
   - treatmentplan
   - messaging
+  - forgotpassword
+  - resetpassword
   - apidocinto
   - docathentication
   - docprofile

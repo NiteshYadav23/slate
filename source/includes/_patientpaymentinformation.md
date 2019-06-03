@@ -7,7 +7,7 @@
 ## Create Token 
 
 ```shell
-curl -i -H "Content-Type: application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222" "http://api.endpoint.eyecarelive.com/PaymentModule/api/token/create" -X POST -d '{ "card":{"number":"4242424242424242","cvcCheck":"779","expMonth":"12","expYear":"2016","name":"nitesh"}}'
+curl -i -H "Content-Type: application/json" -H "X-Auth-Token:patientuser1@eyecarelive.com:patient:1561784861568:d5171513ed94a5fafb354f6f8688b751" "https://dev.api.cooldoctors.io:8443/PaymentModule/api/token/create" -X POST -d '{ "card":{"number":"4242424242424242","cvcCheck":"779","expMonth":"12","expYear":"2020","name":"nitesh"}}'
 
 
 ```
@@ -15,41 +15,56 @@ curl -i -H "Content-Type: application/json" -H "X-Auth-Token:patientuser@cooldoc
 
 ```json
 {
+  "id": "tok_FBlSRe8UzE8BDH",
+  "object": "token",
   "amount": null,
-  "created": 1439470373,
-  "currency": null,
-  "id": "tok_16ZLCT2eZvKYlo2CV4n8Nfyb",
-  "livemode": false,
-  "used": false,
+  "bankAccount": null,
   "card": {
-    "id": "card_16ZLCT2eZvKYlo2CgetDZAsy",
+    "id": "card_FBlS4jOwiPwJWH",
     "object": "card",
-    "customer": null,
     "account": null,
-    "status": null,
-    "expMonth": 12,
-    "expYear": 2016,
-    "last4": "4242",
-    "dynamicLast4": null,
-    "country": "US",
-    "type": null,
-    "name": "nitesh",
-    "recipient": null,
-    "addressLine1": null,
-    "addressLine2": null,
-    "addressZip": null,
-    "addressCity": null,
-    "addressState": null,
+    "customer": null,
+    "metadata": {
+      
+    },
+    "addressCity": "Pune",
     "addressCountry": null,
-    "addressZipCheck": null,
+    "addressLine1": "Baner",
     "addressLine1Check": null,
-    "cvcCheck": "unchecked",
-    "fingerprint": "Xt5EWLLDS7FJjR1c",
+    "addressLine2": null,
+    "addressState": "GA",
+    "addressZip": "12345",
+    "addressZipCheck": null,
+    "availablePayoutMethods": null,
     "brand": "Visa",
+    "country": "US",
+    "currency": null,
+    "cvcCheck": null,
+    "defaultForCurrency": null,
+    "dynamicLast4": null,
+    "expMonth": 8,
+    "expYear": 2022,
+    "fingerprint": "KDAfyJ5KSCkzem6v",
     "funding": "credit",
-    "metadata": {},
+    "last4": "4242",
+    "name": "Bhagwant Sangvikar",
+    "recipient": null,
+    "status": null,
+    "threeDSecure": null,
+    "tokenizationMethod": null,
+    "description": null,
+    "iin": null,
+    "issuer": null,
+    "type": "Visa",
     "instanceURL": null
-  }
+  },
+  "clientIp": "18.211.185.254",
+  "created": 1559598177,
+  "currency": null,
+  "email": null,
+  "livemode": false,
+  "type": "card",
+  "used": false
 }
 ```
 
@@ -71,6 +86,10 @@ CVC Check | CVC check number | Integer | Required
 Exp Month | Exp Month | Integer | Required
 Exp Year | Exp Year | Integer | Required
 Name  | Name | String | Required
+addressLine1 | Address | Required
+addressState | State name | Required
+addressCity | City name | Required
+addressZip | Zipcode | Required
 
 ### Response
 
@@ -118,103 +137,50 @@ You must replace <code>X-Auth-Token</code> with your personal API key.
 ## Create Card
 
 ```shell
-curl -i -H "Content-Type:application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222" -X GET "http://api.endpoint.eyecarelive.com/PaymentModule/api/customer/retrive/cus_6mvDwopNRvMjcJ"
+curl -i -H "Content-Type: application/json" -H "X-Auth-Token:patientuser1@eyecarelive.com:patient:1561784861568:d5171513ed94a5fafb354f6f8688b751" "https://dev.api.cooldoctors.io:8443/PaymentModule/api/card/create" -X POST -d'{"customer":"cus_FB9sZiGM7eeF2m","token":"tok_FBA2VMl89mJdjP"}'
 
 ```
 > The above command returns JSON structured like this:
 
 ```json
 {
-  "created": 1439471030,
-  "id": "cus_6mvDwopNRvMjcJ",
-  "livemode": false,
-  "deleted": null,
-  "description": null,
-  "defaultCard": null,
-  "defaultSource": "card_16ZLMh2eZvKYlo2C0mHJYiDH",
-  "email": null,
-  "trialEnd": null,
-  "discount": null,
-  "nextRecurringCharge": null,
-  "subscriptions": {
-    "data": [],
-    "totalCount": 0,
-    "hasMore": false,
-    "url": "/v1/customers/cus_6mvDwopNRvMjcJ/subscriptions",
-    "count": null
+  "id": "card_FBA2bVybjiMbzB",
+  "object": "card",
+  "account": null,
+  "customer": "cus_FB9sZiGM7eeF2m",
+  "metadata": {
+    
   },
-  "subscription": null,
-  "delinquent": false,
-  "accountBalance": 0,
+  "addressCity": null,
+  "addressCountry": null,
+  "addressLine1": null,
+  "addressLine1Check": null,
+  "addressLine2": null,
+  "addressState": null,
+  "addressZip": null,
+  "addressZipCheck": null,
+  "availablePayoutMethods": null,
+  "brand": "Visa",
+  "country": "US",
   "currency": null,
-  "cards": null,
-  "sources": {
-    "data": [
-      {
-        "id": "card_16ZLMh2eZvKYlo2C0mHJYiDH",
-        "object": "card",
-        "customer": "cus_6mvDwopNRvMjcJ",
-        "account": null,
-        "status": null,
-        "expMonth": 12,
-        "expYear": 2016,
-        "last4": "4242",
-        "dynamicLast4": null,
-        "country": "US",
-        "type": null,
-        "name": "nitesh",
-        "recipient": null,
-        "addressLine1": null,
-        "addressLine2": null,
-        "addressZip": null,
-        "addressCity": null,
-        "addressState": null,
-        "addressCountry": null,
-        "addressZipCheck": null,
-        "addressLine1Check": null,
-        "cvcCheck": "pass",
-        "fingerprint": "Xt5EWLLDS7FJjR1c",
-        "brand": "Visa",
-        "funding": "credit",
-        "metadata": {},
-        "instanceURL": "https://api.stripe.com/v1/customers/cus_6mvDwopNRvMjcJ/sources/card_16ZLMh2eZvKYlo2C0mHJYiDH"
-      },
-      {
-        "id": "card_16ZLQY2eZvKYlo2CJllR9Hwg",
-        "object": "card",
-        "customer": "cus_6mvDwopNRvMjcJ",
-        "account": null,
-        "status": null,
-        "expMonth": 12,
-        "expYear": 2016,
-        "last4": "4242",
-        "dynamicLast4": null,
-        "country": "US",
-        "type": null,
-        "name": "nitesh",
-        "recipient": null,
-        "addressLine1": null,
-        "addressLine2": null,
-        "addressZip": null,
-        "addressCity": null,
-        "addressState": null,
-        "addressCountry": null,
-        "addressZipCheck": null,
-        "addressLine1Check": null,
-        "cvcCheck": "pass",
-        "fingerprint": "Xt5EWLLDS7FJjR1c",
-        "brand": "Visa",
-        "funding": "credit",
-        "metadata": {},
-        "instanceURL": "https://api.stripe.com/v1/customers/cus_6mvDwopNRvMjcJ/sources/card_16ZLQY2eZvKYlo2CJllR9Hwg"
-      }
-    ],
-    "totalCount": 2,
-    "hasMore": false,
-    "url": "/v1/customers/cus_6mvDwopNRvMjcJ/sources",
-    "count": null
-  },
-  "metadata": {}
+  "cvcCheck": "pass",
+  "defaultForCurrency": null,
+  "dynamicLast4": null,
+  "expMonth": 12,
+  "expYear": 2020,
+  "fingerprint": "KDAfyJ5KSCkzem6v",
+  "funding": "credit",
+  "last4": "4242",
+  "name": "nitesh",
+  "recipient": null,
+  "status": null,
+  "threeDSecure": null,
+  "tokenizationMethod": null,
+  "description": null,
+  "iin": null,
+  "issuer": null,
+  "type": "Visa",
+  "instanceURL": "https://api.stripe.com/v1/customers/cus_FB9sZiGM7eeF2m/sources/card_FBA2bVybjiMbzB"
 }
 ```
 
@@ -269,13 +235,142 @@ You must replace <code>X-Auth-Token</code> with your personal API key.
 ## Create Customer
 
 ```shell
-curl -i -H "Content-Type: application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222" "http://api.endpoint.eyecarelive.com/PaymentModule/api/customer/create" -X POST -d'{"token":"tok_16ZLCT2eZvKYlo2CV4n8Nfyb"}'
+curl -i -H "Content-Type: application/json" -H "X-Auth-Token:patientuser1@eyecarelive.com:patient:1561784861568:d5171513ed94a5fafb354f6f8688b751" "https://dev.api.cooldoctors.io:8443/PaymentModule/api/customer/create" -X POST -d'{"token":"tok_FAwF3JyKlKIgMN"}'
 ```
 > The above command returns JSON structured like this:
 
 ```json
 {
-	"success": true
+  "id": "cus_FAwHi7Rdecx28Q",
+  "object": "customer",
+  "accountBalance": 0,
+  "businessVatId": null,
+  "created": 1559407780,
+  "currency": null,
+  "defaultSource": "card_FAwF2AxsUdq47f",
+  "deleted": null,
+  "delinquent": false,
+  "description": null,
+  "discount": null,
+  "email": null,
+  "livemode": false,
+  "metadata": {
+    
+  },
+  "shipping": null,
+  "sources": {
+    "data": [
+      {
+        "id": "card_FAwF2AxsUdq47f",
+        "object": "card",
+        "account": null,
+        "customer": "cus_FAwHi7Rdecx28Q",
+        "metadata": {
+          
+        },
+        "addressCity": null,
+        "addressCountry": null,
+        "addressLine1": null,
+        "addressLine1Check": null,
+        "addressLine2": null,
+        "addressState": null,
+        "addressZip": null,
+        "addressZipCheck": null,
+        "availablePayoutMethods": null,
+        "brand": "Visa",
+        "country": "US",
+        "currency": null,
+        "cvcCheck": "pass",
+        "defaultForCurrency": null,
+        "dynamicLast4": null,
+        "expMonth": 12,
+        "expYear": 2020,
+        "fingerprint": "KDAfyJ5KSCkzem6v",
+        "funding": "credit",
+        "last4": "4242",
+        "name": "nitesh",
+        "recipient": null,
+        "status": null,
+        "threeDSecure": null,
+        "tokenizationMethod": null,
+        "description": null,
+        "iin": null,
+        "issuer": null,
+        "type": "Visa",
+        "instanceURL": "https://api.stripe.com/v1/customers/cus_FAwHi7Rdecx28Q/sources/card_FAwF2AxsUdq47f"
+      }
+    ],
+    "totalCount": 1,
+    "hasMore": false,
+    "requestOptions": null,
+    "requestParams": null,
+    "url": "/v1/customers/cus_FAwHi7Rdecx28Q/sources",
+    "count": 1
+  },
+  "subscriptions": {
+    "data": [
+      
+    ],
+    "totalCount": 0,
+    "hasMore": false,
+    "requestOptions": null,
+    "requestParams": null,
+    "url": "/v1/customers/cus_FAwHi7Rdecx28Q/subscriptions",
+    "count": 0
+  },
+  "cards": {
+    "data": [
+      {
+        "id": "card_FAwF2AxsUdq47f",
+        "object": "card",
+        "account": null,
+        "customer": "cus_FAwHi7Rdecx28Q",
+        "metadata": {
+          
+        },
+        "addressCity": null,
+        "addressCountry": null,
+        "addressLine1": null,
+        "addressLine1Check": null,
+        "addressLine2": null,
+        "addressState": null,
+        "addressZip": null,
+        "addressZipCheck": null,
+        "availablePayoutMethods": null,
+        "brand": "Visa",
+        "country": "US",
+        "currency": null,
+        "cvcCheck": "pass",
+        "defaultForCurrency": null,
+        "dynamicLast4": null,
+        "expMonth": 12,
+        "expYear": 2020,
+        "fingerprint": "KDAfyJ5KSCkzem6v",
+        "funding": "credit",
+        "last4": "4242",
+        "name": "nitesh",
+        "recipient": null,
+        "status": null,
+        "threeDSecure": null,
+        "tokenizationMethod": null,
+        "description": null,
+        "iin": null,
+        "issuer": null,
+        "type": "Visa",
+        "instanceURL": "https://api.stripe.com/v1/customers/cus_FAwHi7Rdecx28Q/sources/card_FAwF2AxsUdq47f"
+      }
+    ],
+    "totalCount": 1,
+    "hasMore": false,
+    "requestOptions": null,
+    "requestParams": null,
+    "url": "/v1/customers/cus_FAwHi7Rdecx28Q/cards",
+    "count": 1
+  },
+  "defaultCard": "card_FAwF2AxsUdq47f",
+  "nextRecurringCharge": null,
+  "subscription": null,
+  "trialEnd": null
 }
 ```
 
@@ -291,7 +386,7 @@ http://api.endpoint.eyecarelive.com/PaymentModule/api/customer/create
 
 Parameter |  Description | Type | Optional/Required
 --------- | ------------ | ---- | ----------------
-Source | Source | String | Required
+Token | Token ID | String | Required
 
 
 ### Response
@@ -330,7 +425,7 @@ You must replace <code>X-Auth-Token</code> with your personal API key.
 
 
 ```shell
-curl -i -H "Content-Type:application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222" -X GET "http://api.endpoint.eyecarelive.com/PaymentModule/api/card/retrive/card_16ZLQY2eZvKYlo2CJllR9Hwg/cus_6mvDwopNRvMjcJ"
+curl -i -H "Content-Type:application/json" -H "X-Auth-Token:patientuser1@eyecarelive.com:patient:1561784861568:d5171513ed94a5fafb354f6f8688b751" "https://dev.api.cooldoctors.io:8443/PaymentModule/api/card/retrive/card_16ZLQY2eZvKYlo2CJllR9Hwg/cus_6mvDwopNRvMjcJ"
 ```
 > The above command returns JSON structured like this:
 
@@ -416,11 +511,190 @@ Customer | Customer | String
 You must replace <code>X-Auth-Token</code> with your personal API key.
 </aside>
 
-
-## Delete Card
+## Get List of card
 
 ```shell
-curl -i -H "Content-Type: application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222" -X DELETE "http://api.endpoint.eyecarelive.com/PaymentModule/api/card/cus_6nJo1fsmsayvtc/card_6nJoOW0jMFfsTE"
+curl -i -H "Content-Type:application/json" -H "X-Auth-Token:patientuser1@eyecarelive.com:patient:1561784861568:d5171513ed94a5fafb354f6f8688b751" -X GET "https://dev.api.cooldoctors.io:8443/PaymentModule/api/card/listall/cus_FAwHi7Rdecx28Q/1"
+```
+> The above command returns JSON structured like this:
+
+```json
+{
+  "data": [
+    {
+      "id": "card_FAwF2AxsUdq47f",
+      "object": "card",
+      "account": null,
+      "customer": "cus_FAwHi7Rdecx28Q",
+      "metadata": {
+        
+      },
+      "addressCity": null,
+      "addressCountry": null,
+      "addressLine1": null,
+      "addressLine1Check": null,
+      "addressLine2": null,
+      "addressState": null,
+      "addressZip": null,
+      "addressZipCheck": null,
+      "availablePayoutMethods": null,
+      "brand": "Visa",
+      "country": "US",
+      "currency": null,
+      "cvcCheck": "pass",
+      "defaultForCurrency": null,
+      "dynamicLast4": null,
+      "expMonth": 12,
+      "expYear": 2020,
+      "fingerprint": "KDAfyJ5KSCkzem6v",
+      "funding": "credit",
+      "last4": "4242",
+      "name": "nitesh",
+      "recipient": null,
+      "status": null,
+      "threeDSecure": null,
+      "tokenizationMethod": null,
+      "description": null,
+      "iin": null,
+      "issuer": null,
+      "type": "Visa",
+      "instanceURL": "https://api.stripe.com/v1/customers/cus_FAwHi7Rdecx28Q/sources/card_FAwF2AxsUdq47f"
+    }
+  ],
+  "totalCount": null,
+  "hasMore": false,
+  "requestOptions": null,
+  "requestParams": {
+    "limit": "1",
+    "object": "card"
+  },
+  "url": "/v1/customers/cus_FAwHi7Rdecx28Q/sources",
+  "count": 1
+}
+```
+
+> Make sure to replace `X-Auth-Token` with your API key.
+
+
+### HTTP Request
+
+`DELETE
+http://api.endpoint.eyecarelive.com/PaymentModule/api/card/listall/{CustomerID}/1"
+`
+### Query Parameters
+
+Parameter |  Description | Type | Optional/Required
+--------- | ------------ | ---- | ----------------
+{CustomerID}/1 | Pass in the URL | String | Required
+
+
+### Response
+
+Parameter | Description | Type
+--------- | ----------- | ----
+Deleted | Delete status (true,false) | String
+data:[{}] | This will return the array | Integer
+totalCount | Object | String
+requestOptions | Object | String
+hasMore | Object | String
+requestParams:[{}] | Object | String
+url | Object | String
+count | Object | String
+
+
+`Authorization: X-Auth-Token`
+
+<aside class="notice">
+You must replace <code>X-Auth-Token</code> with your personal API key.
+</aside>
+
+
+## Get Customer ID 
+
+```shell
+curl -i -H "Content-Type:application/json" -H "X-Auth-Token:patientuser1@eyecarelive.com:patient:1561784861568:d5171513ed94a5fafb354f6f8688b751" -X GET "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/patient/user/getstripecustomerid"
+```
+> The above command returns JSON structured like this:
+
+```json
+{
+  "customer_id": "cus_FB9sZiGM7eeF2m"
+}
+```
+
+> Make sure to replace `X-Auth-Token` with your API key.
+
+
+### HTTP Request
+
+`DELETE
+http://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/user/getstripecustomerid"
+`
+### Query Parameters
+
+Parameter |  Description | Type | Optional/Required
+--------- | ------------ | ---- | ----------------
+URL | Use URL to get this | String | Required
+
+
+### Response
+
+Parameter | Description | Type
+--------- | ----------- | ----
+customer_id | Customer ID | Integer
+
+
+`Authorization: X-Auth-Token`
+
+<aside class="notice">
+You must replace <code>X-Auth-Token</code> with your personal API key.
+</aside>
+
+## Add Customer ID
+
+```shell
+curl -i -H "Content-Type: application/json" -H "X-Auth-Token:patientuser1@eyecarelive.com:patient:1561784861568:d5171513ed94a5fafb354f6f8688b751" "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/patient/user/addstripecustomer/cus_FB9sZiGM7eeF2m" -X POST 
+```
+> The above command returns JSON structured like this:
+
+```json
+{
+  "success": true
+}
+```
+
+> Make sure to replace `X-Auth-Token` with your API key.
+
+
+### HTTP Request
+
+`DELETE
+http://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/user/addstripecustomer/{CustomerID}"
+`
+### Query Parameters
+
+Parameter |  Description | Type | Optional/Required
+--------- | ------------ | ---- | ----------------
+{id} in the URL | to add the customer| String | Required
+
+
+### Response
+
+Parameter | Description | Type
+--------- | ----------- | ----
+success | true /false | blooean
+
+
+`Authorization: X-Auth-Token`
+
+<aside class="notice">
+You must replace <code>X-Auth-Token</code> with your personal API key.
+</aside>
+
+## Remove Card
+
+```shell
+curl -i -H "Content-Type: application/json" -H "X-Auth-Token:patientuser1@eyecarelive.com:patient:1561784861568:d5171513ed94a5fafb354f6f8688b751" "https://dev.api.cooldoctors.io:8443/PaymentModule/api/card/cus_6nJo1fsmsayvtc/card_6nJoOW0jMFfsTE"
 ```
 > The above command returns JSON structured like this:
 
