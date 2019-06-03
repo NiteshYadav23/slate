@@ -389,6 +389,35 @@
               </ul>
           </li>
           <li>
+            <a href="#patient-payment-information" class="toc-h1 toc-link" data-title="Patient Payment Information">Patient Payment Information</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#create-token" class="toc-h2 toc-link" data-title="Create Token">Create Token</a>
+                  </li>
+                  <li>
+                    <a href="#create-card" class="toc-h2 toc-link" data-title="Create Card">Create Card</a>
+                  </li>
+                  <li>
+                    <a href="#create-customer" class="toc-h2 toc-link" data-title="Create Customer">Create Customer</a>
+                  </li>
+                  <li>
+                    <a href="#retrieve-card" class="toc-h2 toc-link" data-title="Retrieve Card">Retrieve Card</a>
+                  </li>
+                  <li>
+                    <a href="#get-list-of-card" class="toc-h2 toc-link" data-title="Get List of card">Get List of card</a>
+                  </li>
+                  <li>
+                    <a href="#get-customer-id" class="toc-h2 toc-link" data-title="Get Customer ID">Get Customer ID</a>
+                  </li>
+                  <li>
+                    <a href="#add-customer-id" class="toc-h2 toc-link" data-title="Add Customer ID">Add Customer ID</a>
+                  </li>
+                  <li>
+                    <a href="#remove-card" class="toc-h2 toc-link" data-title="Remove Card">Remove Card</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#calling-notification" class="toc-h1 toc-link" data-title="Calling Notification">Calling Notification</a>
               <ul class="toc-list-h2">
                   <li>
@@ -427,6 +456,28 @@
                   </li>
                   <li>
                     <a href="#get-view-file-from-messages" class="toc-h2 toc-link" data-title="Get view file from messages">Get view file from messages</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#forgot-password" class="toc-h1 toc-link" data-title="Forgot Password">Forgot Password</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#forgot-password-2" class="toc-h2 toc-link" data-title="Forgot password">Forgot password</a>
+                  </li>
+                  <li>
+                    <a href="#change-password-using-by-security" class="toc-h2 toc-link" data-title="Change password using by security.">Change password using by security.</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#reset-password" class="toc-h1 toc-link" data-title="Reset password">Reset password</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#reset-password-after-log-in" class="toc-h2 toc-link" data-title="Reset password after log in">Reset password after log in</a>
+                  </li>
+                  <li>
+                    <a href="#change-password" class="toc-h2 toc-link" data-title="Change password.">Change password.</a>
                   </li>
               </ul>
           </li>
@@ -966,12 +1017,6 @@ ID and Token are must to be successfully logged out!
 <tr>
 <td>Email</td>
 <td>Patient Email address</td>
-<td>String</td>
-<td>Required</td>
-</tr>
-<tr>
-<td>Password</td>
-<td>Patient Password</td>
 <td>String</td>
 <td>Required</td>
 </tr>
@@ -11329,6 +11374,1256 @@ http://localhost:8080/DoctorOnDemand/api/patient/user/familyMember
 <aside class="notice">
 You must replace <code>X-Auth-Token</code> with your personal API key.
 </aside>
+<h1 id='patient-payment-information'>Patient Payment Information</h1><h2 id='create-token'>Create Token</h2><pre class="highlight shell tab-shell"><code>curl -i -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser1@eyecarelive.com:patient:1561784861568:d5171513ed94a5fafb354f6f8688b751"</span> <span class="s2">"https://dev.api.cooldoctors.io:8443/PaymentModule/api/token/create"</span> -X POST -d <span class="s1">'{ "card":{"number":"4242424242424242","cvcCheck":"779","expMonth":"12","expYear":"2020","name":"nitesh"}}'</span>
+
+
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tok_FBlSRe8UzE8BDH"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"token"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"bankAccount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"card"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card_FBlS4jOwiPwJWH"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"account"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"customer"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"addressCity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pune"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"addressCountry"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"addressLine1"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Baner"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"addressLine1Check"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"addressLine2"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"addressState"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GA"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"addressZip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"addressZipCheck"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"availablePayoutMethods"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"cvcCheck"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"defaultForCurrency"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"dynamicLast4"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"expMonth"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"expYear"</span><span class="p">:</span><span class="w"> </span><span class="mi">2022</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"fingerprint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KDAfyJ5KSCkzem6v"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"funding"</span><span class="p">:</span><span class="w"> </span><span class="s2">"credit"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last4"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4242"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bhagwant Sangvikar"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"recipient"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"threeDSecure"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"tokenizationMethod"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"iin"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"issuer"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"instanceURL"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"clientIp"</span><span class="p">:</span><span class="w"> </span><span class="s2">"18.211.185.254"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="mi">1559598177</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"livemode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"used"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Make sure to replace <code>X-Auth-Token</code> with your API key.</p>
+</blockquote>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST
+http://localhost:8080/PaymentModule/api/token/create
+</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+<th>Optional/Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Card</td>
+<td>Card for detail</td>
+<td>String</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Number</td>
+<td>Number of Card</td>
+<td>Integer</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>CVC Check</td>
+<td>CVC check number</td>
+<td>Integer</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Exp Month</td>
+<td>Exp Month</td>
+<td>Integer</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Exp Year</td>
+<td>Exp Year</td>
+<td>Integer</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>Name</td>
+<td>String</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>addressLine1</td>
+<td>Address</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>addressState</td>
+<td>State name</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>addressCity</td>
+<td>City name</td>
+<td>Required</td>
+<td></td>
+</tr>
+<tr>
+<td>addressZip</td>
+<td>Zipcode</td>
+<td>Required</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id='response'>Response</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Amount</td>
+<td>Amount of fees</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Created</td>
+<td>Created</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Currency</td>
+<td>Currency</td>
+<td>String</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>ID</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>Live mode</td>
+<td>Live mode</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Used</td>
+<td>Used</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Card</td>
+<td>Card number</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>Exp Month</td>
+<td>Exp Month</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>Exp Year</td>
+<td>Exp Year</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>Last4</td>
+<td>Last 4</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Country</td>
+<td>Country</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>Type</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>Name</td>
+<td>String</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>ID</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>Customer</td>
+<td>Customer</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Recipient</td>
+<td>Recipient</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Address Line1</td>
+<td>Address Line1</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Address Line2</td>
+<td>Address Line2</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Address Zip</td>
+<td>Address Zip</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Address City</td>
+<td>Address City</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Address State</td>
+<td>Address State</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Address Country</td>
+<td>Address Country</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Address Zip Check</td>
+<td>Address Zip Check</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Address Line1 Check</td>
+<td>Address Line Check</td>
+<td>String</td>
+</tr>
+<tr>
+<td>CVC Check</td>
+<td>CVC Check</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Finger print</td>
+<td>Finger print</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Brand</td>
+<td>Brand</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Funding</td>
+<td>Funding</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Instance URL</td>
+<td>Instance URL</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<p><code>Authorization: X-Auth-Token</code></p>
+
+<aside class="notice">
+You must replace <code>X-Auth-Token</code> with your personal API key.
+</aside>
+<h2 id='create-card'>Create Card</h2><pre class="highlight shell tab-shell"><code>curl -i -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser1@eyecarelive.com:patient:1561784861568:d5171513ed94a5fafb354f6f8688b751"</span> <span class="s2">"https://dev.api.cooldoctors.io:8443/PaymentModule/api/card/create"</span> -X POST -d<span class="s1">'{"customer":"cus_FB9sZiGM7eeF2m","token":"tok_FBA2VMl89mJdjP"}'</span>
+
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card_FBA2bVybjiMbzB"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"account"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"customer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cus_FB9sZiGM7eeF2m"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"addressCity"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"addressCountry"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"addressLine1"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"addressLine1Check"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"addressLine2"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"addressState"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"addressZip"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"addressZipCheck"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"availablePayoutMethods"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"cvcCheck"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pass"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"defaultForCurrency"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"dynamicLast4"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"expMonth"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"expYear"</span><span class="p">:</span><span class="w"> </span><span class="mi">2020</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"fingerprint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KDAfyJ5KSCkzem6v"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"funding"</span><span class="p">:</span><span class="w"> </span><span class="s2">"credit"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"last4"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4242"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nitesh"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"recipient"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"threeDSecure"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"tokenizationMethod"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"iin"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"issuer"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"instanceURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.stripe.com/v1/customers/cus_FB9sZiGM7eeF2m/sources/card_FBA2bVybjiMbzB"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Make sure to replace <code>X-Auth-Token</code> with your API key.</p>
+</blockquote>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST
+http://api.endpoint.eyecarelive.com/PaymentModule/api/card/create 
+</code></p>
+<h3 id='query-parameters-2'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+<th>Optional/Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Token</td>
+<td>Token</td>
+<td>String</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Customer</td>
+<td>Customer</td>
+<td>String</td>
+<td>Required</td>
+</tr>
+</tbody></table>
+<h3 id='response-2'>Response</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>ID</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>Object</td>
+<td>Object</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Last4</td>
+<td>Last 4</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Brand</td>
+<td>Brand</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Funding</td>
+<td>Funding</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Exp Month</td>
+<td>Exp Month</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>Exp Year</td>
+<td>Exp Year</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>Finger print</td>
+<td>Finger print</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Country</td>
+<td>Country</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>Name</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Address Line1</td>
+<td>Address Line1</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Address Line2</td>
+<td>Address Line2</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Address City</td>
+<td>Address City</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Address State</td>
+<td>Address State</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Address Zip</td>
+<td>Address Zip</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Address Country</td>
+<td>Address Country</td>
+<td>String</td>
+</tr>
+<tr>
+<td>CVC Check</td>
+<td>CVC Check</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Address Line1 Check</td>
+<td>Address Line Check</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Address Zip Check</td>
+<td>Address Zip Check</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Dynamic_last4</td>
+<td>Dynamic last</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Customer</td>
+<td>Customer</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<p><code>Authorization: X-Auth-Token</code></p>
+
+<aside class="notice">
+You must replace <code>X-Auth-Token</code> with your personal API key.
+</aside>
+<h2 id='create-customer'>Create Customer</h2><pre class="highlight shell tab-shell"><code>curl -i -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser1@eyecarelive.com:patient:1561784861568:d5171513ed94a5fafb354f6f8688b751"</span> <span class="s2">"https://dev.api.cooldoctors.io:8443/PaymentModule/api/customer/create"</span> -X POST -d<span class="s1">'{"token":"tok_FAwF3JyKlKIgMN"}'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cus_FAwHi7Rdecx28Q"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"customer"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"accountBalance"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"businessVatId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created"</span><span class="p">:</span><span class="w"> </span><span class="mi">1559407780</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"defaultSource"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card_FAwF2AxsUdq47f"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"delinquent"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"livemode"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"shipping"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"sources"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card_FAwF2AxsUdq47f"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"account"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"customer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cus_FAwHi7Rdecx28Q"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"addressCity"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"addressCountry"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"addressLine1"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"addressLine1Check"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"addressLine2"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"addressState"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"addressZip"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"addressZipCheck"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"availablePayoutMethods"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"cvcCheck"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pass"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"defaultForCurrency"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"dynamicLast4"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"expMonth"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"expYear"</span><span class="p">:</span><span class="w"> </span><span class="mi">2020</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fingerprint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KDAfyJ5KSCkzem6v"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"funding"</span><span class="p">:</span><span class="w"> </span><span class="s2">"credit"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last4"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4242"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nitesh"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"recipient"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"threeDSecure"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tokenizationMethod"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"iin"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"issuer"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"instanceURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.stripe.com/v1/customers/cus_FAwHi7Rdecx28Q/sources/card_FAwF2AxsUdq47f"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"totalCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hasMore"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"requestOptions"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"requestParams"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/v1/customers/cus_FAwHi7Rdecx28Q/sources"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"subscriptions"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"totalCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hasMore"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"requestOptions"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"requestParams"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/v1/customers/cus_FAwHi7Rdecx28Q/subscriptions"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"cards"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card_FAwF2AxsUdq47f"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"account"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"customer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cus_FAwHi7Rdecx28Q"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"addressCity"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"addressCountry"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"addressLine1"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"addressLine1Check"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"addressLine2"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"addressState"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"addressZip"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"addressZipCheck"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"availablePayoutMethods"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"cvcCheck"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pass"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"defaultForCurrency"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"dynamicLast4"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"expMonth"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"expYear"</span><span class="p">:</span><span class="w"> </span><span class="mi">2020</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"fingerprint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KDAfyJ5KSCkzem6v"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"funding"</span><span class="p">:</span><span class="w"> </span><span class="s2">"credit"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last4"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4242"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nitesh"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"recipient"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"threeDSecure"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"tokenizationMethod"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"iin"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"issuer"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"instanceURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.stripe.com/v1/customers/cus_FAwHi7Rdecx28Q/sources/card_FAwF2AxsUdq47f"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"totalCount"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hasMore"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"requestOptions"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"requestParams"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/v1/customers/cus_FAwHi7Rdecx28Q/cards"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"defaultCard"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card_FAwF2AxsUdq47f"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"nextRecurringCharge"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"subscription"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"trialEnd"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Make sure to replace <code>X-Auth-Token</code> with your API key.</p>
+</blockquote>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST
+http://api.endpoint.eyecarelive.com/PaymentModule/api/customer/create
+</code></p>
+<h3 id='query-parameters-3'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+<th>Optional/Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Token</td>
+<td>Token ID</td>
+<td>String</td>
+<td>Required</td>
+</tr>
+</tbody></table>
+<h3 id='response-3'>Response</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Object</td>
+<td>Object</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Created</td>
+<td>Created</td>
+<td>String</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>ID</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>Live mode</td>
+<td>Live mode</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>Description</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Email</td>
+<td>Email</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Delinquent</td>
+<td>Delinquent</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Metadata</td>
+<td>Metadata</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Subscriptions:[{}]</td>
+<td>Subscriptions</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Discount</td>
+<td>Discount</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Account_balance</td>
+<td>Account balance</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Currency</td>
+<td>Currency</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Sources</td>
+<td>Sources</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Object</td>
+<td>Object</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Total_count</td>
+<td>Total count</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Has_more</td>
+<td>Has more</td>
+<td>String</td>
+</tr>
+<tr>
+<td>URL</td>
+<td>URL</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Data:[{}]</td>
+<td>Data</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Default_source :[{}]</td>
+<td>Default source</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<p><code>Authorization: X-Auth-Token</code></p>
+
+<aside class="notice">
+You must replace <code>X-Auth-Token</code> with your personal API key.
+</aside>
+<h2 id='retrieve-card'>Retrieve Card</h2><pre class="highlight shell tab-shell"><code>curl -i -H <span class="s2">"Content-Type:application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser1@eyecarelive.com:patient:1561784861568:d5171513ed94a5fafb354f6f8688b751"</span> <span class="s2">"https://dev.api.cooldoctors.io:8443/PaymentModule/api/card/retrive/card_16ZLQY2eZvKYlo2CJllR9Hwg/cus_6mvDwopNRvMjcJ"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card_16ZLQY2eZvKYlo2CJllR9Hwg"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"customer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cus_6mvDwopNRvMjcJ"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"account"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"expMonth"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"expYear"</span><span class="p">:</span><span class="w"> </span><span class="mi">2016</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"last4"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4242"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"dynamicLast4"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nitesh"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"recipient"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"addressLine1"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"addressLine2"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"addressZip"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"addressCity"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"addressState"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"addressCountry"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"addressZipCheck"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"addressLine1Check"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"cvcCheck"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pass"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"fingerprint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Xt5EWLLDS7FJjR1c"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"funding"</span><span class="p">:</span><span class="w"> </span><span class="s2">"credit"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
+  </span><span class="s2">"instanceURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.stripe.com/v1/customers/cus_6mvDwopNRvMjcJ/sources/card_16ZLQY2eZvKYlo2CJllR9Hwg"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Make sure to replace <code>X-Auth-Token</code> with your API key.</p>
+</blockquote>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>GET
+http://api.endpoint.eyecarelive.com/PaymentModule/api/card/retrive/&lt;id&gt;/&lt;customerId&gt;
+</code></p>
+<h3 id='query-parameters-4'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+<th>Optional/Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>ID</td>
+<td>Integer</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Customer ID</td>
+<td>Customer ID</td>
+<td>Integer</td>
+<td>Required</td>
+</tr>
+</tbody></table>
+<h3 id='response-4'>Response</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>ID</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>Object</td>
+<td>Object</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Last4</td>
+<td>Last 4</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Brand</td>
+<td>Brand</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Funding</td>
+<td>Funding</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Exp Month</td>
+<td>Exp Month</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>Exp Year</td>
+<td>Exp Year</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>Finger print</td>
+<td>Finger print</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Country</td>
+<td>Country</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Name</td>
+<td>Name</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Address Line1</td>
+<td>Address Line1</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Address Line2</td>
+<td>Address Line2</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Address City</td>
+<td>Address City</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Address State</td>
+<td>Address State</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Address Zip</td>
+<td>Address Zip</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Address Country</td>
+<td>Address Country</td>
+<td>String</td>
+</tr>
+<tr>
+<td>CVC Check</td>
+<td>CVC Check</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Address Line1 Check</td>
+<td>Address Line Check</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Address Zip Check</td>
+<td>Address Zip Check</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Dynamic_last4</td>
+<td>Dynamic last</td>
+<td>String</td>
+</tr>
+<tr>
+<td>Customer</td>
+<td>Customer</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<p><code>Authorization: X-Auth-Token</code></p>
+
+<aside class="notice">
+You must replace <code>X-Auth-Token</code> with your personal API key.
+</aside>
+<h2 id='get-list-of-card'>Get List of card</h2><pre class="highlight shell tab-shell"><code>curl -i -H <span class="s2">"Content-Type:application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser1@eyecarelive.com:patient:1561784861568:d5171513ed94a5fafb354f6f8688b751"</span> -X GET <span class="s2">"https://dev.api.cooldoctors.io:8443/PaymentModule/api/card/listall/cus_FAwHi7Rdecx28Q/1"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card_FAwF2AxsUdq47f"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"account"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"customer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cus_FAwHi7Rdecx28Q"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"metadata"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"addressCity"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"addressCountry"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"addressLine1"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"addressLine1Check"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"addressLine2"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"addressState"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"addressZip"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"addressZipCheck"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"availablePayoutMethods"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"brand"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"cvcCheck"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pass"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"defaultForCurrency"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"dynamicLast4"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"expMonth"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"expYear"</span><span class="p">:</span><span class="w"> </span><span class="mi">2020</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"fingerprint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"KDAfyJ5KSCkzem6v"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"funding"</span><span class="p">:</span><span class="w"> </span><span class="s2">"credit"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last4"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4242"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nitesh"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"recipient"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"threeDSecure"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"tokenizationMethod"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"iin"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"issuer"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Visa"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"instanceURL"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.stripe.com/v1/customers/cus_FAwHi7Rdecx28Q/sources/card_FAwF2AxsUdq47f"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"totalCount"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"hasMore"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"requestOptions"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"requestParams"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"object"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/v1/customers/cus_FAwHi7Rdecx28Q/sources"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Make sure to replace <code>X-Auth-Token</code> with your API key.</p>
+</blockquote>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>DELETE
+http://api.endpoint.eyecarelive.com/PaymentModule/api/card/listall/{CustomerID}/1&quot;
+</code></p>
+<h3 id='query-parameters-5'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+<th>Optional/Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>{CustomerID}/1</td>
+<td>Pass in the URL</td>
+<td>String</td>
+<td>Required</td>
+</tr>
+</tbody></table>
+<h3 id='response-5'>Response</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Deleted</td>
+<td>Delete status (true,false)</td>
+<td>String</td>
+</tr>
+<tr>
+<td>data:[{}]</td>
+<td>This will return the array</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>totalCount</td>
+<td>Object</td>
+<td>String</td>
+</tr>
+<tr>
+<td>requestOptions</td>
+<td>Object</td>
+<td>String</td>
+</tr>
+<tr>
+<td>hasMore</td>
+<td>Object</td>
+<td>String</td>
+</tr>
+<tr>
+<td>requestParams:[{}]</td>
+<td>Object</td>
+<td>String</td>
+</tr>
+<tr>
+<td>url</td>
+<td>Object</td>
+<td>String</td>
+</tr>
+<tr>
+<td>count</td>
+<td>Object</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<p><code>Authorization: X-Auth-Token</code></p>
+
+<aside class="notice">
+You must replace <code>X-Auth-Token</code> with your personal API key.
+</aside>
+<h2 id='get-customer-id'>Get Customer ID</h2><pre class="highlight shell tab-shell"><code>curl -i -H <span class="s2">"Content-Type:application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser1@eyecarelive.com:patient:1561784861568:d5171513ed94a5fafb354f6f8688b751"</span> -X GET <span class="s2">"https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/patient/user/getstripecustomerid"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"customer_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cus_FB9sZiGM7eeF2m"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Make sure to replace <code>X-Auth-Token</code> with your API key.</p>
+</blockquote>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>DELETE
+http://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/user/getstripecustomerid&quot;
+</code></p>
+<h3 id='query-parameters-6'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+<th>Optional/Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URL</td>
+<td>Use URL to get this</td>
+<td>String</td>
+<td>Required</td>
+</tr>
+</tbody></table>
+<h3 id='response-6'>Response</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>customer_id</td>
+<td>Customer ID</td>
+<td>Integer</td>
+</tr>
+</tbody></table>
+
+<p><code>Authorization: X-Auth-Token</code></p>
+
+<aside class="notice">
+You must replace <code>X-Auth-Token</code> with your personal API key.
+</aside>
+<h2 id='add-customer-id'>Add Customer ID</h2><pre class="highlight shell tab-shell"><code>curl -i -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser1@eyecarelive.com:patient:1561784861568:d5171513ed94a5fafb354f6f8688b751"</span> <span class="s2">"https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/patient/user/addstripecustomer/cus_FB9sZiGM7eeF2m"</span> -X POST 
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Make sure to replace <code>X-Auth-Token</code> with your API key.</p>
+</blockquote>
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><code>DELETE
+http://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/user/addstripecustomer/{CustomerID}&quot;
+</code></p>
+<h3 id='query-parameters-7'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+<th>Optional/Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>{id} in the URL</td>
+<td>to add the customer</td>
+<td>String</td>
+<td>Required</td>
+</tr>
+</tbody></table>
+<h3 id='response-7'>Response</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>success</td>
+<td>true /false</td>
+<td>blooean</td>
+</tr>
+</tbody></table>
+
+<p><code>Authorization: X-Auth-Token</code></p>
+
+<aside class="notice">
+You must replace <code>X-Auth-Token</code> with your personal API key.
+</aside>
+<h2 id='remove-card'>Remove Card</h2><pre class="highlight shell tab-shell"><code>curl -i -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser1@eyecarelive.com:patient:1561784861568:d5171513ed94a5fafb354f6f8688b751"</span> <span class="s2">"https://dev.api.cooldoctors.io:8443/PaymentModule/api/card/cus_6nJo1fsmsayvtc/card_6nJoOW0jMFfsTE"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"card_6nJoOW0jMFfsTE"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Make sure to replace <code>X-Auth-Token</code> with your API key.</p>
+</blockquote>
+<h3 id='http-request-8'>HTTP Request</h3>
+<p><code>DELETE
+http://api.endpoint.eyecarelive.com/PaymentModule/api/card/CustomerID/cardID&quot;
+</code></p>
+<h3 id='query-parameters-8'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+<th>Optional/Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>/PaymentModule/api/card/{id}</td>
+<td>For the delete card</td>
+<td>String</td>
+<td>Required</td>
+</tr>
+</tbody></table>
+<h3 id='response-8'>Response</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Deleted</td>
+<td>Delete status (true,false)</td>
+<td>String</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>ID</td>
+<td>Integer</td>
+</tr>
+<tr>
+<td>Object</td>
+<td>Object</td>
+<td>String</td>
+</tr>
+</tbody></table>
+
+<p><code>Authorization: X-Auth-Token</code></p>
+
+<aside class="notice">
+You must replace <code>X-Auth-Token</code> with your personal API key.
+</aside>
 <h1 id='calling-notification'>Calling Notification</h1><h2 id='add-device-token'>Add Device Token</h2><pre class="highlight shell tab-shell"><code>curl -i -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser1@eyecarelive.com:patient:1561784861568:d5171513ed94a5fafb354f6f8688b751"</span> -X POST <span class="s2">"https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/auth/addDeviceToken"</span> -d <span class="s1">'{"deviceToken":"88771f3bc9d31b4711f3a4859e76d60aecd44d1b28b0e56dc6387854036f8bf2","platform":"VOIP"}'</span>
 
 
@@ -13190,6 +14485,210 @@ http://localhost:8080/DoctorOnDemand/api/patient/followup/getUrl/1512909942596/5
 
 <aside class="notice">
 You must replace <code>X-Auth-Token</code> with your personal API key.
+</aside>
+<h1 id='forgot-password'>Forgot Password</h1><h2 id='forgot-password-2'>Forgot password</h2><pre class="highlight shell tab-shell"><code>curl -i -H <span class="s2">"Content-Type:application/json"</span> -H <span class="s2">"x-auth-token:patientuser1@eyecarelive.com:patient:1561784861568:d5171513ed94a5fafb354f6f8688b751"</span> <span class="s2">"https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/auth/forgotpassword"</span> -X POST -d <span class="s1">'{"email":"nitesh.yadav@cooldoctors.io"}'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+<p><code>http://localhost:8080/DoctorOnDemand/api/auth/changeforgotpassword/
+</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+<th>Optional/Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Email</td>
+<td>Patient Email address</td>
+<td>String</td>
+<td>Required</td>
+</tr>
+</tbody></table>
+<h3 id='response'>Response</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Success</td>
+<td>True</td>
+<td>boolean</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+ Correct Email and Password leads to successful login!
+</aside>
+<h2 id='change-password-using-by-security'>Change password using by security.</h2><pre class="highlight shell tab-shell"><code>curl -i -H <span class="s2">"Content-Type:application/json"</span> -H <span class="s2">"x-auth-token:patientuser1@eyecarelive.com:patient:1561784861568:d5171513ed94a5fafb354f6f8688b751"</span> <span class="s2">"https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/auth/changeforgotpassword"</span> -X POST -d <span class="s1">'{"email":"eclmoshe@eyecarelive.com","forgotPasswordToken":"2233","password":"demo1234"}'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>http://localhost:8080/DoctorOnDemand/api/auth/changeforgotpassword/
+</code></p>
+<h3 id='query-parameters-2'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+<th>Optional/Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Email</td>
+<td>Patient Email address</td>
+<td>String</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Password</td>
+<td>Patient Password</td>
+<td>String</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>forgotPasswordToken</td>
+<td>security token</td>
+<td>Required</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id='response-2'>Response</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Success</td>
+<td>True</td>
+<td>boolean</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+ Correct Email and Password leads to successful login!
+</aside>
+<h1 id='reset-password'>Reset password</h1><h2 id='reset-password-after-log-in'>Reset password after log in</h2><pre class="highlight shell tab-shell"><code>curl -i -H <span class="s2">"Content-Type:application/json"</span> -H <span class="s2">"x-auth-token:patientuser1@eyecarelive.com:patient:1561784861568:d5171513ed94a5fafb354f6f8688b751"</span> <span class="s2">"https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/auth/forgotpassword"</span> -X POST -d <span class="s1">'{"email":"nitesh.yadav@cooldoctors.io"}'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+<p><code>http://localhost:8080/DoctorOnDemand/api/auth/resetpassword/
+</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+<th>Optional/Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Email</td>
+<td>Patient Email address</td>
+<td>String</td>
+<td>Required</td>
+</tr>
+</tbody></table>
+<h3 id='response'>Response</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Success</td>
+<td>True</td>
+<td>boolean</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+ Correct Email and Password leads to successful login!
+</aside>
+<h2 id='change-password'>Change password.</h2><pre class="highlight shell tab-shell"><code> curl -i -H <span class="s2">"Content-Type: application/json"</span> -H <span class="s2">"x-auth-token:patientuser1@eyecarelive.com:patient:1561784861568:d5171513ed94a5fafb354f6f8688b751"</span> <span class="s2">"https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/auth/changepassword"</span> -X POST -d <span class="s1">'{"password":"demo1234","forgotPasswordToken":"5391"}'</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="s2">"true"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>http://localhost:8080/DoctorOnDemand/api/auth/changepassword/
+</code></p>
+<h3 id='query-parameters-2'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+<th>Optional/Required</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Email</td>
+<td>Patient Email address</td>
+<td>String</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>Password</td>
+<td>Patient Password</td>
+<td>String</td>
+<td>Required</td>
+</tr>
+<tr>
+<td>forgotPasswordToken</td>
+<td>security token</td>
+<td>Required</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id='response-2'>Response</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Success</td>
+<td>True</td>
+<td>boolean</td>
+</tr>
+</tbody></table>
+
+<aside class="notice">
+ Correct Email and Password leads to successful login!
 </aside>
 <h1 id='doctor-api-introduction'>Doctor API Introduction</h1><h1 id='create-doctor'>Create Doctor</h1><h2 id='sign-up'>Sign Up</h2><pre class="highlight shell tab-shell"><code>curl -i -H <span class="s2">"Content-Type: application/json"</span> <span class="s2">"http://api.endpoint.eyecarelive.com/DoctorToDoctor/api/auth/signup"</span> -X POST -d <span class="s1">'{"email":"newsignupapi@eyecarelive.com","password":"demo1234","aboutMe":{"firstName":"NewSignUp","lastName":"API","address":"350 5th Ave","city":"New York","state":"NY","country":"US","pincode":"60015","gender":"male","languagesSpeak" : ["English","",""]},"role":{"id":"551ad2ffe4b0b59ff0cceccb","name":"doctor"},"contactInfo":{"email":"dpress@nsvc.com","phone":"847.412.0311"}, "doctorInfo" : {"educationList":[{"degree":"OD","university":"University of Houston","yearOfPasssing":""},{"degree":"OD Doctor of Optometry ","university":"University of Houston","yearOfPasssing":""}],"hospitalAttachedWithList":[{"name":"Eyesite optometric group paul super O.D.","city":"Brentwood Los Angeles,","country":"USA"}],"awardsReceivedList":[{"name":"Better Vision Award","description":"Eye Care","date":""}],"availabilityTimeZone":"Asia/Kolkata","specialities":[{"id":"55b7802be4b0b393bf91678e"}],"registrationNumber":"22222","licencedState":[{"state":"CA"},{"state":"CA"}]}}'</span>
 
