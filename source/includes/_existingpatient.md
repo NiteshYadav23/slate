@@ -33,7 +33,7 @@ Password | Patient Password | String | Required
 
 Parameter |  Description | Type 
 --------- | ------------ | ---- 
-Success | True | bloon 
+Success | True | boolean 
 
 
 <aside class="notice">
