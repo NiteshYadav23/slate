@@ -13,6 +13,7 @@ includes:
   - patientdashboard
   - videovisits
   - visiontest
+  - appointmentrelated
   - scheduleappointment
   - finddoctor
   - patientuserprofile

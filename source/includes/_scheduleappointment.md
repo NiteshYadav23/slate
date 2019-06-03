@@ -258,12 +258,14 @@ curl -i -H "Content-Type:application/json" -H "x-auth-token:patientuser1@eyecare
     "status": "enable",
     "booked": false
   }
-]```
+]
+```
+
 
 ### HTTP Request
 
 `POST
-http://localhost:8080/DoctorOnDemand/api/patient/appointment/getAvailabilityOfCurrentWeek/{DoctorID}
+http://localhost:8080/DoctorOnDemand/api/patient/appointment/getAvailabilityOfNextWeek/{DoctorID}
 `
 ### Query Parameters
 
