@@ -234,8 +234,7 @@ curl -i -H "Content-Type:application/json" -H "X-Auth-Token:patilnak88@gmail.com
 ```
 > Make sure to replace `X-Auth-Token` with your API key.
 
-In sign up API for Doctor, Need to pass ROLE parameter in API which is need to be fixed. Always in sign up API this parameter  ID and name of ROLE should be fix. Please check below ID and Name.
-
+When patient logged In or Signed Up then it should add the device token to get a notification for messages and calls.
 
 ### HTTP Request
 

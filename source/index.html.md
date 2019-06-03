@@ -11,12 +11,12 @@ toc_footers:
 includes:
   - existingpatient
   - patientdashboard
-  - scheduleappointment
+  - videovisits
   - visiontest
+  - scheduleappointment
   - finddoctor
   - patientuserprofile
   - callingnotification
-  - videovisits
   - treatmentplan
   - messaging
   - apidocinto
