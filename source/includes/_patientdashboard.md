@@ -6,7 +6,6 @@
 
 Verify if the patient is an existing registered user and has credentials. 
 
-
 ```shell
 curl -i -H "Content-Type: application/json" -H "X-Auth-Token:patientuser1@eyecarelive.com:patient:1561784861568:d5171513ed94a5fafb354f6f8688b751" -X GET "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/patient/appointment/getDashboardInfo/v3"
 
