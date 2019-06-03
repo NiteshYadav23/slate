@@ -4,7 +4,7 @@
 
 
 ```shell
-curl -i -H "Content-Type:application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222" -X POST "https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/appointment/doctor/createVisitWithAvailability" -d '{"doctor":{"id":"56fb7614e4b0d3123cea4925"},"patient":null,"visitPurpose":"dryeye","diseaseImageFilePath":null,"symtons":"Dry Eye","paymentMode":"alreadypaid","questionaire":{"questions":[{"id":null,"answer":"20\/30","question":"Snellen chart Right Eye vision test","answerType":"String"},{"id":null,"answer":"20\/25","question":"Snellen chart Left Eye vision test","answerType":"String"}],"appointment":null,"treatment":[{"id":null,"answer":"","question":"Are you taking medications?","answerType":"String"},{"id":null,"answer":"","question":"Are you taking Omega 3 supplements?","answerType":"String"},{"id":null,"answer":"","question":"Are you doing warm compresses?","answerType":"String"},{"id":null,"answer":"","question":"Are you using eye drops?","answerType":"String"}]},"speciality":{"id":"55b7802be4b0b393bf91678e","questionnaire":null,"report":null},"visitType":"offline"}'
+curl -i -H "Content-Type:application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222" -X POST "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/patient/appointment/doctor/createVisitWithAvailability" -d '{"doctor":{"id":"56fb7614e4b0d3123cea4925"},"patient":null,"visitPurpose":"dryeye","diseaseImageFilePath":null,"symtons":"Dry Eye","paymentMode":"alreadypaid","questionaire":{"questions":[{"id":null,"answer":"20\/30","question":"Snellen chart Right Eye vision test","answerType":"String"},{"id":null,"answer":"20\/25","question":"Snellen chart Left Eye vision test","answerType":"String"}],"appointment":null,"treatment":[{"id":null,"answer":"","question":"Are you taking medications?","answerType":"String"},{"id":null,"answer":"","question":"Are you taking Omega 3 supplements?","answerType":"String"},{"id":null,"answer":"","question":"Are you doing warm compresses?","answerType":"String"},{"id":null,"answer":"","question":"Are you using eye drops?","answerType":"String"}]},"speciality":{"id":"55b7802be4b0b393bf91678e","questionnaire":null,"report":null},"visitType":"offline"}'
 ```
 
 > The above command returns JSON structured like this:
@@ -139,7 +139,7 @@ curl -i -H "Content-Type:application/json" -H "X-Auth-Token:patientuser@cooldoct
     "oldPassword": null,
     "loginStatus": "Online",
     "stripeCustId": null,
-    "profileImagePath": "https://api.endpoint.eyecarelive.com/PRDIMAGE/doctor/56fb7614e4b0d3123cea4925/ProfileImage/paulsuper.png",
+    "profileImagePath": "https://dev.api.cooldoctors.io:8443/PRDIMAGE/doctor/56fb7614e4b0d3123cea4925/ProfileImage/paulsuper.png",
     "isReferredDoctor": null,
     "randomtoken": "esnckN",
     "isEmailVerified": false,
@@ -757,7 +757,7 @@ You must replace <code>X-Auth-Token</code> with your personal API key.
 ## Cancel upcoming visit
 
 ```shell
-curl -i -H "Content-Type: application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222" -X POST "https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/appointment/cancel/5a2c3534e4b0e4fa266e01cc"
+curl -i -H "Content-Type: application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222" -X POST "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/patient/appointment/cancel/5a2c3534e4b0e4fa266e01cc"
 
 
 ```
@@ -804,7 +804,7 @@ You must replace <code>X-Auth-Token</code> with your personal API key.
 ## Save draft of the visit
 
 ```shell
-curl -i -H "Content-Type:application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222" -X POST "https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/appointment/doctor/createVisitWithAvailability" -d '{"doctor":{"id":"56fb7614e4b0d3123cea4925"},"patient":null,"visitPurpose":"dryeye","diseaseImageFilePath":null,"symtons":"Dry Eye","paymentMode":"alreadypaid","questionaire":{"questions":[{"id":null,"answer":"20\/30","question":"Snellen chart Right Eye vision test","answerType":"String"},{"id":null,"answer":"20\/25","question":"Snellen chart Left Eye vision test","answerType":"String"}],"appointment":null,"treatment":[{"id":null,"answer":"","question":"Are you taking medications?","answerType":"String"},{"id":null,"answer":"","question":"Are you taking Omega 3 supplements?","answerType":"String"},{"id":null,"answer":"","question":"Are you doing warm compresses?","answerType":"String"},{"id":null,"answer":"","question":"Are you using eye drops?","answerType":"String"}]},"speciality":{"id":"55b7802be4b0b393bf91678e","questionnaire":null,"report":null},"status":"draft","visitType":"offline"}'
+curl -i -H "Content-Type:application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222" -X POST "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/patient/appointment/doctor/createVisitWithAvailability" -d '{"doctor":{"id":"56fb7614e4b0d3123cea4925"},"patient":null,"visitPurpose":"dryeye","diseaseImageFilePath":null,"symtons":"Dry Eye","paymentMode":"alreadypaid","questionaire":{"questions":[{"id":null,"answer":"20\/30","question":"Snellen chart Right Eye vision test","answerType":"String"},{"id":null,"answer":"20\/25","question":"Snellen chart Left Eye vision test","answerType":"String"}],"appointment":null,"treatment":[{"id":null,"answer":"","question":"Are you taking medications?","answerType":"String"},{"id":null,"answer":"","question":"Are you taking Omega 3 supplements?","answerType":"String"},{"id":null,"answer":"","question":"Are you doing warm compresses?","answerType":"String"},{"id":null,"answer":"","question":"Are you using eye drops?","answerType":"String"}]},"speciality":{"id":"55b7802be4b0b393bf91678e","questionnaire":null,"report":null},"status":"draft","visitType":"offline"}'
 ```
 
 > The above command returns JSON structured like this:
@@ -939,7 +939,7 @@ curl -i -H "Content-Type:application/json" -H "X-Auth-Token:patientuser@cooldoct
     "oldPassword": null,
     "loginStatus": "Online",
     "stripeCustId": null,
-    "profileImagePath": "https://api.endpoint.eyecarelive.com/PRDIMAGE/doctor/56fb7614e4b0d3123cea4925/ProfileImage/paulsuper.png",
+    "profileImagePath": "https://dev.api.cooldoctors.io:8443/PRDIMAGE/doctor/56fb7614e4b0d3123cea4925/ProfileImage/paulsuper.png",
     "isReferredDoctor": null,
     "randomtoken": "esnckN",
     "isEmailVerified": false,
@@ -1517,7 +1517,7 @@ You must replace <code>X-Auth-Token</code> with your personal API key.
 ## Reschedule upcoming visit
 
 ```shell
-curl -i -H "Content-Type:application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222" -X POST "https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/appointment/reschedule/5a2e65fee4b0e4fa266e1bb5" -d '{"doctor":{"id":"56fb7614e4b0d3123cea4925"},"availabilityTimeSlot":{ "id" : "5a2e5bdce4b0e4fa266e167f"}}'
+curl -i -H "Content-Type:application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222" -X POST "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/patient/appointment/reschedule/5a2e65fee4b0e4fa266e1bb5" -d '{"doctor":{"id":"56fb7614e4b0d3123cea4925"},"availabilityTimeSlot":{ "id" : "5a2e5bdce4b0e4fa266e167f"}}'
 
 ```
 
@@ -1653,7 +1653,7 @@ curl -i -H "Content-Type:application/json" -H "X-Auth-Token:patientuser@cooldoct
     "oldPassword": null,
     "loginStatus": "Online",
     "stripeCustId": null,
-    "profileImagePath": "https://api.endpoint.eyecarelive.com/PRDIMAGE/doctor/56fb7614e4b0d3123cea4925/ProfileImage/paulsuper.png",
+    "profileImagePath": "https://dev.api.cooldoctors.io:8443/PRDIMAGE/doctor/56fb7614e4b0d3123cea4925/ProfileImage/paulsuper.png",
     "isReferredDoctor": null,
     "randomtoken": "esnckN",
     "isEmailVerified": false,
@@ -2224,7 +2224,7 @@ You must replace <code>X-Auth-Token</code> with your personal API key.
 ## Get all visits
 
 ```shell
-curl -i -H "Content-Type: application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222" -X GET "https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/appointment/getPatientHistory/5a2c0a69e4b0e4fa266e0180"
+curl -i -H "Content-Type: application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222" -X GET "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/patient/appointment/getPatientHistory/5a2c0a69e4b0e4fa266e0180"
 ```
 
 > The above command returns JSON structured like this:
@@ -2319,7 +2319,7 @@ curl -i -H "Content-Type: application/json" -H "X-Auth-Token:patientuser@cooldoc
       "oldPassword": null,
       "loginStatus": "Online",
       "stripeCustId": null,
-      "profileImagePath": "https://api.endpoint.eyecarelive.com/PRDIMAGE/doctor/58e2268be4b0b3b8e551c825/ProfileImage/Careers-after-MBA-for-doctor.jpg",
+      "profileImagePath": "https://dev.api.cooldoctors.io:8443/PRDIMAGE/doctor/58e2268be4b0b3b8e551c825/ProfileImage/Careers-after-MBA-for-doctor.jpg",
       "isReferredDoctor": null,
       "randomtoken": "Qrx9Fz",
       "isEmailVerified": false,
@@ -2690,7 +2690,7 @@ You must replace <code>X-Auth-Token</code> with your personal API key.
 ## Upload images for an appointment visit
 
 ```shell
-curl -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222" -H "Content-Type:multipart/form-data" "https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/appointment/diseaseImagesNew" -X POST -F file=@/Users/cupertino/Downloads/2_user.png  -F side=left -F file=@/Users/cupertino/Downloads/2_user.png -F side=right
+curl -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222" -H "Content-Type:multipart/form-data" "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/patient/appointment/diseaseImagesNew" -X POST -F file=@/Users/cupertino/Downloads/2_user.png  -F side=left -F file=@/Users/cupertino/Downloads/2_user.png -F side=right
 ```
 
 > The above command returns JSON structured like this:
@@ -2752,7 +2752,7 @@ You must replace <code>X-Auth-Token</code> with your personal API key.
 
 
 ```shell
-curl -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222" -H "Content-Type:multipart/form-data" "https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/appointment/diseaseImages/5a2e6dfce4b0e4fa266e1e51" -X GET
+curl -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222" -H "Content-Type:multipart/form-data" "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/patient/appointment/diseaseImages/5a2e6dfce4b0e4fa266e1e51" -X GET
 ```
 
 > The above command returns JSON structured like this:
@@ -2812,7 +2812,7 @@ You must replace <code>X-Auth-Token</code> with your personal API key.
 
 
 ```shell
-curl -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222" -H "Content-Type:multipart/form-data" "https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/appointment/getDiseaseImage/1512899976338/5a2d0588e4b0e4fa266e028f" -X GET 
+curl -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222" -H "Content-Type:multipart/form-data" "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/patient/appointment/getDiseaseImage/1512899976338/5a2d0588e4b0e4fa266e028f" -X GET 
 
 ```
 

@@ -9,9 +9,13 @@ toc_footers:
  
 
 includes:
+  - existingpatient
+  - patientdashboard
+  - scheduleappointment
+  - visiontest
+  - finddoctor
   - patientuserprofile
-  - patientpaymentinformation
-  - doctors
+  - callingnotification
   - videovisits
   - treatmentplan
   - messaging
@@ -21,7 +25,6 @@ includes:
   - myappointments
   - pendingappointments
   - patientinfobyapp
-  - chargepatient
   - manageschedule
   - doctormessaging
   - errors
@@ -38,51 +41,39 @@ Patient is the main user of the Eyecarelive mobile app. Eyecarelive app is desig
 * Dry eye visit - Patients take a validated SPEEDTM test to self-evaluate their dry eye condition. Doctors recommend patients to use the app for Dry eye test during their in-office visit. Dry eye test series can be tracked by the patients and the doctors by using the SPEED test scores.  
 * Contact Lens consultation - Patients can use the app related to contact lens questions, concerns or follow-up with their doctors. Contact lens module is designed to collect subjective data from the patient which allows doctors to evaluate seriousness of their condition
 
-* Post-Op or Lasik follow-up care - Lasik surgeons may recommend patients to use the app for scheduled post-op follow ups. Post-op follow-up module is designed by Lasik specialist to collect pertinent information for follow-up care.
-
-#Create User
+#Patient Sign Up
 
 ## New User
 
 ```shell
-curl -k -i -H "Content-Type: application/json" "https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/auth/signup" -X POST -d '{"email":"patientuser@cooldoctors.io","password":"demo1234","aboutMe":{"firstName":"Patient","lastName":"Name","address":"Kallam Anji Reddy Campus,","city":"Hyderabad","country":"India","birthDate":"08/23/1991","state":"Telangana","pincode":"500034","gender":"Male"},"role":{"id":"551ad2a4e4b0b59ff0ccecc9","name":"patient"},"contactInfo":{"email":"patientuser@cooldoctors.io","phone":"8806900740"}}'
+curl -k -i -H "Content-Type: application/json" "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/auth/signup/v3" -X POST -d '{"email":"patientuser1@eyecarelive.com","password":"demo1234","aboutMe":{"firstName":"Demo","lastName":"User"},"role":{"id":"551ad2a4e4b0b59ff0ccecc9","name":"patient"}}'
  
 ```
 > The above command returns JSON structured like this:
 
 ```json
 {
-  "id": "5a2c0a69e4b0e4fa266e0180",POST http://localhost:8080/DoctorOnDemand/api/pharmacy/api/admin/user/activate/user'sID
-
-
-  "email": "patientuser@cooldoctors.io",
+  "id": "5ceed13cf893f45b5812b8e1",
+  "email": "patientuser1@eyecarelive.com",
   "pharmacyName": null,
   "pharmacyAddress": null,
-  "profileImageId": null,
-  "profileImageName": null,
   "aboutMe": {
-    "id": "5a2c0a69e4b0e4fa266e017d",
-    "firstName": "Patient",
-    "lastName": "Name",
-    "birthDate": null,
-    "address": "Kallam Anji Reddy Campus, Banjara Hills",
-    "city": "Hyderabad",
-    "country": "India",
-    "pincode": "500034",
-    "gender": "Female",
+    "id": "5ceed13cf893f45b5812b8de",
+    "firstName": "Demo",
+    "lastName": "User",
+    "birthDate": "",
+    "address": "",
+    "city": "",
+    "country": "",
+    "pincode": "",
+    "gender": null,
     "languagesSpeak": null,
     "additionalInfo": null,
-    "state": "Telangana"
+    "state": "",
+    "lat": null,
+    "lang": null
   },
-  "contactInfo": {
-    "id": "5a2c0a69e4b0e4fa266e017f",
-    "email": "patientuser@cooldoctors.io",
-    "phone": "610-469-4012",
-    "smsNotification": false,
-    "countryCode": null,
-    "country": null,
-    "emlNt": false
-  },
+  "contactInfo": null,
   "patientInfo": null,
   "doctorInfo": null,
   "role": {
@@ -94,7 +85,7 @@ curl -k -i -H "Content-Type: application/json" "https://api.endpoint.eyecarelive
     "timezone": "Asia/Kolkata",
     "displayName": "India Standard Time"
   },
-  "createdAt": "2017-12-09 08:08 AM PST",
+  "createdAt": "2019-05-29 11:36 AM PDT",
   "forgotPasswordToken": null,
   "familyMembers": null,
   "parentUser": null,
@@ -102,27 +93,26 @@ curl -k -i -H "Content-Type: application/json" "https://api.endpoint.eyecarelive
   "password": null,
   "rating": null,
   "preferredPharmacies": null,
-  "kandyUserName": null,
-  "kandyUserPassword": null,
-  "kandyFullUserId": null,
   "oldPassword": null,
   "loginStatus": null,
   "stripeCustId": null,
   "profileImagePath": null,
   "isReferredDoctor": null,
-  "randomtoken": "5Ys5Ad",
+  "randomtoken": "BThd5P",
   "isEmailVerified": false,
-  "doctorsGroups": null,
   "preferredDoctors": null,
   "isAcceptTC": false,
   "insurenceCards": null,
   "notificationSettings": {
-    "id": "5a2c0a69e4b0e4fa266e017e",
-    "addTestreport": true,
-    "addTreatmentPlan": true,
-    "sendReminderForEyeTest": true,
+    "id": "5ceed13cf893f45b5812b8df",
+    "email": true,
+    "push": true,
+    "sms": true,
     "sendReminderForMedicine": true,
-    "sentMessage": true
+    "addTestreport": true,
+    "sentMessage": true,
+    "addTreatmentPlan": true,
+    "sendReminderForEyeTest": true
   },
   "clinics": null,
   "passCode": null,
@@ -133,12 +123,18 @@ curl -k -i -H "Content-Type: application/json" "https://api.endpoint.eyecarelive
   "docOrg": null,
   "doctorsOrg": null,
   "twilioAccessToken": null,
+  "bucket": null,
+  "repoSub": false,
+  "badge": null,
+  "preferredEclClinics": null,
+  "eclClinicId": null,
+  "profileColor": null,
+  "addedByCpm": false,
+  "activated": true,
   "invited": false,
   "validated": true,
-  "activated": true,
-  "managedUser": false,
-  "addedByCpm": false,
-  "pilotDoc": false
+  "pilotDoc": false,
+  "managedUser": false
 }
 ```
 > Make sure to replace `meowmeowmeow` with your API key.
@@ -148,7 +144,7 @@ Create new user with email address and password. This user is referred as Primar
 ### HTTP Request
 
 `POST
-http://localhost:8080/DoctorOnDemand/api/auth/signup
+http://localhost:8080/DoctorOnDemand/api/auth/signup/v3
 `
 ### Query Parameters
 
@@ -159,19 +155,10 @@ Password | User’s Password | String | Required
   | **About Me** |   |
 FirstName | User’s First Name | String | Required
 LastName | User’s Last Name | String | Required
-Address | User’s Address | String | Optional
-City | City | String | Optional
-Country | Country | String | Optional
-BirthDate | Date of Birth (MM/DD/YYYY) | String | Optional
-Pincode | Zip code | Integer | Optional
-Gender | Gender (M,F) | String | Optional
  | **Role** | |
 ID | Role (ID) Always use “551ad2a4e4b0b59ff0ccecc9” | Integer | Required
 Name | Role Name Always Use “patient” | String | Required
- | **Contact Info** |  |
-Email | Contact Email Address | String | Optional
-Phone | Contact Number | Integer | Optional
-
+ 
 ### Response
 
 Parameter | Description | Type 
@@ -200,16 +187,17 @@ User authentication is implemented by email address and password
 ## Login - Login User - Logs the user in the app
 
 ```shell
-curl -i -H "Content-Type: application/json" "https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/auth/login" -X POST -d '{"email" : "patientuser@cooldoctors.io","password" : "demo1234"}'
+curl -i -H "Content-Type: application/json" "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/auth/login" -X POST -d '{"email" : "patientuser1@eyecarelive.com","password" : "demo1234"}'
 ```
 > The above command returns JSON structured like this:
 
 ```json
 {
-  "id": "5a2c0c91e4b0e4fa266e0181",
-  "userId": "5a2c0a69e4b0e4fa266e0180",
-  "token": "patientuser@cooldoctors.io:patient:1515428241291:5eb24f92a4160a1864abb7738802e449",
-  "dateTime": "2017-12-09 08:17 AM PST"
+  "id": "5ceed501f893f45b5812b912",
+  "userId": "5ceed13cf893f45b5812b8e1",
+  "token": "patientuser1@eyecarelive.com:patient:1561747969818:99d07cac156d195ff6a5900f29a7a9b8",
+  "dateTime": "2019-05-29 11:52 AM PDT",
+  "lastActiveTime": "2019-05-29 11:52 AM PDT"
 }
 ```
 ### HTTP Request
@@ -239,7 +227,7 @@ Date Time | User account created date and time | String
 ## Logout - User logout - Logs the user out of the patient app
 
 ```shell
-curl -i -H "Content-Type: application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515428241291:5eb24f92a4160a1864abb7738802e449" "https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/auth/logout"  -X POST
+curl -i -H "Content-Type: application/json" -H "X-Auth-Token:patientuser1@eyecarelive.com:patient:1561747969818:99d07cac156d195ff6a5900f29a7a9b8" "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/auth/logout"  -X POST
 ```
 > The above command returns JSON structured like this:
 

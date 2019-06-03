@@ -7,7 +7,7 @@ User authentication is implemented by email address and password
 ## Login - Login as Doctor
 
 ```shell
-curl -i -H "Content-Type: application/json" "https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/auth/login" -X POST -d '{"email" : "patientuser@cooldoctors.io","password" : "demo1234"}'
+curl -i -H "Content-Type: application/json" "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/auth/login" -X POST -d '{"email" : "patientuser@cooldoctors.io","password" : "demo1234"}'
 ```
 > The above command returns JSON structured like this:
 
@@ -46,7 +46,7 @@ Date Time | User account created date and time | String
 ## Logout - Doctor logout
 
 ```shell
-curl -i -H "Content-Type: application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515428241291:5eb24f92a4160a1864abb7738802e449" "https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/auth/logout"  -X POST
+curl -i -H "Content-Type: application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515428241291:5eb24f92a4160a1864abb7738802e449" "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/auth/logout"  -X POST
 ```
 > The above command returns JSON structured like this:
 
@@ -79,13 +79,13 @@ ID and Token are must to be successfully logged out!
 
 ```shell
 
-curl -i -H "Content-Type: application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515428241291:5eb24f92a4160a1864abb7738802e449" "https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/auth/forgotpassword"  -X POST -d '{"email":"niteshy2391@gmail.com"}'
+curl -i -H "Content-Type: application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515428241291:5eb24f92a4160a1864abb7738802e449" "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/auth/forgotpassword"  -X POST -d '{"email":"niteshy2391@gmail.com"}'
 
 ```
 
 ```shell
 
-curl -i -H "Content-Type: application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515428241291:5eb24f92a4160a1864abb7738802e449" "https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/auth/changeforgotpassword"  -X POST -d '{"email":"niteshy2391@gmail.com","forgotPasswordToken":"12313","password":"demo1234"}'
+curl -i -H "Content-Type: application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515428241291:5eb24f92a4160a1864abb7738802e449" "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/auth/changeforgotpassword"  -X POST -d '{"email":"niteshy2391@gmail.com","forgotPasswordToken":"12313","password":"demo1234"}'
 
 ```
 
@@ -158,13 +158,13 @@ You must replace <code>X-Auth-Token</code> with your personal API key.
 
 ```shell
 
-curl -i -H "Content-Type: application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515428241291:5eb24f92a4160a1864abb7738802e449" "https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/auth/resetpassword"  -X POST -d '{"email":"niteshy2391@gmail.com"}'
+curl -i -H "Content-Type: application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515428241291:5eb24f92a4160a1864abb7738802e449" "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/auth/resetpassword"  -X POST -d '{"email":"niteshy2391@gmail.com"}'
 
 ```
 
 ```shell
 
-curl -i -H "Content-Type: application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515428241291:5eb24f92a4160a1864abb7738802e449" "https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/auth/changepassword"  -X POST -d '{password: "demo1234", forgotPasswordToken: "8393", email: "nitesh.yadav@cooldoctors.io"}'
+curl -i -H "Content-Type: application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515428241291:5eb24f92a4160a1864abb7738802e449" "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/auth/changepassword"  -X POST -d '{password: "demo1234", forgotPasswordToken: "8393", email: "nitesh.yadav@cooldoctors.io"}'
 
 ```
 

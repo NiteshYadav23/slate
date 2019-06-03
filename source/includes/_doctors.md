@@ -5,7 +5,7 @@
 ## List doctors by state and country
 
 ```shell
-curl -i  -H "Content-Type: application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222" -X GET "https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/user/doctorsbystate/NY/US"
+curl -i  -H "Content-Type: application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222" -X GET "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/patient/user/doctorsbystate/NY/US"
 
 ```
 > The above command returns JSON structured like this:
@@ -87,7 +87,7 @@ curl -i  -H "Content-Type: application/json" -H "X-Auth-Token:patientuser@cooldo
 	"oldPassword": null,
 	"loginStatus": "Online",
 	"stripeCustId": null,
-	"profileImagePath": "https://api.endpoint.eyecarelive.com/PRDIMAGE/doctor/58e2268be4b0b3b8e551c825/ProfileImage/Careers-after-MBA-for-doctor.jpg",
+	"profileImagePath": "https://dev.api.cooldoctors.io:8443/PRDIMAGE/doctor/58e2268be4b0b3b8e551c825/ProfileImage/Careers-after-MBA-for-doctor.jpg",
 	"isReferredDoctor": null,
 	"randomtoken": "Qrx9Fz",
 	"isEmailVerified": false,
@@ -159,7 +159,7 @@ You must replace <code>X-Auth-Token</code> with your personal API key.
 ## Add Preferred doctor
 
 ```shell
-curl -i  -H "Content-Type: application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222" -X POST "https://api.endpoint.eyecarelive.com//DoctorOnDemand/api/patient/user/markPreferredDoctor/58e2268be4b0b3b8e551c825"
+curl -i  -H "Content-Type: application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222" -X POST "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/patient/user/markPreferredDoctor/58e2268be4b0b3b8e551c825"
 
 ```
 > The above command returns JSON structured like this:
@@ -212,7 +212,7 @@ You must replace <code>X-Auth-Token</code> with your personal API key.
 
 ```shell
 
-curl -i  -H "Content-Type: application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222" -X GET "https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/user/getPreferredDoctors"
+curl -i  -H "Content-Type: application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222" -X GET "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/patient/user/getPreferredDoctors"
 
 ```
 > The above command returns JSON structured like this:
@@ -294,7 +294,7 @@ curl -i  -H "Content-Type: application/json" -H "X-Auth-Token:patientuser@cooldo
 	"oldPassword": null,
 	"loginStatus": "Online",
 	"stripeCustId": null,
-	"profileImagePath": "https://api.endpoint.eyecarelive.com/PRDIMAGE/doctor/58e2268be4b0b3b8e551c825/ProfileImage/Careers-after-MBA-for-doctor.jpg",
+	"profileImagePath": "https://dev.api.cooldoctors.io:8443/PRDIMAGE/doctor/58e2268be4b0b3b8e551c825/ProfileImage/Careers-after-MBA-for-doctor.jpg",
 	"isReferredDoctor": null,
 	"randomtoken": "Qrx9Fz",
 	"isEmailVerified": false,
@@ -370,7 +370,7 @@ You must replace <code>X-Auth-Token</code> with your personal API key.
 
 ```shell
 
- curl -i  -H "Content-Type: application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222" -X POST "https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/user/unmarkPreferredDoctor/58e2268be4b0b3b8e551c825"
+ curl -i  -H "Content-Type: application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222" -X POST "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/patient/user/unmarkPreferredDoctor/58e2268be4b0b3b8e551c825"
 
 ```
 > The above command returns JSON structured like this:
@@ -416,7 +416,7 @@ You must replace <code>X-Auth-Token</code> with your personal API key.
 ## Show doctor’s availability for current week
 
 ```shell
-curl -i -H "Content-Type:application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222" "https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/appointment/getAvailabilityOfCurrentWeek/56fb7614e4b0d3123cea4925" -X POST -d '{"timezone":"Asia/Kolkata"}'
+curl -i -H "Content-Type:application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222" "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/patient/appointment/getAvailabilityOfCurrentWeek/56fb7614e4b0d3123cea4925" -X POST -d '{"timezone":"Asia/Kolkata"}'
 ```
 > The above command returns JSON structured like this:
 
@@ -614,7 +614,7 @@ You must replace <code>X-Auth-Token</code> with your personal API key.
 
 ```shell
 
-curl -i -H "Content-Type:application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222" "https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/appointment/getAvailabilityOfNextWeek/56fb7614e4b0d3123cea4925"  -X POST -d '{"Asia/Kolkata"}'
+curl -i -H "Content-Type:application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222" "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/patient/appointment/getAvailabilityOfNextWeek/56fb7614e4b0d3123cea4925"  -X POST -d '{"Asia/Kolkata"}'
 
 ```
 > The above command returns JSON structured like this:

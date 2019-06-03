@@ -153,7 +153,7 @@ In sign up API for Doctor, Need to pass ROLE parameter in API which is need to b
 ### HTTP Request
 
 `POST
-http://localhost:8080//DoctorOnDemand/api/admin/user/activate/ID
+http://localhost:8080/DoctorOnDemand/api/pharmacy/api/admin/user/activate/user'sID
 `
 ### Query Parameters
 

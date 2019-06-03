@@ -4,7 +4,7 @@
 
 ```shell
 
-curl -i -H "Content-Type: application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222" -X GET "https://api.endpoint.eyecarelive.com/DoctorOnDemand/api/patient/appointment/getPatientHistory/5a2c0a69e4b0e4fa266e0180"
+curl -i -H "Content-Type: application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222" -X GET "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/patient/appointment/getPatientHistory/5a2c0a69e4b0e4fa266e0180"
 
 ```
 > The above command returns JSON structured like this:
@@ -357,7 +357,7 @@ curl -i -H "Content-Type: application/json" -H "X-Auth-Token:patientuser@cooldoc
 		"additionalInfo": null,
 		"state": "Telangana"
 	},
-	"doctorProfileImage": "https://api.endpoint.eyecarelive.com/PRDIMAGE/doctor/56fb7614e4b0d3123cea4925/ProfileImage/paulsuper.png",
+	"doctorProfileImage": "https://dev.api.cooldoctors.io:8443/PRDIMAGE/doctor/56fb7614e4b0d3123cea4925/ProfileImage/paulsuper.png",
 	"appointmentId": "5a2d4f01e4b0e4fa266e05ed",
 	"needFollowUp": false,
 	"doctorId": "56fb7614e4b0d3123cea4925",

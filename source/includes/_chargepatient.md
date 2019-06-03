@@ -1,12 +1,12 @@
 
 
-# Charge Patient
+# Existing Patient
 
 
-## Create Charge
 
 ```shell
-curl -i -H "Content-Type: application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222" "http://api.endpoint.eyecarelive.com/PaymentModule/api/charge/create" -X POST -d '{ "amount": "400","currency": "usd","token":"tok_16ZLt12eZvKYlo2CBJiPnmEV"}'
+curl -i -H "Content-Type: application/json" "http://localhost:8080/DoctorOnDemand/api/auth/checkExistingEmail" -X POST -d '{"email":"mit4079@gmail.com"}'
+
 ```
 > The above command returns JSON structured like this:
 
@@ -17,7 +17,7 @@ curl -i -H "Content-Type: application/json" -H "X-Auth-Token:patientuser@cooldoc
 ```
 ### HTTP Request
 
-`POST http://api.endpoint.eyecarelive.com/PaymentModule/api/charge/create
+`POST http://localhost:8080/DoctorOnDemand/api/auth/checkExistingEmail/
 `
 ### Query Parameters
 

@@ -149,7 +149,7 @@ curl -i -H "Content-Type: application/json" -H "X-Auth-Token:nitesh.yadav@cooldo
       "oldPassword": null,
       "loginStatus": "Online",
       "stripeCustId": null,
-      "profileImagePath": "https://api.endpoint.eyecarelive.com/PRDIMAGE/doctor/56fb7614e4b0d3123cea4925/ProfileImage/paulsuper.png",
+      "profileImagePath": "https://dev.api.cooldoctors.io:8443/PRDIMAGE/doctor/56fb7614e4b0d3123cea4925/ProfileImage/paulsuper.png",
       "isReferredDoctor": null,
       "randomtoken": "esnckN",
       "isEmailVerified": false,
