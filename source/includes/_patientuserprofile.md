@@ -417,7 +417,8 @@ You must replace <code>X-Auth-Token</code> with your personal API key.
 ## Add User's Profile Photo
 
 ```shell
-curl -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222" -H "Content-Type:multipart/form-data" "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/patient/user/profileImageFromFile" -X POST -F file=@/Users/cupertino/Downloads/dashboard2.png
+curl -H "X-Auth-Token:patientuser1@eyecarelive.com:patient:1561784861568:d5171513ed94a5fafb354f6f8688b751" -H "Content-Type:multipart/form-data" "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/patient/user/profileImageFromFile" -X POST -F file=@/Users/cupertino/Downloads/dashboard2.png
+
 ```
 > The above command returns JSON structured like this:
 
@@ -448,7 +449,7 @@ profileImageFromFile | Path to the local file for profile photo | String | Requi
 
 Parameter | Description | Type
 --------- | ----------- | ----
-Success | True OR False | String 
+“Ok” | ‘Ok’ means this is successfully updated | String 
 
 
 
@@ -462,218 +463,190 @@ You must replace <code>X-Auth-Token</code> with your personal API key.
 ## Add patient's Preferred Pharmacy 
 
 ```shell
-curl -i -H "Content-Type: application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222" "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/patient/pharmacy" -X POST -d '{"name": "Mediplus store","address":"hinjewadi phase-1","city": "pune","state": "Maharashtra","zipCode": "411007","phoneNumber": "9423505079"}'
+curl -i -H "Content-Type: application/json" -H "X-Auth-Token:patientuser1@eyecarelive.com:patient:1561784861568:d5171513ed94a5fafb354f6f8688b751" "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/patient/pharmacy" -X POST -d '{"email": "niteshy2391@gmail.com","name": "Mediplus store","address":"hinjewadi phase-1","city": "pune","state": "Maharashtra","zipCode": "411007","phoneNumber": "9423505079"}'
+
 ```
 > The above command returns JSON structured like this:
 
 ```json
 {
-	"id": "5a2c0a69e4b0e4fa266e0180",
-	"email": "patientuser@cooldoctors.io",
-	"pharmacyName": null,
-	"pharmacyAddress": null,
-	"profileImageId": null,
-	"profileImageName": null,
-	"aboutMe": {
-		"id": "5a2c0a69e4b0e4fa266e017d",
-		"firstName": "Patient",
-		"lastName": "Name",
-		"birthDate": null,
-		"address": "Kallam Anji Reddy Campus, Banjara Hills",
-		"city": "Hyderabad",
-		"country": "India",
-		"pincode": "500034",
-		"gender": "Female",
-		"languagesSpeak": null,
-		"additionalInfo": null,
-		"state": "Telangana"
-	},
-	"contactInfo": {
-		"id": "5a2c0a69e4b0e4fa266e017f",
-		"email": "patientuser@cooldoctors.io",
-		"phone": "8806900740",
-		"smsNotification": false,
-		"countryCode": null,
-		"country": null,
-		"emlNt": false
-	},
-	"patientInfo": {
-		"id": "5a2e1e23e4b0e4fa266e0805",
-		"lifeStyle": {
-			"id": "5a2e1e23e4b0e4fa266e0803",
-			"medication": "Test",
-			"alcoholUse": "yes",
-			"allergiesToMedication": "Testing",
-			"alcoholDrinksPerWeek": "Do not Drink",
-			"medicalCondition": "Cancer",
-			"allergies": "Pollen",
-			"vitaminSupplements": "Test",
-			"smoke": "1",
-			"contactlenses": "Soft"
-		},
-		"familyHistory": {
-			"id": "5a2e1e23e4b0e4fa266e0804",
-			"description": null,
-			"diseaseRelation": [{
-				"conditions": "Cataract",
-				"relationship": "Aunt"
-			}]
-		}
-	},
-	"doctorInfo": null,
-	"role": {
-		"id": "551ad2a4e4b0b59ff0ccecc9",
-		"name": "patient"
-	},
-	"timezone": {
-		"id": "55f283b4e4b029528c27d0c5",
-		"timezone": "Asia/Kolkata",
-		"displayName": "India Standard Time"
-	},
-	"createdAt": "2017-12-09 08:08 AM PST",
-	"forgotPasswordToken": null,
-	"familyMembers": [{
-		"id": "5a2c1827e4b0e4fa266e018f",
-		"email": "ESa6zdCf@eyecarelive.com",
-		"pharmacyName": null,
-		"pharmacyAddress": null,
-		"profileImageId": "5a2c31a9e4b0e4fa266e01bf",
-		"profileImageName": "0-cus-d1-b928632e6fef67a90ca8ecd0121882bb.jpg",
-		"aboutMe": {
-			"id": "5a2c1827e4b0e4fa266e018d",
-			"firstName": "neet",
-			"lastName": "yadav",
-			"birthDate": null,
-			"address": "Pune",
-			"city": "Pune",
-			"country": "india",
-			"pincode": "411039",
-			"gender": "male",
-			"languagesSpeak": null,
-			"additionalInfo": null,
-			"state": "MH"
-		},
-		"contactInfo": {
-			"id": "5a2c1827e4b0e4fa266e018e",
-			"email": "Neet@gmail.com",
-			"phone": "8055802119",
-			"smsNotification": false,
-			"countryCode": null,
-			"country": null,
-			"emlNt": false
-		},
-		"patientInfo": null,
-		"doctorInfo": null,
-		"role": {
-			"id": "551ad2a4e4b0b59ff0ccecc9",
-			"name": "patient"
-		},
-		"timezone": null,
-		"createdAt": "2017-12-09 09:06 AM PST",
-		"forgotPasswordToken": null,
-		"familyMembers": null,
-		"parentUser": null,
-		"parentUserRelation": "brother",
-		"password": null,
-		"rating": null,
-		"preferredPharmacy": null,
-		"kandyUserName": null,
-		"kandyUserPassword": null,
-		"kandyFullUserId": null,
-		"oldPassword": null,
-		"loginStatus": null,
-		"stripeCustId": null,
-		"profileImagePath": null,
-		"isReferredDoctor": null,
-		"randomtoken": null,
-		"isEmailVerified": false,
-		"doctorsGroups": null,
-		"preferredDoctors": null,
-		"isAcceptTC": false,
-		"insurenceCards": null,
-		"notificationSettings": null,
-		"clinics": null,
-		"passCode": null,
-		"emrId": null,
-		"ssnId": null,
-		"clinicInfo": null,
-		"ref": null,
-		"docOrg": null,
-		"doctorsOrg": null,
-		"twilioAccessToken": null,
-		"invited": false,
-		"validated": true,
-		"activated": true,
-		"managedUser": true,
-		"addedByCpm": false,
-		"pilotDoc": false
-	}],
-	"parentUser": null,
-	"parentUserRelation": null,
-	"password": null,
-	"rating": null,
-	"preferredPharmacy": [{
-		"id": "5a2c2efee4b0e4fa266e01b4",
-		"name": "Mediplus store",
-		"address": "hinjewadi phase-1",
-		"email": "niteshy2391@gmail.com",
-		"city": "pune",
-		"state": "Maharashtra",
-		"country": null,
-		"zipCode": "411007",
-		"phoneNumber": "9423505079",
-		"validated": false
-	}, {
-		"id": "5a2e22fce4b0e4fa266e09ec",
-		"name": "Mediplus store",
-		"address": "hinjewadi phase-1",
-		"email": null,
-		"city": "pune",
-		"state": "Maharashtra",
-		"country": null,
-		"zipCode": "411007",
-		"phoneNumber": "9423505079",
-		"validated": false
-	}],
-	"kandyUserName": null,
-	"kandyUserPassword": null,
-	"kandyFullUserId": null,
-	"oldPassword": null,
-	"loginStatus": "Online",
-	"stripeCustId": null,
-	"profileImagePath": "https://api.endpoint.eyecarelive/PRDIMAGE/patient/5a2c0a69e4b0e4fa266e0180/ProfileImage/dashboard2.png",
-	"isReferredDoctor": null,
-	"randomtoken": "5Ys5Ad",
-	"isEmailVerified": false,
-	"doctorsGroups": null,
-	"preferredDoctors": [],
-	"isAcceptTC": false,
-	"insurenceCards": null,
-	"notificationSettings": {
-		"id": "5a2c0a69e4b0e4fa266e017e",
-		"addTestreport": true,
-		"addTreatmentPlan": true,
-		"sendReminderForEyeTest": true,
-		"sendReminderForMedicine": true,
-		"sentMessage": true
-	},
-	"clinics": null,
-	"passCode": null,
-	"emrId": null,
-	"ssnId": null,
-	"clinicInfo": null,
-	"ref": null,
-	"docOrg": null,
-	"doctorsOrg": null,
-	"twilioAccessToken": null,
-	"invited": false,
-	"validated": true,
-	"activated": true,
-	"managedUser": false,
-	"addedByCpm": false,
-	"pilotDoc": false
-}
-```
+  "id": "5ceed13cf893f45b5812b8e1",
+  "email": "patientuser1@eyecarelive.com",
+  "pharmacyName": null,
+  "pharmacyAddress": null,
+  "aboutMe": {
+    "id": "5ceed13cf893f45b5812b8de",
+    "firstName": "Demo",
+    "lastName": "User",
+    "birthDate": "",
+    "address": "",
+    "city": "",
+    "country": "",
+    "pincode": "",
+    "gender": null,
+    "languagesSpeak": null,
+    "additionalInfo": null,
+    "state": "",
+    "lat": null,
+    "lang": null
+  },
+  "contactInfo": null,
+  "patientInfo": null,
+  "doctorInfo": null,
+  "role": {
+    "id": "551ad2a4e4b0b59ff0ccecc9",
+    "name": "patient"
+  },
+  "timezone": {
+    "id": "55f283b4e4b029528c27d0c5",
+    "timezone": "Asia/Kolkata",
+    "displayName": "India Standard Time"
+  },
+  "createdAt": "2019-05-29 11:36 AM PDT",
+  "forgotPasswordToken": null,
+  "familyMembers": [
+    {
+      "id": "5cef956ef893f467ffa9ffcc",
+      "email": "ddJdgVqM@eyecarelive.com",
+      "pharmacyName": null,
+      "pharmacyAddress": null,
+      "aboutMe": {
+        "id": "5cef956ef893f467ffa9ffc9",
+        "firstName": "Slate",
+        "lastName": "Member",
+        "birthDate": "",
+        "address": "qbNrHbKolNuq9+DQCMrbNw==",
+        "city": "28L8jdmZdw/TOE19cYNfyg==",
+        "country": "eGcNxOZVnF4jlkABhqaIAQ==",
+        "pincode": "Zf6QZAhj9x3iULdEWv9pfA==",
+        "gender": "male",
+        "languagesSpeak": null,
+        "additionalInfo": null,
+        "state": "wPCNRzWVjd+MXrn0+dB4Cg==",
+        "lat": null,
+        "lang": null
+      },
+      "contactInfo": {
+        "id": "5cef956ef893f467ffa9ffca",
+        "email": "patientuser1@eyecarelive.com",
+        "phone": "X025s2zeUri6K/6HA21+UA==",
+        "smsNotification": false,
+        "countryCode": null,
+        "country": null,
+        "emlNt": false
+      },
+      "patientInfo": null,
+      "doctorInfo": null,
+      "role": {
+        "id": "551ad2a4e4b0b59ff0ccecc9",
+        "name": "patient"
+      },
+      "timezone": null,
+      "createdAt": "2019-05-30 01:33 AM PDT",
+      "forgotPasswordToken": null,
+      "familyMembers": null,
+      "parentUser": null,
+      "parentUserRelation": "brother",
+      "password": null,
+      "rating": null,
+      "preferredPharmacies": null,
+      "oldPassword": null,
+      "loginStatus": null,
+      "stripeCustId": null,
+      "profileImagePath": null,
+      "isReferredDoctor": null,
+      "randomtoken": null,
+      "isEmailVerified": false,
+      "preferredDoctors": null,
+      "isAcceptTC": false,
+      "insurenceCards": null,
+      "notificationSettings": null,
+      "clinics": null,
+      "passCode": null,
+      "emrId": null,
+      "ssnId": null,
+      "clinicInfo": null,
+      "ref": null,
+      "docOrg": null,
+      "doctorsOrg": null,
+      "twilioAccessToken": null,
+      "bucket": null,
+      "repoSub": false,
+      "badge": null,
+      "preferredEclClinics": null,
+      "eclClinicId": null,
+      "profileColor": null,
+      "addedByCpm": false,
+      "activated": true,
+      "invited": false,
+      "validated": true,
+      "pilotDoc": false,
+      "managedUser": true
+    }
+  ],
+  "parentUser": null,
+  "parentUserRelation": null,
+  "password": null,
+  "rating": null,
+  "preferredPharmacies": [
+    {
+      "id": "5cefff05f893f4052b1271ec",
+      "name": "Mediplus store",
+      "address": "hinjewadi phase-1",
+      "email": "niteshy2391@gmail.com",
+      "city": "pune",
+      "state": "Maharashtra",
+      "country": null,
+      "zipCode": "411007",
+      "phoneNumber": "9423505079",
+      "validated": false
+    }
+  ],
+  "oldPassword": null,
+  "loginStatus": "Online",
+  "stripeCustId": null,
+  "profileImagePath": null,
+  "isReferredDoctor": null,
+  "randomtoken": "BThd5P",
+  "isEmailVerified": false,
+  "preferredDoctors": [
+    "56fb7614e4b0d3123cea4925"
+  ],
+  "isAcceptTC": false,
+  "insurenceCards": null,
+  "notificationSettings": {
+    "id": "5ceed13cf893f45b5812b8df",
+    "push": true,
+    "sms": true,
+    "email": true,
+    "sendReminderForMedicine": true,
+    "addTestreport": true,
+    "sentMessage": true,
+    "addTreatmentPlan": true,
+    "sendReminderForEyeTest": true
+  },
+  "clinics": null,
+  "passCode": null,
+  "emrId": null,
+  "ssnId": null,
+  "clinicInfo": null,
+  "ref": null,
+  "docOrg": null,
+  "doctorsOrg": null,
+  "twilioAccessToken": null,
+  "bucket": null,
+  "repoSub": false,
+  "badge": null,
+  "preferredEclClinics": null,
+  "eclClinicId": null,
+  "profileColor": null,
+  "addedByCpm": false,
+  "activated": true,
+  "invited": false,
+  "validated": true,
+  "pilotDoc": false,
+  "managedUser": false
+}```
 
 > Make sure to replace `X-Auth-Token` with your API key.
 
@@ -688,12 +661,10 @@ http://localhost:8080/DoctorOnDemand/api/patient/pharmacy
 
 Parameter |  Description | Type | Optional/Required
 --------- | ------------ | ---- | ----------------
+Email Address | User's Email Address | String | Required
 Pharmacy Name | Pharmacy name | String | Required
 pharmacy Address | Pharmacy address| String | Required
-city | Pharmacy Phone  number| String | Required
-state | State of pharmacy| String | Required
-zipCode | Zipcode of pharmacy | String | Required
-phoneNumber | Phone number of pharmacy | String | Required
+ContactInfo | Pharmacy Phone  number | String | Required
 
 
 
@@ -725,7 +696,7 @@ You must replace <code>X-Auth-Token</code> with your personal API key.
 ## Delete Patient's Preferred pharmacy 
 
 ```shell
-curl -i -H "Content-Type: application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222" -X DELETE  "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/patient/pharmacy/5a2c2efee4b0e4fa266e01b4"
+curl -i -H "Content-Type: application/json" -H "X-Auth-Token:patientuser1@eyecarelive.com:patient:1561784861568:d5171513ed94a5fafb354f6f8688b751" -X DELETE  "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/patient/pharmacy/5cefff05f893f4052b1271ec"
 ```
 > The above command returns JSON structured like this:
 
@@ -757,7 +728,7 @@ Pass Pharmacy ID | Pharmacy id# | String | Required
 
 Parameter | Description | Type
 --------- | ----------- | ----
-200ok | it means successfully delete | String | 
+200ok | it means successfully delete | String 
 
 
 
@@ -773,11 +744,11 @@ You must replace <code>X-Auth-Token</code> with your personal API key.
 ```shell
 ### Get All Payers for adding insurance for card name
 
-curl -i -H "Content-Type:application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222" -X GET "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/patient/eligible/getAllPayers"
+curl -i -H "Content-Type:application/json" -H "X-Auth-Token:patientuser1@eyecarelive.com:patient:1561784861568:d5171513ed94a5fafb354f6f8688b751" -X GET "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/patient/eligible/getAllPayers"
 
 ### Add Insurance API with card images
 
-curl -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222" -H "Content-Type:multipart/form-data" "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/patient/user/insurencecard/Aetna60054/W220/604" -X POST -F file=@/Users/cupertino/Downloads/2_user.png -F file=@/Users/cupertino/Downloads/2_user.png
+curl -H "X-Auth-Token:patientuser1@eyecarelive.com:patient:1561784861568:d5171513ed94a5fafb354f6f8688b751a" -H "Content-Type:multipart/form-data" "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/patient/user/insurencecard/Aetna60054/W220/604" -X POST -F file=@/Users/cupertino/Downloads/2_user.png -F file=@/Users/cupertino/Downloads/2_user.png
 ```
 > The above command returns JSON structured like this:
 
@@ -807,7 +778,6 @@ Parameter |  Description | Type | Optional/Required
 
 
 
-
 ### Response
 
 Parameter | Description | Type
@@ -829,7 +799,7 @@ You must replace <code>X-Auth-Token</code> with your personal API key.
 
 #iOS Api
 
-curl -i -H "Content-Type: application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222" -X DELETE  "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/patient/user/insurencecard/1512974005984"
+curl -i -H "Content-Type: application/json" -H "X-Auth-Token:patientuser1@eyecarelive.com:patient:1561784861568:d5171513ed94a5fafb354f6f8688b751" -X DELETE  "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/patient/user/insurencecard/1512974005984"
 
 ```
 
@@ -837,7 +807,7 @@ curl -i -H "Content-Type: application/json" -H "X-Auth-Token:patientuser@cooldoc
 
 #Android Api
 
-curl -i -H "Content-Type: application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222" -X POST "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/patient/user/insurencecard/delete/1512974005984"
+curl -i -H "Content-Type: application/json" -H "X-Auth-Token:patientuser1@eyecarelive.com:patient:1561784861568:d5171513ed94a5fafb354f6f8688b751" -X POST "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/patient/user/insurencecard/delete/1512974005984"
 
 ```
 > The above command returns JSON structured like this:
@@ -902,7 +872,6 @@ You must replace <code>X-Auth-Token</code> with your personal API key.
 ```shell
 
 curl -i -H "Content-Type: application/json" -H "X-Auth-Token:patientuser1@eyecarelive.com:patient:1561784861568:d5171513ed94a5fafb354f6f8688b751" "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/patient/user/familyMember" -X POST -d '{"parentUserRelation":"brother","aboutMe":{"firstName":"Slate","lastName":"Member","address":"America", "city":"Cupertino","state":"CA","country":"USA","pincode":"95014","gender":"male"},"role" :{"id": "551ad2a4e4b0b59ff0ccecc9","name": "patient"},"contactInfo":{"email":"patientuser1@eyecarelive.com","phone":"0000000000"},"timezone":{"id": "551ad2a4e4b0b59ff0ccecc9","timezone": "Asia/Kolkata","displayName": null}}'
-
 ```
 > The above command returns JSON structured like this:
 
@@ -1040,170 +1009,11 @@ Deprecated Value | Ignore other parameters | String
 You must replace <code>X-Auth-Token</code> with your personal API key.
 </aside>
 
-## Add Family Member information
-
-```shell
-
-curl -i -H "Content-Type:application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222" -X POST "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/patient/patientinfo/familyMember/5a2e4470e4b0e4fa266e0efe" -d '{"lifeStyle":{"smoke":"1","vitaminSupplements":"Test","allergies":"Pollen","alcoholDrinksPerWeek":"Do not Drink","medicalCondition":"Cancer","contactlenses":"Soft","medication":"Test","alcoholUse":"yes","allergiesToMedication":"Testing"},"familyHistory":{"diseaseRelation":[{"conditions":"Cataract","relationship":"Aunt"}]}}'
-
-```
-> The above command returns JSON structured like this:
-
-```json
-{
-	"id": "5a2e4470e4b0e4fa266e0efe",
-	"email": "8BQH25JS@eyecarelive.com",
-	"pharmacyName": null,
-	"pharmacyAddress": null,
-	"profileImageId": null,
-	"profileImageName": null,
-	"aboutMe": {
-		"id": "5a2e4470e4b0e4fa266e0efc",
-		"firstName": "neet",
-		"lastName": "yadav",
-		"birthDate": null,
-		"address": "Pune",
-		"city": "Pune",
-		"country": "india",
-		"pincode": "411039",
-		"gender": "male",
-		"languagesSpeak": null,
-		"additionalInfo": null,
-		"state": "MH"
-	},
-	"contactInfo": {
-		"id": "5a2e4470e4b0e4fa266e0efd",
-		"email": "Neet@gmail.com",
-		"phone": "8055802119",
-		"smsNotification": false,
-		"countryCode": null,
-		"country": null,
-		"emlNt": false
-	},
-	"patientInfo": {
-		"id": "5a2e4a36e4b0e4fa266e0f7b",
-		"lifeStyle": {
-			"id": "5a2e4a36e4b0e4fa266e0f79",
-			"medication": "Test",
-			"alcoholUse": "yes",
-			"allergiesToMedication": "Testing",
-			"alcoholDrinksPerWeek": "Do not Drink",
-			"medicalCondition": "Cancer",
-			"allergies": "Pollen",
-			"vitaminSupplements": "Test",
-			"smoke": "1",
-			"contactlenses": "Soft"
-		},
-		"familyHistory": {
-			"id": "5a2e4a36e4b0e4fa266e0f7a",
-			"description": null,
-			"diseaseRelation": [{
-				"conditions": "Cataract",
-				"relationship": "Aunt"
-			}]
-		}
-	},
-	"doctorInfo": null,
-	"role": {
-		"id": "551ad2a4e4b0b59ff0ccecc9",
-		"name": "patient"
-	},
-	"timezone": null,
-	"createdAt": "2017-12-11 12:40 AM PST",
-	"forgotPasswordToken": null,
-	"familyMembers": null,
-	"parentUser": null,
-	"parentUserRelation": "brother",
-	"password": null,
-	"rating": null,
-	"preferredPharmacy": null,
-	"kandyUserName": null,
-	"kandyUserPassword": null,
-	"kandyFullUserId": null,
-	"oldPassword": null,
-	"loginStatus": null,
-	"stripeCustId": null,
-	"profileImagePath": null,
-	"isReferredDoctor": null,
-	"randomtoken": null,
-	"isEmailVerified": false,
-	"doctorsGroups": null,
-	"preferredDoctors": null,
-	"isAcceptTC": false,
-	"insurenceCards": null,
-	"notificationSettings": null,
-	"clinics": null,
-	"passCode": null,
-	"emrId": null,
-	"ssnId": null,
-	"clinicInfo": null,
-	"ref": null,
-	"docOrg": null,
-	"doctorsOrg": null,
-	"twilioAccessToken": null,
-	"invited": false,
-	"validated": true,
-	"activated": true,
-	"managedUser": true,
-	"addedByCpm": false,
-	"pilotDoc": false
-}
-
-```
-
-> Make sure to replace `X-Auth-Token` with your API key.
-
-Add family member’s profile information including medical history, social history, lifestyle information
-
-### HTTP Request
-
-`POST
-http://localhost:8080/DoctorOnDemand/api/patient/patientinfo/familyMember/{FamilyMemberID}
-`
-### Query Parameters
-
-Parameter |  Description | Type | Optional/Required
---------- | ------------ | ---- | ----------------
-Alcohol Use | Yes or No | String. Options Drinks per week (Do Not Drink, 1-6, 7-14, More than 14) | Optional
-Medical Condition | Select values from list | String Glaucoma","Cataracts","Macular Degeneration","Eye Injury","Retina Disease","Other Disease","Blindness","Strabismus","Amblyopia","Diabetes","Cancer","Heart Disease","Hypertension","High Cholesterol","Kidney Disease","Stroke","Other" | Optional
-Allergies | Select value | String. Fish, Peanuts, Pollen, Other | Optional
-Contact Lenses | Select value | String. Soft, Hard, Other | Optional
-Smoke Use | Yes or No | String. (Yes/No)  | Optional
-Medications | Yes or No | String Type | Optional
-Allergic to Medications  | Yes or No| String Type | Optional
-Vitamins or Supplements | Yes or No| String Type | Optional
-Conditions:Relation | One or more Conditions: relationship pairs | String | Optional
-
-### Response
-
-Parameter | Description | Type
---------- | ----------- | ----
-ID | user id# | Integer | 
-Email ID | User’s Email ID  | String
-preferredPharmacy[{}] | Pharmacy Details | String
-profileImagePath | Profile photo | String
-About Me :[{}] | User details | String
-Contact Info:[{}] | Contact person Info| String
-Patient Info :[{}] | Patient info | String
-FamilyMembers:[{}] | All family member details including each member's lifestyle, medical and social history, allergies | String
-Doctor Info :[{}]| Doctor info. Deprecated | String
-Specialities | Doctor Specialities. Deprecated| String
-Report | Report. Deprecated | String
-Role | Role id# and name. Always fixed id# and patient as role | String
-
-
-
-`Authorization: X-Auth-Token`
-
-<aside class="notice">
-You must replace <code>X-Auth-Token</code> with your personal API key.
-</aside>
-
 
 ## Update Family Member Profile
 
 ```shell
-curl -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222" -H "Content-Type:multipart/form-data" "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/patient/user//familymember/profileImageFromFile/5a2c1827e4b0e4fa266e018f" -X POST -F file=@/Users/cupertino/Downloads/dashboard2.png
+ curl -i -H "Content-Type: application/json" -H "X-Auth-Token:patientuser1@eyecarelive.com:patient:1561784861568:d5171513ed94a5fafb354f6f8688b751" "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/patient/user/familyMember" -X PUT -d '[{"id":"5a2c1827e4b0e4fa266e018f","email":"ESa6zdCf@eyecarelive.com","pharmacyName":null,"pharmacyAddress":null,"profileImageId":null,"profileImageName":null,"aboutMe":{"id":"5a2c1827e4b0e4fa266e018d","firstName":"neet","lastName":"yadav","birthDate":null,"address":"Pune","city":"Pune","country":"india","pincode":"411039","gender":"male","languagesSpeak":null,"additionalInfo":null,"state":"MH"},"contactInfo":{"id":"5a2c1827e4b0e4fa266e018e","email":"Neet@gmail.com","phone":"8055802119","smsNotification":false,"countryCode":null,"country":null,"emlNt":false},"patientInfo":null,"doctorInfo":null,"role":{"id":"551ad2a4e4b0b59ff0ccecc9","name":"patient"},"timezone":null,"createdAt":"2017-12-09 09:06 AM PST","forgotPasswordToken":null,"familyMembers":null,"parentUser":null,"parentUserRelation":"brother","password":null,"rating":null,"preferredPharmacies":null,"kandyUserName":null,"kandyUserPassword":null,"kandyFullUserId":null,"oldPassword":null,"loginStatus":null,"stripeCustId":null,"profileImagePath":null,"isReferredDoctor":null,"randomtoken":null,"isEmailVerified":false,"doctorsGroups":null,"preferredDoctors":null,"isAcceptTC":false,"insurenceCards":null,"notificationSettings":null,"clinics":null,"passCode":null,"emrId":null,"ssnId":null,"clinicInfo":null,"ref":null,"docOrg":null,"doctorsOrg":null,"twilioAccessToken":null,"invited":false,"validated":true,"activated":true,"managedUser":true,"addedByCpm":false,"pilotDoc":false}]'
 
 ```
 > The above command returns JSON structured like this:
@@ -1228,7 +1038,8 @@ http://localhost:8080/DoctorOnDemand/api/patient/user/familyMember
 
 Parameter |  Description | Type | Optional/Required
 --------- | ------------ | ---- | ----------------
-Parent User Relation |  user’s relationship to the primary user | String | Required
+Email Id |  user’s Email Id | String | Required
+Password | Password | String | Required
      | **About Family Member** |   |
 First Name | Name of the family member| String | Required
 Last Name | Last name of the family member | String | Required
@@ -1237,10 +1048,15 @@ City | City of the family member | Required
 Country | Country of the family member | String | Required
 Pincode | zincode of the family member | String | Required
 Gender | Gender(M,F) of the family member| String | Required
+Role | Role | String | Required
       | **Family Member Contact Info** |   |
 Email | External email address for Contact Info | String | Required
 Phone | Contact info | String | Required
-
+      | **Time Zone** |   |
+ID | ID of time zone | Integer | Required
+Timezone | Timezone | String | Required
+Display Name | Display Name | String | Required
+CreatedAt:[{}] | Created At | String | Required
 
 
 ### Response
@@ -1262,7 +1078,8 @@ You must replace <code>X-Auth-Token</code> with your personal API key.
 ## Add Family member profile photo
 
 ```shell
-curl -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222" -H "Content-Type:multipart/form-data" "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/patient/user//familymember/profileImageFromFile/5a2c1827e4b0e4fa266e018f" -X POST -F file=@/Users/cupertino/Downloads/dashboard2.png
+curl -H "X-Auth-Token:patientuser1@eyecarelive.com:patient:1561784861568:d5171513ed94a5fafb354f6f8688b751" -H "Content-Type:multipart/form-data" "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/patient/user/familyMember/file/5a2c1827e4b0e4fa266e018f" -X POST -F file=@/Users/cupertino/Downloads/dashboard2.png
+
 
 ```
 > The above command returns JSON structured like this:
@@ -1307,7 +1124,7 @@ You must replace <code>X-Auth-Token</code> with your personal API key.
 ## Delete family Member
 
 ```shell
- curl -i -H "Content-Type: application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222" "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/patient/user/familyMember" -X DELETE -d '{"id":"5a2c19d0e4b0e4fa266e0195"}'
+ curl -i -H "Content-Type: application/json" -H "X-Auth-Token:patientuser1@eyecarelive.com:patient:1561784861568:d5171513ed94a5fafb354f6f8688b751" "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/patient/user/familyMember" -X DELETE -d '{"id":"5a2c19d0e4b0e4fa266e0195"}'
 
 ```
 > The above command returns JSON structured like this:
@@ -1355,88 +1172,90 @@ You must replace <code>X-Auth-Token</code> with your personal API key.
 
 ```shell
 
-curl -i -H "Content-Type: application/json" -H "X-Auth-Token:patientuser@cooldoctors.io:patient:1515429239598:a0e476b75ffbacedd65e555b5304b222" -X GET "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/patient/user/familyMember"
+curl -i -H "Content-Type: application/json" -H "X-Auth-Token:patientuser1@eyecarelive.com:patient:1561784861568:d5171513ed94a5fafb354f6f8688b751" -X GET "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/patient/user/familyMember"
 
 ```
 > The above command returns JSON structured like this:
 
 ```json
-[{
-	"id": "5a2c1827e4b0e4fa266e018f",
-	"email": "ESa6zdCf@eyecarelive.com",
-	"pharmacyName": null,
-	"pharmacyAddress": null,
-	"profileImageId": null,
-	"profileImageName": null,
-	"aboutMe": {
-		"id": "5a2c1827e4b0e4fa266e018d",
-		"firstName": "neet",
-		"lastName": "yadav",
-		"birthDate": null,
-		"address": "Pune",
-		"city": "Pune",
-		"country": "india",
-		"pincode": "411039",
-		"gender": "male",
-		"languagesSpeak": null,
-		"additionalInfo": null,
-		"state": "MH"
-	},
-	"contactInfo": {
-		"id": "5a2c1827e4b0e4fa266e018e",
-		"email": "Neet@gmail.com",
-		"phone": "8055802119",
-		"smsNotification": false,
-		"countryCode": null,
-		"country": null,
-		"emlNt": false
-	},
-	"patientInfo": null,
-	"doctorInfo": null,
-	"role": {
-		"id": "551ad2a4e4b0b59ff0ccecc9",
-		"name": "patient"
-	},
-	"timezone": null,
-	"createdAt": "2017-12-09 09:06 AM PST",
-	"forgotPasswordToken": null,
-	"familyMembers": null,
-	"parentUser": null,
-	"parentUserRelation": "brother",
-	"password": null,
-	"rating": null,
-	"preferredPharmacy": null,
-	"kandyUserName": null,
-	"kandyUserPassword": null,
-	"kandyFullUserId": null,
-	"oldPassword": null,
-	"loginStatus": null,
-	"stripeCustId": null,
-	"profileImagePath": null,
-	"isReferredDoctor": null,
-	"randomtoken": null,
-	"isEmailVerified": false,
-	"doctorsGroups": null,
-	"preferredDoctors": null,
-	"isAcceptTC": false,
-	"insurenceCards": null,
-	"notificationSettings": null,
-	"clinics": null,
-	"passCode": null,
-	"emrId": null,
-	"ssnId": null,
-	"clinicInfo": null,
-	"ref": null,
-	"docOrg": null,
-	"doctorsOrg": null,
-	"twilioAccessToken": null,
-	"invited": false,
-	"validated": true,
-	"activated": true,
-	"managedUser": true,
-	"addedByCpm": false,
-	"pilotDoc": false
-}]
+[
+  {
+    "id": "5a2c1827e4b0e4fa266e018f",
+    "email": "ESa6zdCf@eyecarelive.com",
+    "pharmacyName": null,
+    "pharmacyAddress": null,
+    "profileImageId": null,
+    "profileImageName": null,
+    "aboutMe": {
+      "id": "5a2c1827e4b0e4fa266e018d",
+      "firstName": "neet",
+      "lastName": "yadav",
+      "birthDate": null,
+      "address": "Pune",
+      "city": "Pune",
+      "country": "india",
+      "pincode": "411039",
+      "gender": "male",
+      "languagesSpeak": null,
+      "additionalInfo": null,
+      "state": "MH"
+    },
+    "contactInfo": {
+      "id": "5a2c1827e4b0e4fa266e018e",
+      "email": "Neet@gmail.com",
+      "phone": "8055802119",
+      "smsNotification": false,
+      "countryCode": null,
+      "country": null,
+      "emlNt": false
+    },
+    "patientInfo": null,
+    "doctorInfo": null,
+    "role": {
+      "id": "551ad2a4e4b0b59ff0ccecc9",
+      "name": "patient"
+    },
+    "timezone": null,
+    "createdAt": "2017-12-09 09:06 AM PST",
+    "forgotPasswordToken": null,
+    "familyMembers": null,
+    "parentUser": null,
+    "parentUserRelation": "brother",
+    "password": null,
+    "rating": null,
+    "preferredPharmacies": null,
+    "kandyUserName": null,
+    "kandyUserPassword": null,
+    "kandyFullUserId": null,
+    "oldPassword": null,
+    "loginStatus": null,
+    "stripeCustId": null,
+    "profileImagePath": null,
+    "isReferredDoctor": null,
+    "randomtoken": null,
+    "isEmailVerified": false,
+    "doctorsGroups": null,
+    "preferredDoctors": null,
+    "isAcceptTC": false,
+    "insurenceCards": null,
+    "notificationSettings": null,
+    "clinics": null,
+    "passCode": null,
+    "emrId": null,
+    "ssnId": null,
+    "clinicInfo": null,
+    "ref": null,
+    "docOrg": null,
+    "doctorsOrg": null,
+    "twilioAccessToken": null,
+    "invited": false,
+    "validated": true,
+    "activated": true,
+    "managedUser": true,
+    "addedByCpm": false,
+    "pilotDoc": false
+  }
+]
 
 ```
 
@@ -1479,10 +1298,187 @@ You must replace <code>X-Auth-Token</code> with your personal API key.
 
 
 
+## List Doctors By State & Country
+
+```shell
+
+curl -i  -H "Content-Type: application/json" -H "X-Auth-Token:patientuser1@eyecarelive.com:patient:1561784861568:d5171513ed94a5fafb354f6f8688b751" -X GET "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/patient/user/doctorsbystate/NY/US"
+
+```
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": "5c8759f9f893f4062b10e8db",
+    "email": "daniel.rosenblum@eyecarelive.com",
+    "pharmacyName": null,
+    "pharmacyAddress": null,
+    "aboutMe": {
+      "id": "5c8759f9f893f4062b10e8d8",
+      "firstName": "Daniel",
+      "lastName": "Richardson",
+      "birthDate": "",
+      "address": "Lk40VwUOV8MaLCfyuWLKlPaU2MQt33a6zcwXz5a7oBg=",
+      "city": "3bsDuinQsrMDcmlBUPjWgA==",
+      "country": "Pv8JTz1Cn88WAkRD4ySd5Q==",
+      "pincode": "GQf13rmyGwgGfplBGJ4N/g==",
+      "gender": "male",
+      "languagesSpeak": [
+        "English",
+        "",
+        ""
+      ],
+      "additionalInfo": null,
+      "state": "5OV/dsqTkfF/XjREpxfJKw==",
+      "lat": null,
+      "lang": null
+    },
+    "contactInfo": {
+      "id": "5c8759f9f893f4062b10e8d9",
+      "email": "daniel.rosenblum@eyecarelive.com",
+      "phone": "0eFH0lApjmZjUVFFlMWg1A==",
+      "smsNotification": false,
+      "countryCode": null,
+      "country": null,
+      "emlNt": true
+    },
+    "patientInfo": null,
+    "doctorInfo": {
+      "id": "5c875caaf893f4302afa2e81",
+      "educationList": null,
+      "hospitalAttachedWithList": null,
+      "awardsReceivedList": null,
+      "specialities": [
+        {
+          "id": "55b78065e4b0b393bf91678f",
+          "name": "general physician",
+          "questionnaire": null
+        }
+      ],
+      "licencedState": [
+        {
+          "id": "5665a2cb9a87399fa0b9ba37",
+          "state": "CA"
+        },
+        {
+          "id": "5665a2cb9a87399fa0b9ba47",
+          "state": "MD"
+        },
+        {
+          "id": "5665a2cc9a87399fa0b9ba53",
+          "state": "NY"
+        }
+      ],
+      "registrationNumber": "1231313131",
+      "whyCoolDoctors": null,
+      "bio": null,
+      "profession": "Optometrist",
+      "availabilityTimeZone": "America/New_York",
+      "npi": null,
+      "availabilityStatus": null,
+      "availabilityMsg": null,
+      "passwardChanged": false,
+      "consultationFees": null,
+      "paymentOptions": null,
+      "appCountEmail": false,
+      "monthlyCharge": false
+    },
+    "role": {
+      "id": "551ad2ffe4b0b59ff0cceccb",
+      "name": "doctor"
+    },
+    "timezone": {
+      "id": "55f283b4e4b029528c27d0c5",
+      "timezone": "Asia/Kolkata",
+      "displayName": "India Standard Time"
+    },
+    "createdAt": "2019-03-12 12:04 AM PDT",
+    "forgotPasswordToken": null,
+    "familyMembers": null,
+    "parentUser": null,
+    "parentUserRelation": null,
+    "password": null,
+    "rating": null,
+    "preferredPharmacies": null,
+    "oldPassword": null,
+    "loginStatus": "Online",
+    "stripeCustId": null,
+    "profileImagePath": null,
+    "isReferredDoctor": null,
+    "randomtoken": "hgpAY3",
+    "isEmailVerified": false,
+    "preferredDoctors": null,
+    "isAcceptTC": true,
+    "insurenceCards": null,
+    "notificationSettings": null,
+    "clinics": null,
+    "passCode": null,
+    "emrId": null,
+    "ssnId": null,
+    "clinicInfo": null,
+    "ref": null,
+    "docOrg": null,
+    "doctorsOrg": null,
+    "twilioAccessToken": "eyJjdHkiOiJ0d2lsaW8tZnBhO3Y9MSIsInR5cCI6IkpXVCIsImFsZyI6IkhTMjU2In0.eyJpc3MiOiJTS2EyNzAzZTE0MThmNTY2MDA1NjI3YWJiYTE2ZGI4MmNlIiwiZXhwIjoxNTU4NTcwODk4LCJncmFudHMiOnsiaWRlbnRpdHkiOiI1Yzg3NTlmOWY4OTNmNDA2MmIxMGU4ZGIiLCJ2aWRlbyI6eyJyb29tIjoiNWM4NzU5ZjlmODkzZjQwNjJiMTBlOGRiNWM4N2ZmZTJmODkzZjQzMDJhZWIxMzM4In19LCJqdGkiOiJTS2EyNzAzZTE0MThmNTY2MDA1NjI3YWJiYTE2ZGI4MmNlLTE1NTg1NjcyOTYiLCJzdWIiOiJBQ2M5MGJmNjdhODk0YjA0YjA2NTdkMjJkN2FlOTQ5ZDk3In0.ia6FAQWw8vsoGpHRWU3YGNypWz-D2CnxWMAdCxv1Zqs",
+    "invited": false,
+    "validated": false,
+    "activated": true,
+    "managedUser": false,
+    "addedByCpm": false,
+    "pilotDoc": false,
+    "bucket": null,
+    "repoSub": false,
+    "badge": null,
+    "preferredEclClinics": null,
+    "eclClinicId": null,
+    "profileColor": null
+  }
+]
+```
+
+> Make sure to replace `X-Auth-Token` with your API key.
 
 
 
+### HTTP Request
 
+`POST
+http://52.7.202.98:8080/DoctorOnDemand/api/patient/user/doctorsbystate/{state}/{country}
+`
+### Query Parameters
+
+Parameter |  Description | Type | Optional/Required
+--------- | ------------ | ---- | ----------------
+State |  State  | String | Required
+Country | Country | String | Required
+
+
+### Response
+
+Parameter | Description | Type
+--------- | ----------- | ----
+ID | User's ID | String 
+Email ID | User's Email ID | String
+Pharmacy Name | Pharmacy Name | String 
+Pharmacy Address | Pharmacy Address | String 
+profileImageId | Profile Image Id | Integer
+profileImageName | Profile Image Name | .jpg,etc.
+aboutMe[{}] | Family member information | String 
+contactInfo[{}] | Family member Contact info | String 
+patientinfo[{}] | Patients Information | String 
+doctorinfo[{}] | Doctors Information | String 
+Specialities | Specialities Details | String
+Report | Report | String
+CreatedAt:[{}] | Created At | String
+Role | Role | String 
+
+
+`Authorization: X-Auth-Token`
+
+<aside class="notice">
+You must replace <code>X-Auth-Token</code> with your personal API key.
+</aside>
 
 
 
