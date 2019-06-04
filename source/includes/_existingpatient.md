@@ -36,7 +36,7 @@ Success | True | boolean
 
 
 <aside class="notice">
- Correct Email and Password leads to successful login!
+ Correct email will verify register user!
 </aside>
 
 

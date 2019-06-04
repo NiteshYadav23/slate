@@ -17,12 +17,9 @@ includes:
   - scheduleappointment
   - finddoctor
   - patientuserprofile
-  - patientpaymentinformation
   - callingnotification
   - treatmentplan
   - messaging
-  - forgotpassword
-  - resetpassword
   - apidocinto
   - docathentication
   - docprofile
@@ -188,7 +185,7 @@ Patient is signed up successfully!
 
 User authentication is implemented by email address and password
 
-## Login - Login User - Logs the user in the app
+## Sign In User - Logs the user in the app
 
 ```shell
 curl -i -H "Content-Type: application/json" "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/auth/login" -X POST -d '{"email" : "patientuser1@eyecarelive.com","password" : "demo1234"}'
@@ -228,7 +225,7 @@ Date Time | User account created date and time | String
  Correct Email and Password leads to successful login!
 </aside>
 
-## Logout - User logout - Logs the user out of the patient app
+## User Sign Out - Logs the user out of the patient app
 
 ```shell
 curl -i -H "Content-Type: application/json" -H "X-Auth-Token:patientuser1@eyecarelive.com:patient:1561747969818:99d07cac156d195ff6a5900f29a7a9b8" "https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/auth/logout"  -X POST
@@ -257,6 +254,6 @@ Parameter |  Description | Type
 Success | Logout successful True OR False | String
 
 <aside class="notice">
-ID and Token are must to be successfully logged out!
+User will logout successfully. 
 </aside>
 
