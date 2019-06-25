@@ -263,13 +263,10 @@
                     <a href="#start-new-consultation-choose-doctor-clinic-patient-amp-payment" class="toc-h2 toc-link" data-title="Start New Consultation (Choose Doctor/Clinic, Patient &amp; Payment)">Start New Consultation (Choose Doctor/Clinic, Patient &amp; Payment)</a>
                   </li>
                   <li>
-                    <a href="#dry-eye-consultation-create-an-appointment-with-chief-complaint-and-photos-videos" class="toc-h2 toc-link" data-title="Dry Eye Consultation (Create an appointment with Chief complaint and Photos, Videos)">Dry Eye Consultation (Create an appointment with Chief complaint and Photos, Videos)</a>
+                    <a href="#new-consultation-create-an-appointment-with-chief-complaint-and-photos-videos" class="toc-h2 toc-link" data-title="New Consultation (Create an appointment with Chief complaint and Photos, Videos)">New Consultation (Create an appointment with Chief complaint and Photos, Videos)</a>
                   </li>
                   <li>
                     <a href="#update-dry-eye-test-update-the-dry-eye-test-with-previous-appointment-id" class="toc-h2 toc-link" data-title="Update Dry Eye Test (update the dry eye test with previous appointment ID)">Update Dry Eye Test (update the dry eye test with previous appointment ID)</a>
-                  </li>
-                  <li>
-                    <a href="#contact-lens-consultation-create-an-appointment-with-chief-complaint-and-photos-videos" class="toc-h2 toc-link" data-title="Contact Lens Consultation (Create an appointment with Chief complaint and Photos, Videos)">Contact Lens Consultation (Create an appointment with Chief complaint and Photos, Videos)</a>
                   </li>
                   <li>
                     <a href="#update-contact-lens-test-update-the-dry-eye-test-with-previous-appointment-id" class="toc-h2 toc-link" data-title="Update Contact Lens Test (update the dry eye test with previous appointment ID)">Update Contact Lens Test (update the dry eye test with previous appointment ID)</a>
@@ -1705,7 +1702,7 @@ http://localhost:8080/DoctorOnDemand/api/patient/appointment/startConsultation/v
 <aside class="info">
 Remember - To pass all the required parameters correctly !!
 </aside>
-<h2 id='dry-eye-consultation-create-an-appointment-with-chief-complaint-and-photos-videos'>Dry Eye Consultation (Create an appointment with Chief complaint and Photos, Videos)</h2><pre class="highlight shell tab-shell"><code> curl -i -H <span class="s2">"Content-Type:application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser1@eyecarelive.com:patient:1561784861568:d5171513ed94a5fafb354f6f8688b751"</span> -X POST <span class="s2">"https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/patient/appointment/doctor/createVisit/v3"</span> -d <span class="s1">'{"doctor":{"id":"56fb7614e4b0d3123cea4925"},"patient":null,"visitPurpose":"dryeye","diseaseImageFilePath":null,"symtons":"Dry Eye","paymentMode":"alreadypaid","questionaire":null,"chiefCompliant":"Testing Cheif","speciality":{"id":"55b7802be4b0b393bf91678e","questionnaire":null,"report":null},"visitType":"offline"}'</span>
+<h2 id='new-consultation-create-an-appointment-with-chief-complaint-and-photos-videos'>New Consultation (Create an appointment with Chief complaint and Photos, Videos)</h2><pre class="highlight shell tab-shell"><code> curl -i -H <span class="s2">"Content-Type:application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser1@eyecarelive.com:patient:1561784861568:d5171513ed94a5fafb354f6f8688b751"</span> -X POST <span class="s2">"https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/patient/appointment/doctor/createVisit/v3"</span> -d <span class="s1">'{"doctor":{"id":"56fb7614e4b0d3123cea4925"},"patient":null,"visitPurpose":"dryeye","diseaseImageFilePath":null,"symtons":"Dry Eye","paymentMode":"alreadypaid","questionaire":null,"chiefCompliant":"Testing","speciality":{"id":"55b7802be4b0b393bf91678e","questionnaire":null,"report":null},"visitType":"offline"}'</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -2102,7 +2099,7 @@ Remember - To pass all the required parameters correctly !!
   </span><span class="s2">"solutionBottleImage"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">"videoMessage"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">"eclClinic"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"chiefCompliant"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Testing Cheif"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"chiefCompliant"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Testing"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"testStatus"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">"eyeProblems"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">"recomendedTests"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2318,7 +2315,7 @@ http://localhost:8080/DoctorOnDemand/api/patient/appointment/doctor/createVisit/
 </tr>
 <tr>
 <td>chiefCompliant</td>
-<td>need to pass Cheif complaint</td>
+<td>need to pass chief complaint</td>
 <td>String</td>
 <td>Required</td>
 </tr>
@@ -3114,7 +3111,7 @@ You must replace <code>X-Auth-Token</code> with your personal API key.
   </span><span class="s2">"solutionBottleImage"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">"videoMessage"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">"eclClinic"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"chiefCompliant"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Testing Cheif"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"chiefCompliant"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Testing"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"testStatus"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">"eyeProblems"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">"recomendedTests"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -3222,668 +3219,6 @@ http://localhost:8080/DoctorOnDemand/api/patient/appointment/doctor/createVisit/
 </tr>
 </tbody></table>
 <h3 id='response-3'>Response</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-<th>Type</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>Appointment ID created by database</td>
-<td>Integer</td>
-</tr>
-<tr>
-<td>Start date</td>
-<td>Start date of created</td>
-<td>String</td>
-</tr>
-<tr>
-<td>End Date</td>
-<td>End date of created</td>
-<td>String</td>
-</tr>
-<tr>
-<td>Doctor</td>
-<td>doctor name info</td>
-<td>String</td>
-</tr>
-<tr>
-<td>Patient</td>
-<td>Patient name Info</td>
-<td>String</td>
-</tr>
-<tr>
-<td>ID</td>
-<td>user id#</td>
-<td>Integer</td>
-</tr>
-<tr>
-<td>Email</td>
-<td>User’s Email address</td>
-<td>String</td>
-</tr>
-<tr>
-<td>Pharmacy Name</td>
-<td>Pharmacy name deprecated</td>
-<td>String</td>
-</tr>
-<tr>
-<td>pharmacy Address</td>
-<td>Pharmacy address deprecated</td>
-<td>String</td>
-</tr>
-<tr>
-<td>profile Image Id</td>
-<td>Profile photo ID deprecated</td>
-<td>Integer</td>
-</tr>
-<tr>
-<td>profile Image Name</td>
-<td>Profile photo Name deprecated</td>
-<td>.jpg,etc</td>
-</tr>
-<tr>
-<td>About Me :[{}]</td>
-<td>about me for User’s details</td>
-<td>String</td>
-</tr>
-<tr>
-<td>Contact Info:[{}]</td>
-<td>Contact person Info</td>
-<td>String</td>
-</tr>
-<tr>
-<td>Patient Info :[{}]</td>
-<td>Patient info</td>
-<td>String</td>
-</tr>
-<tr>
-<td>Doctor Info :[{}]</td>
-<td>Doctor info</td>
-<td>String</td>
-</tr>
-<tr>
-<td>Hospital Attached With List :[{}]</td>
-<td>Hospital Attached with list</td>
-<td>String</td>
-</tr>
-<tr>
-<td>Family History:[{}]</td>
-<td>Array of the family history</td>
-<td>String</td>
-</tr>
-<tr>
-<td>Awards Received List</td>
-<td>Awards received list</td>
-<td>String</td>
-</tr>
-<tr>
-<td>Prescription</td>
-<td>Prescription</td>
-<td>String</td>
-</tr>
-<tr>
-<td>Questionnaire</td>
-<td>Questionnaire details</td>
-<td>String</td>
-</tr>
-<tr>
-<td>TODO</td>
-<td>Treatment plan details</td>
-<td>String</td>
-</tr>
-<tr>
-<td>Specialities</td>
-<td>Specialities Details</td>
-<td>String</td>
-</tr>
-<tr>
-<td>Appointment</td>
-<td>Appointment details</td>
-<td>String</td>
-</tr>
-<tr>
-<td>Report</td>
-<td>Report</td>
-<td>String</td>
-</tr>
-<tr>
-<td>Created At :[{}]</td>
-<td>Array of the created at</td>
-<td>String</td>
-</tr>
-</tbody></table>
-
-<p><code>Authorization: X-Auth-Token</code></p>
-
-<aside class="notice">
-You must replace <code>X-Auth-Token</code> with your personal API key.
-</aside>
-<h2 id='contact-lens-consultation-create-an-appointment-with-chief-complaint-and-photos-videos'>Contact Lens Consultation (Create an appointment with Chief complaint and Photos, Videos)</h2><pre class="highlight shell tab-shell"><code> curl -i -H <span class="s2">"Content-Type:application/json"</span> -H <span class="s2">"X-Auth-Token:patientuser1@eyecarelive.com:patient:1561784861568:d5171513ed94a5fafb354f6f8688b751"</span> -X POST <span class="s2">"https://dev.api.cooldoctors.io:8443/DoctorOnDemand/api/patient/appointment/doctor/createVisit/v3"</span> -d <span class="s1">'{"doctor":{"id":"56fb7614e4b0d3123cea4925"},"patient":null,"visitPurpose":"contactlens","diseaseImageFilePath":null,"symtons":"Contact lens","paymentMode":"alreadypaid","questionaire":null,"chiefCompliant":"Testing Cheif","speciality":{"id":"55b7802be4b0b393bf91678e","questionnaire":null,"report":null},"visitType":"offline"}'</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5cf51a4df893f42a2c872058"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-03 06:02 AM PDT"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"endDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-03 06:17 AM PDT"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"doctor"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"56fb7614e4b0d3123cea4925"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nitesh.yadav@cupertinosoft.com"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"pharmacyName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"pharmacyAddress"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"aboutMe"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"56fb7614e4b0d3123cea4923"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Dr. John"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Gelles"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"birthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"xCbUo9+vCO6W+uI8luz3YA=="</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8L10iLEjsRBVkFaI1gu4bw=="</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8L10iLEjsRBVkFaI1gu4bw=="</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rwq24J1FnEhqovLa/bo5uQ=="</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"pincode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+ffKFHCfLQG2vGeutdG6BQ=="</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"male"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"languagesSpeak"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="s2">"English"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">""</span><span class="w">
-      </span><span class="p">],</span><span class="w">
-      </span><span class="s2">"additionalInfo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hi I plays cricket"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tdK26+Dp5ks9TH9wFlmgDA=="</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"lat"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"lang"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"contactInfo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"56fb7614e4b0d3123cea4924"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nakulypatil@gmail.com"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hj+M0AnqV5zonFbsdcSXUw=="</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"smsNotification"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"countryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+376"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USA"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"emlNt"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"patientInfo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"doctorInfo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"56fb7614e4b0d3123cea4925"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"educationList"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5cd16094f893f460b09abd74"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"degree"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MBBS(MD)"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"university"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Oxford"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"yearOfPasssing"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">],</span><span class="w">
-      </span><span class="s2">"hospitalAttachedWithList"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5cd16cb7f893f460b09abeed"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyecarelivedemo1"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NewYork"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"USA"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">],</span><span class="w">
-      </span><span class="s2">"awardsReceivedList"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5ce40145f893f43cc2a09260"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"demo"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"May 21, 2019"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">],</span><span class="w">
-      </span><span class="s2">"specialities"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55b78065e4b0b393bf91678f"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"general physician"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"questionnaire"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">],</span><span class="w">
-      </span><span class="s2">"licencedState"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5665a2cb9a87399fa0b9ba34"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AK"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5665a2cb9a87399fa0b9ba35"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AZ"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5665a2cb9a87399fa0b9ba36"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AR"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">],</span><span class="w">
-      </span><span class="s2">"registrationNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"44444444"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"whyCoolDoctors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"bio"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bio testingiii"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"profession"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ophthalmologist"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"availabilityTimeZone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Asia/Kabul"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"npi"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"availabilityStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"On"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"availabilityMsg"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"passwardChanged"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"consultationFees"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"paymentOptions"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"appCountEmail"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"monthlyCharge"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"551ad2ffe4b0b59ff0cceccb"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"doctor"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55f283b4e4b029528c27d0c5"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Asia/Kolkata"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"displayName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"India Standard Time"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-03-29 11:45 PM PDT"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"forgotPasswordToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6466"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"familyMembers"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"parentUser"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"parentUserRelation"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"rating"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"preferredPharmacies"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"oldPassword"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"loginStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Online"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"stripeCustId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"W2iBDJ6LU434JDk4LCyUdqpe2ooWTqPdMvxS8yYrpjg="</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"profileImagePath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://s3.amazonaws.com/deveclprofimg/PRDIMAGE/doctor/56fb7614e4b0d3123cea4925/ProfileImage/imgDefault.png"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"isReferredDoctor"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"randomtoken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"esnckN"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"isEmailVerified"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"preferredDoctors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="s2">"59a6456fe4b0be451171721c"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"59a7c9a5e4b0be4511718cb8"</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"isAcceptTC"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"insurenceCards"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"notificationSettings"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"clinics"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="s2">"58f9d4a7e4b07023de8c0d64"</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"passCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"emrId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ssnId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"clinicInfo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ref"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"docOrg"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"doctorsOrg"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"59cb5445e4b0fa09b42591b7"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"orgName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Paragon"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"twilioAccessToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJjdHkiOiJ0d2lsaW8tZnBhO3Y9MSIsInR5cCI6IkpXVCIsImFsZyI6IkhTMjU2In0.eyJpc3MiOiJTS2EyNzAzZTE0MThmNTY2MDA1NjI3YWJiYTE2ZGI4MmNlIiwiZXhwIjoxNTU5NTU4MDg0LCJncmFudHMiOnsiaWRlbnRpdHkiOiI1NmZiNzYxNGU0YjBkMzEyM2NlYTQ5MjUiLCJ2aWRlbyI6eyJyb29tIjoiNTZmYjc2MTRlNGIwZDMxMjNjZWE0OTI1NWNlYTZkOThmODkzZjQwYTVmMDM5NWIxIn19LCJqdGkiOiJTS2EyNzAzZTE0MThmNTY2MDA1NjI3YWJiYTE2ZGI4MmNlLTE1NTk1NTQ0MzIiLCJzdWIiOiJBQ2M5MGJmNjdhODk0YjA0YjA2NTdkMjJkN2FlOTQ5ZDk3In0.TEVWwtIrp5WPOBfSUgA1cieTPxTkhzK_2WsdZkTCkPE"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"bucket"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"repoSub"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"badge"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"preferredEclClinics"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"eclClinicId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"profileColor"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"activated"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"invited"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"validated"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"pilotDoc"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"managedUser"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"addedByCpm"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"patient"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5ceed13cf893f45b5812b8e1"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"patientuser1@eyecarelive.com"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"pharmacyName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"pharmacyAddress"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"aboutMe"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5ceed13cf893f45b5812b8de"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Demo"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"birthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"pincode"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"languagesSpeak"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"additionalInfo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"lat"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"lang"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"contactInfo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"patientInfo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"doctorInfo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"551ad2a4e4b0b59ff0ccecc9"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"patient"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55f283b4e4b029528c27d0c5"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Asia/Kolkata"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"displayName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"India Standard Time"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-29 11:36 AM PDT"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"forgotPasswordToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7099"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"familyMembers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5cef956ef893f467ffa9ffcc"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ddJdgVqM@eyecarelive.com"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"pharmacyName"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"pharmacyAddress"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"aboutMe"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5cef956ef893f467ffa9ffc9"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"firstName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Slate"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"lastName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Member"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"birthDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"qbNrHbKolNuq9+DQCMrbNw=="</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"28L8jdmZdw/TOE19cYNfyg=="</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eGcNxOZVnF4jlkABhqaIAQ=="</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"pincode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Zf6QZAhj9x3iULdEWv9pfA=="</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"male"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"languagesSpeak"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"additionalInfo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wPCNRzWVjd+MXrn0+dB4Cg=="</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"lat"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"lang"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"contactInfo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5cef956ef893f467ffa9ffca"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"patientuser1@eyecarelive.com"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"phone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"X025s2zeUri6K/6HA21+UA=="</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"smsNotification"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"countryCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"emlNt"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"patientInfo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"doctorInfo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"551ad2a4e4b0b59ff0ccecc9"</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"patient"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-05-30 01:33 AM PDT"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"forgotPasswordToken"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"familyMembers"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"parentUser"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"parentUserRelation"</span><span class="p">:</span><span class="w"> </span><span class="s2">"brother"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"rating"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"preferredPharmacies"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"oldPassword"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"loginStatus"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"stripeCustId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"profileImagePath"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"isReferredDoctor"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"randomtoken"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"isEmailVerified"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"preferredDoctors"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"isAcceptTC"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"insurenceCards"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"notificationSettings"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"clinics"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"passCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"emrId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"ssnId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"clinicInfo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"ref"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"docOrg"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"doctorsOrg"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"twilioAccessToken"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"bucket"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"repoSub"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"badge"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"preferredEclClinics"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"eclClinicId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"profileColor"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"activated"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"invited"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"validated"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"pilotDoc"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"managedUser"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"addedByCpm"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"parentUser"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"parentUserRelation"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"rating"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"preferredPharmacies"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5cefff05f893f4052b1271ec"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mediplus store"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hinjewadi phase-1"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"niteshy2391@gmail.com"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pune"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Maharashtra"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"zipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"411007"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"phoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9423505079"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"validated"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"oldPassword"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"loginStatus"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Online"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"stripeCustId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6yZMnuPs8a4fXTM8EgbceG9D9mDKC7Rs7SN+oIXZTdQ="</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"profileImagePath"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"isReferredDoctor"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"randomtoken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BThd5P"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"isEmailVerified"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"preferredDoctors"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="s2">"56fb7614e4b0d3123cea4925"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"56fbd63de4b0777c5a04f540"</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"isAcceptTC"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"insurenceCards"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"notificationSettings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5ceed13cf893f45b5812b8df"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"sendReminderForMedicine"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"addTestreport"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"sentMessage"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"addTreatmentPlan"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"sendReminderForEyeTest"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"push"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"sms"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"clinics"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"passCode"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"emrId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ssnId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"clinicInfo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ref"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"docOrg"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"doctorsOrg"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"twilioAccessToken"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eyJjdHkiOiJ0d2lsaW8tZnBhO3Y9MSIsInR5cCI6IkpXVCIsImFsZyI6IkhTMjU2In0.eyJpc3MiOiJTS2EyNzAzZTE0MThmNTY2MDA1NjI3YWJiYTE2ZGI4MmNlIiwiZXhwIjoxNTU5MjUwNDgwLCJncmFudHMiOnsiaWRlbnRpdHkiOiI1Y2VlZDEzY2Y4OTNmNDViNTgxMmI4ZTEiLCJ2aWRlbyI6eyJyb29tIjoiNTZmYjc2MTRlNGIwZDMxMjNjZWE0OTI1NWNlZWQxM2NmODkzZjQ1YjU4MTJiOGUxIn19LCJqdGkiOiJTS2EyNzAzZTE0MThmNTY2MDA1NjI3YWJiYTE2ZGI4MmNlLTE1NTkyNDY5NzYiLCJzdWIiOiJBQ2M5MGJmNjdhODk0YjA0YjA2NTdkMjJkN2FlOTQ5ZDk3In0._OzAiloA2trSDKPE4HAhP3WIvjvfWkYbWd_zav_pQpQ"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"bucket"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"repoSub"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"badge"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"preferredEclClinics"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"eclClinicId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"profileColor"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"activated"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"invited"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"validated"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"pilotDoc"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"managedUser"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"addedByCpm"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"questionaire"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"todos"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"speciality"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"55b7802be4b0b393bf91678e"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"questionnaire"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-03 06:02 AM PDT"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"appointmentPrice"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pending"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"waitId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"currentLocationState"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"isReferredDoctorAvailable"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"diseaseImageFilePath"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"contactlenseImageFilePath"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"patientPreferredVisitLanguage"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"symtons"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Contact lens"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"createdBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5ceed13cf893f45b5812b8e1"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"paymentStatus"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"visionTest"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"videoVisitPath"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"remark"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"callReceivedStatus"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"files"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"needFollowUp"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"pharmacy"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5cefff05f893f4052b1271ec"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mediplus store"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hinjewadi phase-1"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"niteshy2391@gmail.com"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"city"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pune"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"state"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Maharashtra"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"zipCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"411007"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"phoneNumber"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9423505079"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"validated"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="s2">"visitType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"offline"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"visitPurpose"</span><span class="p">:</span><span class="w"> </span><span class="s2">"contactlens"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"availabilityTimeSlot"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"availability"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"lasikSurgery"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"closedOrCanceledAt"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"convertedStartDate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"medicinePrescriptions"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"eyeTest"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"coverageParam"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"clinic"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"checkinForms"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"paymentMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"alreadypaid"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"solutionBottleImage"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"videoMessage"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"eclClinic"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"chiefCompliant"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Testing Cheif"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"testStatus"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"eyeProblems"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"recomendedTests"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5cf51a4df893f42a2c872057"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"dryEye"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"contactLens"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"visionTest"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"userId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5ceed13cf893f45b5812b8e1"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-03 06:02 AM PDT"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"callImages"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"codes"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"physicalExam"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"dryEyeTestId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"contactLensTestId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"visionTestId"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"clinicVisit"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cancelled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"finished"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"inProgress"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"notifiedForPendingVisit"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"reminderSend"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"notifiedForTwoDaysPendingVisit"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"followUp"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"chargeble"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"symtonUpdated"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"eclClinicVisit"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<blockquote>
-<p>Make sure to replace <code>X-Auth-Token</code> with your API key.</p>
-</blockquote>
-<h3 id='http-request-4'>HTTP Request</h3>
-<p><code>POST
-http://localhost:8080/DoctorOnDemand/api/patient/appointment/doctor/createVisit/v3
-</code></p>
-<h3 id='query-parameters-4'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-<th>Type</th>
-<th>Optional/Required</th>
-</tr>
-</thead><tbody>
-<tr>
-<td></td>
-<td><strong>Doctor</strong></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>doctor</td>
-<td>Doctor ID</td>
-<td>Integer</td>
-<td>Required</td>
-</tr>
-<tr>
-<td>visitPurpose</td>
-<td>visitPurpose parameter need fixed values, Please check visitPurpose table.</td>
-<td>String</td>
-<td>Required</td>
-</tr>
-<tr>
-<td>diseaseImageFilePath</td>
-<td>In this parameter need to pass if user uploading diseaseimages</td>
-<td>String</td>
-<td>Optional</td>
-</tr>
-<tr>
-<td>symtons</td>
-<td>In this parameter, need to pass symptoms name like Eye Pain</td>
-<td>String</td>
-<td>Required</td>
-</tr>
-<tr>
-<td>paymentMode</td>
-<td>Payment mode, Credit card, Insurance, AlreadyPaid</td>
-<td>String</td>
-<td>Required</td>
-</tr>
-<tr>
-<td>treatment[{}]</td>
-<td>It’s for dry eye</td>
-<td>String</td>
-<td>Optional</td>
-</tr>
-<tr>
-<td>visitType</td>
-<td>offline</td>
-<td>String</td>
-<td>Required</td>
-</tr>
-<tr>
-<td>chiefCompliant</td>
-<td>need to pass Cheif complaint</td>
-<td>String</td>
-<td>Required</td>
-</tr>
-<tr>
-<td></td>
-<td><strong>Speciality</strong></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>ID</td>
-<td>ID of Speciality</td>
-<td>String</td>
-<td>Required</td>
-</tr>
-<tr>
-<td>Appointment</td>
-<td>Appointment</td>
-<td>String</td>
-<td>Optional</td>
-</tr>
-<tr>
-<td>availabilityTimeSlot</td>
-<td>Availability time should be pass as per doctor avaibility time.</td>
-<td>String</td>
-<td>Optional</td>
-</tr>
-</tbody></table>
-<h3 id='response-4'>Response</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -4530,7 +3865,7 @@ You must replace <code>X-Auth-Token</code> with your personal API key.
   </span><span class="s2">"solutionBottleImage"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">"videoMessage"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">"eclClinic"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"chiefCompliant"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Testing Cheif"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"chiefCompliant"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Testing"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"testStatus"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">"eyeProblems"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
   </span><span class="s2">"recomendedTests"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -4563,11 +3898,11 @@ You must replace <code>X-Auth-Token</code> with your personal API key.
 <blockquote>
 <p>Make sure to replace <code>X-Auth-Token</code> with your API key.</p>
 </blockquote>
-<h3 id='http-request-5'>HTTP Request</h3>
+<h3 id='http-request-4'>HTTP Request</h3>
 <p><code>POST
 http://localhost:8080/DoctorOnDemand/api/patient/appointment/doctor/createVisit/v3
 </code></p>
-<h3 id='query-parameters-5'>Query Parameters</h3>
+<h3 id='query-parameters-4'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -4637,7 +3972,7 @@ http://localhost:8080/DoctorOnDemand/api/patient/appointment/doctor/createVisit/
 <td>Optional</td>
 </tr>
 </tbody></table>
-<h3 id='response-5'>Response</h3>
+<h3 id='response-4'>Response</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
